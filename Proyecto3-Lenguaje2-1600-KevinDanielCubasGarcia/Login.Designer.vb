@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FormLogin
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class FormLogin
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -33,10 +33,8 @@ Partial Class FormLogin
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.chkMostrarContra = New System.Windows.Forms.CheckBox()
         Me.btnCerrar = New System.Windows.Forms.Button()
-        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.panelVentana.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
@@ -75,14 +73,13 @@ Partial Class FormLogin
         'btnValidar
         '
         Me.btnValidar.BackColor = System.Drawing.Color.FromArgb(CType(CType(24, Byte), Integer), CType(CType(16, Byte), Integer), CType(CType(114, Byte), Integer))
-        Me.btnValidar.Dock = System.Windows.Forms.DockStyle.Left
         Me.btnValidar.FlatAppearance.BorderColor = System.Drawing.Color.Black
         Me.btnValidar.FlatAppearance.BorderSize = 0
         Me.btnValidar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White
         Me.btnValidar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnValidar.Font = New System.Drawing.Font("Yu Gothic UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnValidar.ForeColor = System.Drawing.Color.White
-        Me.btnValidar.Location = New System.Drawing.Point(0, 0)
+        Me.btnValidar.Location = New System.Drawing.Point(1, 147)
         Me.btnValidar.Name = "btnValidar"
         Me.btnValidar.Size = New System.Drawing.Size(114, 29)
         Me.btnValidar.TabIndex = 4
@@ -94,6 +91,7 @@ Partial Class FormLogin
         Me.btnVentanaSalir.BackColor = System.Drawing.Color.White
         Me.btnVentanaSalir.Dock = System.Windows.Forms.DockStyle.Right
         Me.btnVentanaSalir.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(24, Byte), Integer), CType(CType(16, Byte), Integer), CType(CType(114, Byte), Integer))
+        Me.btnVentanaSalir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(17, Byte), Integer), CType(CType(35, Byte), Integer))
         Me.btnVentanaSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnVentanaSalir.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.btnVentanaSalir.Location = New System.Drawing.Point(185, 0)
@@ -131,7 +129,7 @@ Partial Class FormLogin
         '
         'PictureBox1
         '
-        Me.PictureBox1.BackgroundImage = Global.Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.logoDiunsa2_Fixed
+        Me.PictureBox1.BackgroundImage = Global.Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.logoDiunsa2_Fixed3
         Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Left
         Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
         Me.PictureBox1.Name = "PictureBox1"
@@ -152,38 +150,29 @@ Partial Class FormLogin
         'btnCerrar
         '
         Me.btnCerrar.BackColor = System.Drawing.Color.FromArgb(CType(CType(24, Byte), Integer), CType(CType(16, Byte), Integer), CType(CType(114, Byte), Integer))
-        Me.btnCerrar.Dock = System.Windows.Forms.DockStyle.Right
         Me.btnCerrar.FlatAppearance.BorderColor = System.Drawing.Color.Black
         Me.btnCerrar.FlatAppearance.BorderSize = 0
         Me.btnCerrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White
         Me.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCerrar.Font = New System.Drawing.Font("Yu Gothic UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCerrar.ForeColor = System.Drawing.Color.White
-        Me.btnCerrar.Location = New System.Drawing.Point(113, 0)
+        Me.btnCerrar.Location = New System.Drawing.Point(112, 147)
         Me.btnCerrar.Name = "btnCerrar"
         Me.btnCerrar.Size = New System.Drawing.Size(113, 29)
         Me.btnCerrar.TabIndex = 11
         Me.btnCerrar.Text = "Cerrar"
         Me.btnCerrar.UseVisualStyleBackColor = False
         '
-        'Panel1
-        '
-        Me.Panel1.Controls.Add(Me.btnValidar)
-        Me.Panel1.Controls.Add(Me.btnCerrar)
-        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel1.Location = New System.Drawing.Point(0, 148)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(226, 29)
-        Me.Panel1.TabIndex = 12
-        '
         'FormLogin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
+        Me.BackgroundImage = Global.Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.fondoFormLogin1
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(226, 177)
-        Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.btnCerrar)
+        Me.Controls.Add(Me.btnValidar)
         Me.Controls.Add(Me.chkMostrarContra)
         Me.Controls.Add(Me.txtContraseña)
         Me.Controls.Add(Me.txtUsuario)
@@ -196,7 +185,6 @@ Partial Class FormLogin
         Me.Text = "Inicio de sesión"
         Me.panelVentana.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Panel1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -213,5 +201,4 @@ Partial Class FormLogin
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents chkMostrarContra As CheckBox
     Friend WithEvents btnCerrar As Button
-    Friend WithEvents Panel1 As Panel
 End Class
