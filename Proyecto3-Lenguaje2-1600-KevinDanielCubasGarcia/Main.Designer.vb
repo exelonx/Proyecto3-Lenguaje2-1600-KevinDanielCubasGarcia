@@ -25,21 +25,28 @@ Partial Class Main
         Me.panelVentana = New System.Windows.Forms.Panel()
         Me.btnVentanaMin = New System.Windows.Forms.Button()
         Me.btnVentanaSalir = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.btnTecno = New System.Windows.Forms.Button()
+        Me.btnDeporte = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button5 = New System.Windows.Forms.Button()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.btnRopa = New System.Windows.Forms.Button()
+        Me.btnBellSal = New System.Windows.Forms.Button()
+        Me.btnEscOfi = New System.Windows.Forms.Button()
         Me.btnComprar = New System.Windows.Forms.Button()
-        Me.Button7 = New System.Windows.Forms.Button()
-        Me.Button6 = New System.Windows.Forms.Button()
+        Me.btnHistorial = New System.Windows.Forms.Button()
+        Me.btnSalir = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.gpxDatosGenerales = New System.Windows.Forms.GroupBox()
+        Me.chkMembresia = New System.Windows.Forms.CheckBox()
+        Me.txtNombre = New System.Windows.Forms.TextBox()
+        Me.txtFactura = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.panelVentana.SuspendLayout()
         Me.Panel1.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.gpxDatosGenerales.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'panelVentana
@@ -51,7 +58,7 @@ Partial Class Main
         Me.panelVentana.Dock = System.Windows.Forms.DockStyle.Top
         Me.panelVentana.Location = New System.Drawing.Point(0, 0)
         Me.panelVentana.Name = "panelVentana"
-        Me.panelVentana.Size = New System.Drawing.Size(440, 29)
+        Me.panelVentana.Size = New System.Drawing.Size(396, 29)
         Me.panelVentana.TabIndex = 0
         '
         'btnVentanaMin
@@ -61,7 +68,7 @@ Partial Class Main
         Me.btnVentanaMin.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(24, Byte), Integer), CType(CType(16, Byte), Integer), CType(CType(114, Byte), Integer))
         Me.btnVentanaMin.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnVentanaMin.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnVentanaMin.Location = New System.Drawing.Point(358, 0)
+        Me.btnVentanaMin.Location = New System.Drawing.Point(314, 0)
         Me.btnVentanaMin.Name = "btnVentanaMin"
         Me.btnVentanaMin.Size = New System.Drawing.Size(41, 29)
         Me.btnVentanaMin.TabIndex = 1
@@ -74,75 +81,175 @@ Partial Class Main
         Me.btnVentanaSalir.Dock = System.Windows.Forms.DockStyle.Right
         Me.btnVentanaSalir.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(24, Byte), Integer), CType(CType(16, Byte), Integer), CType(CType(114, Byte), Integer))
         Me.btnVentanaSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnVentanaSalir.Location = New System.Drawing.Point(399, 0)
+        Me.btnVentanaSalir.Location = New System.Drawing.Point(355, 0)
         Me.btnVentanaSalir.Name = "btnVentanaSalir"
         Me.btnVentanaSalir.Size = New System.Drawing.Size(41, 29)
         Me.btnVentanaSalir.TabIndex = 0
         Me.btnVentanaSalir.Text = "X"
         Me.btnVentanaSalir.UseVisualStyleBackColor = False
         '
-        'Button1
+        'btnTecno
         '
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Location = New System.Drawing.Point(0, 0)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(126, 23)
-        Me.Button1.TabIndex = 1
-        Me.Button1.Text = "Tecnología"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnTecno.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnTecno.Location = New System.Drawing.Point(0, 0)
+        Me.btnTecno.Name = "btnTecno"
+        Me.btnTecno.Size = New System.Drawing.Size(126, 23)
+        Me.btnTecno.TabIndex = 1
+        Me.btnTecno.Text = "Tecnología"
+        Me.btnTecno.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnTecno.UseVisualStyleBackColor = True
         '
-        'Button2
+        'btnDeporte
         '
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Location = New System.Drawing.Point(0, 22)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(126, 23)
-        Me.Button2.TabIndex = 2
-        Me.Button2.Text = "Deporte"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.btnDeporte.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnDeporte.Location = New System.Drawing.Point(0, 22)
+        Me.btnDeporte.Name = "btnDeporte"
+        Me.btnDeporte.Size = New System.Drawing.Size(126, 23)
+        Me.btnDeporte.TabIndex = 2
+        Me.btnDeporte.Text = "Deporte"
+        Me.btnDeporte.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnDeporte.UseVisualStyleBackColor = True
         '
         'Panel1
         '
-        Me.Panel1.Controls.Add(Me.Button6)
-        Me.Panel1.Controls.Add(Me.Button5)
-        Me.Panel1.Controls.Add(Me.Button4)
-        Me.Panel1.Controls.Add(Me.Button3)
-        Me.Panel1.Controls.Add(Me.Button1)
-        Me.Panel1.Controls.Add(Me.Button2)
+        Me.Panel1.Controls.Add(Me.btnRopa)
+        Me.Panel1.Controls.Add(Me.btnBellSal)
+        Me.Panel1.Controls.Add(Me.btnEscOfi)
+        Me.Panel1.Controls.Add(Me.btnTecno)
+        Me.Panel1.Controls.Add(Me.btnDeporte)
         Me.Panel1.Location = New System.Drawing.Point(0, 28)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(126, 202)
+        Me.Panel1.Size = New System.Drawing.Size(126, 112)
         Me.Panel1.TabIndex = 3
         '
-        'Button3
+        'btnRopa
         '
-        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button3.Location = New System.Drawing.Point(0, 44)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(126, 23)
-        Me.Button3.TabIndex = 3
-        Me.Button3.Text = "Escolar y Oficina"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.btnRopa.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnRopa.Location = New System.Drawing.Point(0, 88)
+        Me.btnRopa.Name = "btnRopa"
+        Me.btnRopa.Size = New System.Drawing.Size(126, 23)
+        Me.btnRopa.TabIndex = 5
+        Me.btnRopa.Text = "Ropa"
+        Me.btnRopa.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnRopa.UseVisualStyleBackColor = True
         '
-        'Button4
+        'btnBellSal
         '
-        Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button4.Location = New System.Drawing.Point(0, 66)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(126, 23)
-        Me.Button4.TabIndex = 4
-        Me.Button4.Text = "Belleza y Salud"
-        Me.Button4.UseVisualStyleBackColor = True
+        Me.btnBellSal.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnBellSal.Location = New System.Drawing.Point(0, 66)
+        Me.btnBellSal.Name = "btnBellSal"
+        Me.btnBellSal.Size = New System.Drawing.Size(126, 23)
+        Me.btnBellSal.TabIndex = 4
+        Me.btnBellSal.Text = "Belleza y Salud"
+        Me.btnBellSal.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnBellSal.UseVisualStyleBackColor = True
         '
-        'Button5
+        'btnEscOfi
         '
-        Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button5.Location = New System.Drawing.Point(0, 88)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(126, 23)
-        Me.Button5.TabIndex = 5
-        Me.Button5.Text = "Ropa"
-        Me.Button5.UseVisualStyleBackColor = True
+        Me.btnEscOfi.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnEscOfi.Location = New System.Drawing.Point(0, 44)
+        Me.btnEscOfi.Name = "btnEscOfi"
+        Me.btnEscOfi.Size = New System.Drawing.Size(126, 23)
+        Me.btnEscOfi.TabIndex = 3
+        Me.btnEscOfi.Text = "Escolar y Oficina"
+        Me.btnEscOfi.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnEscOfi.UseVisualStyleBackColor = True
+        '
+        'btnComprar
+        '
+        Me.btnComprar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnComprar.Location = New System.Drawing.Point(132, 290)
+        Me.btnComprar.Name = "btnComprar"
+        Me.btnComprar.Size = New System.Drawing.Size(126, 23)
+        Me.btnComprar.TabIndex = 4
+        Me.btnComprar.Text = "Facturar"
+        Me.btnComprar.UseVisualStyleBackColor = True
+        '
+        'btnHistorial
+        '
+        Me.btnHistorial.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnHistorial.Location = New System.Drawing.Point(264, 290)
+        Me.btnHistorial.Name = "btnHistorial"
+        Me.btnHistorial.Size = New System.Drawing.Size(126, 23)
+        Me.btnHistorial.TabIndex = 5
+        Me.btnHistorial.Text = "Ventas en la sesión"
+        Me.btnHistorial.UseVisualStyleBackColor = True
+        '
+        'btnSalir
+        '
+        Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSalir.Location = New System.Drawing.Point(3, 290)
+        Me.btnSalir.Name = "btnSalir"
+        Me.btnSalir.Size = New System.Drawing.Size(126, 23)
+        Me.btnSalir.TabIndex = 6
+        Me.btnSalir.Text = "Salir"
+        Me.btnSalir.UseVisualStyleBackColor = True
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Location = New System.Drawing.Point(12, 146)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.Size = New System.Drawing.Size(372, 139)
+        Me.DataGridView1.TabIndex = 6
+        '
+        'gpxDatosGenerales
+        '
+        Me.gpxDatosGenerales.Controls.Add(Me.chkMembresia)
+        Me.gpxDatosGenerales.Controls.Add(Me.txtNombre)
+        Me.gpxDatosGenerales.Controls.Add(Me.txtFactura)
+        Me.gpxDatosGenerales.Controls.Add(Me.Label2)
+        Me.gpxDatosGenerales.Controls.Add(Me.Label1)
+        Me.gpxDatosGenerales.Location = New System.Drawing.Point(140, 36)
+        Me.gpxDatosGenerales.Name = "gpxDatosGenerales"
+        Me.gpxDatosGenerales.Size = New System.Drawing.Size(225, 104)
+        Me.gpxDatosGenerales.TabIndex = 7
+        Me.gpxDatosGenerales.TabStop = False
+        Me.gpxDatosGenerales.Text = "Datos Generales"
+        '
+        'chkMembresia
+        '
+        Me.chkMembresia.AutoSize = True
+        Me.chkMembresia.Location = New System.Drawing.Point(112, 73)
+        Me.chkMembresia.Name = "chkMembresia"
+        Me.chkMembresia.Size = New System.Drawing.Size(79, 17)
+        Me.chkMembresia.TabIndex = 4
+        Me.chkMembresia.Text = "Membresía"
+        Me.chkMembresia.UseVisualStyleBackColor = True
+        '
+        'txtNombre
+        '
+        Me.txtNombre.Location = New System.Drawing.Point(112, 47)
+        Me.txtNombre.Name = "txtNombre"
+        Me.txtNombre.Size = New System.Drawing.Size(100, 20)
+        Me.txtNombre.TabIndex = 3
+        '
+        'txtFactura
+        '
+        Me.txtFactura.Location = New System.Drawing.Point(112, 21)
+        Me.txtFactura.Name = "txtFactura"
+        Me.txtFactura.ReadOnly = True
+        Me.txtFactura.Size = New System.Drawing.Size(43, 20)
+        Me.txtFactura.TabIndex = 2
+        Me.txtFactura.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(6, 50)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(95, 13)
+        Me.Label2.TabIndex = 1
+        Me.Label2.Text = "Nombre del cliente"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(6, 24)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(58, 13)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "N° Factura"
         '
         'PictureBox1
         '
@@ -154,53 +261,17 @@ Partial Class Main
         Me.PictureBox1.TabIndex = 2
         Me.PictureBox1.TabStop = False
         '
-        'btnComprar
-        '
-        Me.btnComprar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnComprar.Location = New System.Drawing.Point(302, 206)
-        Me.btnComprar.Name = "btnComprar"
-        Me.btnComprar.Size = New System.Drawing.Size(126, 23)
-        Me.btnComprar.TabIndex = 4
-        Me.btnComprar.Text = "Facturar"
-        Me.btnComprar.UseVisualStyleBackColor = True
-        '
-        'Button7
-        '
-        Me.Button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button7.Location = New System.Drawing.Point(170, 206)
-        Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(126, 23)
-        Me.Button7.TabIndex = 5
-        Me.Button7.Text = "Ventas en la sesión"
-        Me.Button7.UseVisualStyleBackColor = True
-        '
-        'Button6
-        '
-        Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button6.Location = New System.Drawing.Point(0, 179)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(126, 23)
-        Me.Button6.TabIndex = 6
-        Me.Button6.Text = "Salir"
-        Me.Button6.UseVisualStyleBackColor = True
-        '
-        'DataGridView1
-        '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(132, 50)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(296, 150)
-        Me.DataGridView1.TabIndex = 6
-        '
         'Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(440, 232)
+        Me.ClientSize = New System.Drawing.Size(396, 318)
+        Me.Controls.Add(Me.gpxDatosGenerales)
+        Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.Button7)
+        Me.Controls.Add(Me.btnHistorial)
         Me.Controls.Add(Me.panelVentana)
         Me.Controls.Add(Me.btnComprar)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -208,8 +279,10 @@ Partial Class Main
         Me.Text = "Form1"
         Me.panelVentana.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.gpxDatosGenerales.ResumeLayout(False)
+        Me.gpxDatosGenerales.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -218,14 +291,20 @@ Partial Class Main
     Friend WithEvents btnVentanaMin As Button
     Friend WithEvents btnVentanaSalir As Button
     Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
+    Friend WithEvents btnTecno As Button
+    Friend WithEvents btnDeporte As Button
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents Button5 As Button
-    Friend WithEvents Button4 As Button
-    Friend WithEvents Button3 As Button
-    Friend WithEvents Button6 As Button
-    Friend WithEvents Button7 As Button
+    Friend WithEvents btnRopa As Button
+    Friend WithEvents btnBellSal As Button
+    Friend WithEvents btnEscOfi As Button
+    Friend WithEvents btnSalir As Button
+    Friend WithEvents btnHistorial As Button
     Friend WithEvents btnComprar As Button
     Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents gpxDatosGenerales As GroupBox
+    Friend WithEvents chkMembresia As CheckBox
+    Friend WithEvents txtNombre As TextBox
+    Friend WithEvents txtFactura As TextBox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Label1 As Label
 End Class

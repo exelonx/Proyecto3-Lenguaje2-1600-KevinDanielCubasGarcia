@@ -73,15 +73,14 @@ Partial Class FormLogin
         'btnValidar
         '
         Me.btnValidar.BackColor = System.Drawing.Color.FromArgb(CType(CType(24, Byte), Integer), CType(CType(16, Byte), Integer), CType(CType(114, Byte), Integer))
-        Me.btnValidar.FlatAppearance.BorderColor = System.Drawing.Color.Black
-        Me.btnValidar.FlatAppearance.BorderSize = 0
+        Me.btnValidar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(24, Byte), Integer), CType(CType(16, Byte), Integer), CType(CType(114, Byte), Integer))
         Me.btnValidar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White
         Me.btnValidar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnValidar.Font = New System.Drawing.Font("Yu Gothic UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnValidar.ForeColor = System.Drawing.Color.White
         Me.btnValidar.Location = New System.Drawing.Point(1, 147)
         Me.btnValidar.Name = "btnValidar"
-        Me.btnValidar.Size = New System.Drawing.Size(114, 29)
+        Me.btnValidar.Size = New System.Drawing.Size(112, 29)
         Me.btnValidar.TabIndex = 4
         Me.btnValidar.Text = "Aceptar"
         Me.btnValidar.UseVisualStyleBackColor = False
@@ -150,15 +149,14 @@ Partial Class FormLogin
         'btnCerrar
         '
         Me.btnCerrar.BackColor = System.Drawing.Color.FromArgb(CType(CType(24, Byte), Integer), CType(CType(16, Byte), Integer), CType(CType(114, Byte), Integer))
-        Me.btnCerrar.FlatAppearance.BorderColor = System.Drawing.Color.Black
-        Me.btnCerrar.FlatAppearance.BorderSize = 0
+        Me.btnCerrar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(24, Byte), Integer), CType(CType(16, Byte), Integer), CType(CType(114, Byte), Integer))
         Me.btnCerrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White
         Me.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCerrar.Font = New System.Drawing.Font("Yu Gothic UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCerrar.ForeColor = System.Drawing.Color.White
-        Me.btnCerrar.Location = New System.Drawing.Point(112, 147)
+        Me.btnCerrar.Location = New System.Drawing.Point(113, 147)
         Me.btnCerrar.Name = "btnCerrar"
-        Me.btnCerrar.Size = New System.Drawing.Size(113, 29)
+        Me.btnCerrar.Size = New System.Drawing.Size(112, 29)
         Me.btnCerrar.TabIndex = 11
         Me.btnCerrar.Text = "Cerrar"
         Me.btnCerrar.UseVisualStyleBackColor = False
