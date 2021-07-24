@@ -2,8 +2,8 @@
     Dim ventana As New VentanaEstilo
     Dim validacion As New Validaciones
     Dim preciosBase(3), cantidad As Integer
-    Dim precioAccesorio(2, 3) As Integer
-    Dim calculos(2) As Integer '0 = SubTotal, 1 = Impuesto, 2 = Total
+    Dim precioAccesorio(2, 3), precioAccesorioNeto As Integer
+    Dim calculos(2) As Double '0 = SubTotal, 1 = Impuesto, 2 = Total
 
     'Procedimientos
     Public Sub visibilidad(indice As Integer)
@@ -78,13 +78,13 @@
         If rbComputadoras.Checked = True Then
             'Reinicio de cantidad
             reinicioCantidad()
+            validacion.chkClear(chkAcces1, chkAcces2, chkAcces3)
             'Productos
             gpxProducto.Text = "Computadoras"
             cmbProducto.Text = Nothing
             setProducto(cmbProducto, "DELL 15.6/R5 3500U L.19,890.00", "HP PAV 15.6/R3 3250U L.14,490.00", "DELL G3 15.6/i5 10MA L.24,989.00")
             setPrecio(preciosBase, 19890, 14490, 24989) 'Precio Base
             'Accesorios
-            validacion.chkClear(chkAcces1, chkAcces2, chkAcces3)
             accesorios("USB", "Monitores", "Routers")
             seleccionAccesorio(cmbAcces1, "USB SANDISK CRUZER 8GB L.140.00", "USB SANDISK 16GB L.250.00")
             setPrecioAccesorios(0, precioAccesorio, 140, 250) 'Precios accesorios
@@ -102,21 +102,21 @@
             setProducto(cmbProducto, "HUAWEI Y9A 128GB Negro L.9,390.00", "SAMSUNG S21 ULTRA Negro L.34,551.00", "MOTOROLA G8 Power Azul L. 3,689.00")
             setPrecio(preciosBase, 9390, 34551, 3649) 'Precio Base
             'Accesorios
-            validacion.chkClear(chkAcces1, chkAcces2, chkAcces3)
             accesorios("Cargador", "Protector L. 300", "")
             setPrecioAccesorios(0, precioAccesorio, 500, 150) 'Precios accesorios
             seleccionAccesorio(cmbAcces1, "Cargador Original L.500.00", "Cargador Generico L.150.00")
             setPrecioAccesorios(1, precioAccesorio, 300, 0) 'Precios accesorios
+            validacion.chkClear(chkAcces1, chkAcces2, chkAcces3)
             visibilidad(False)
             visibilidad(0)
         Else
             'Reinicio de cantidad
             reinicioCantidad()
-            validacion.chkClear(chkAcces1, chkAcces2, chkAcces3)
             gpxProducto.Text = "Solo Accesorios"
             cmbProducto.Text = Nothing
             setProducto(cmbProducto, "USB SANDISK 16GB L.250.00", "Cargador Original L.500.00", "SAMSUNG 22/FULLHD/HDMI L.3,490.00")
             setPrecio(preciosBase, 250, 500, 3490) 'Precio Base
+            validacion.chkClear(chkAcces1, chkAcces2, chkAcces3)
             visibilidad(1)
             visibilidad(True)
         End If
@@ -194,10 +194,17 @@
             Else
                 precioAccesorio(1, 3) -= precioAccesorio(1, 0)
             End If
-            txtAccesorios.Text = Format(precioAccesorio(0, 3) + precioAccesorio(1, 3), "0.00")
-        Else
-            precioAccesorio(1, 3) -= precioAccesorio(1, 0)
-            txtAccesorios.Text = Format(precioAccesorio(0, 3) + precioAccesorio(1, 3), "0.00")
+            precioAccesorioNeto = precioAccesorio(0, 3) + precioAccesorio(1, 3)
+            txtAccesorios.Text = Format(precioAccesorioNeto, "0.00")
+        ElseIf precioAccesorio(1, 3) = 300 Then
+            precioAccesorio(1, 3) = 0
+            precioAccesorioNeto = precioAccesorio(0, 3) + precioAccesorio(1, 3)
+            txtAccesorios.Text = Format(precioAccesorioNeto, "0.00")
+        End If
+        If precioAccesorio(1, 3) = -300 Then
+            precioAccesorio(1, 3) = 0
+            precioAccesorioNeto = precioAccesorio(0, 3) + precioAccesorio(1, 3)
+            txtAccesorios.Text = Format(precioAccesorioNeto, "0.00")
         End If
     End Sub
 
@@ -227,9 +234,14 @@
         'Calculos
         'SubTotal
         cantidad = txtCantidadProducto.Text
-        calculos(0) = (preciosBase(3) * cantidad) + precioAccesorio(0, 3) + precioAccesorio(1, 3) + precioAccesorio(2, 3)
+        calculos(0) = (preciosBase(3) * cantidad) + precioAccesorioNeto
         txtSubT.Text = Format(calculos(0), "0.00")
-
+        'Impuesto
+        calculos(1) = calculos(0) * 0.15
+        txtImpuesto.Text = Format(calculos(1), "0.00")
+        'Total
+        calculos(2) = calculos(0) + calculos(1)
+        txtTotal.Text = Format(calculos(2), "0.00")
     End Sub
 
     Private Sub cmbProducto_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbProducto.SelectedIndexChanged
@@ -269,10 +281,9 @@
                 precioAccesorio(indice, 3) += precioAccesorio(indice, 0)
             Case 1
                 precioAccesorio(indice, 3) += precioAccesorio(indice, 1)
-            Case 2
-                precioAccesorio(indice, 3) += precioAccesorio(indice, 2)
         End Select
-        txtAccesorios.Text = Format(precioAccesorio(0, 3) + precioAccesorio(1, 3) + precioAccesorio(2, 3), "0.00")
+        precioAccesorioNeto = precioAccesorio(0, 3) + precioAccesorio(1, 3) + precioAccesorio(2, 3)
+        txtAccesorios.Text = Format(precioAccesorioNeto, "0.00")
     End Sub
 
     Private Sub cmbAcces2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbAcces2.SelectedIndexChanged
