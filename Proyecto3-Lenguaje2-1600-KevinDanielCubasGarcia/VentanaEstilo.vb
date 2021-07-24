@@ -20,4 +20,5 @@
         x = mouse.X
         y = mouse.Y
     End Sub
+
 End Class
