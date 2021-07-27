@@ -19,7 +19,6 @@
                 gpxAccesorios.Visible = False
                 pbAccesorios.Visible = True
         End Select
-
     End Sub
 
     Public Sub accesorios(txt1 As String, txt2 As String, txt3 As String)
@@ -215,7 +214,7 @@
     Private Sub btnCalcular_Click(sender As Object, e As EventArgs) Handles btnCalcular.Click
         'Validaciones
         If rbCelulares.Checked = False And rbComputadoras.Checked = False And rbSoloAccesorios.Checked = False Then
-            MessageBox.Show("Seleccione al menos un tipo de producto tecnologíco", "Faltan Requisitos")
+            MessageBox.Show("Seleccione el tipo de producto tecnologíco", "Faltan Requisitos")
             Exit Sub
         ElseIf cmbProducto.Text = Nothing Then
             MessageBox.Show("Seleccione un producto del tipo de " & gpxProducto.Text, "Faltan Requisitos")

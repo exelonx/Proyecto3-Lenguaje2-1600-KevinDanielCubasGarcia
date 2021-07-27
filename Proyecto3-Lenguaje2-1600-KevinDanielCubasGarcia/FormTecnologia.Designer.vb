@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FormTecnologia
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class FormTecnologia
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.panelVentana = New System.Windows.Forms.Panel()
         Me.btnVentanaMin = New System.Windows.Forms.Button()
@@ -57,6 +57,7 @@ Partial Class FormTecnologia
         Me.txtCantidadProducto = New System.Windows.Forms.TextBox()
         Me.gpxProducto = New System.Windows.Forms.GroupBox()
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
@@ -92,6 +93,7 @@ Partial Class FormTecnologia
         Me.btnVentanaMin.BackColor = System.Drawing.Color.White
         Me.btnVentanaMin.Dock = System.Windows.Forms.DockStyle.Right
         Me.btnVentanaMin.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(24, Byte), Integer), CType(CType(16, Byte), Integer), CType(CType(114, Byte), Integer))
+        Me.btnVentanaMin.FlatAppearance.BorderSize = 0
         Me.btnVentanaMin.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnVentanaMin.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnVentanaMin.Location = New System.Drawing.Point(648, 0)
@@ -106,6 +108,8 @@ Partial Class FormTecnologia
         Me.btnVentanaSalir.BackColor = System.Drawing.Color.White
         Me.btnVentanaSalir.Dock = System.Windows.Forms.DockStyle.Right
         Me.btnVentanaSalir.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(24, Byte), Integer), CType(CType(16, Byte), Integer), CType(CType(114, Byte), Integer))
+        Me.btnVentanaSalir.FlatAppearance.BorderSize = 0
+        Me.btnVentanaSalir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(17, Byte), Integer), CType(CType(35, Byte), Integer))
         Me.btnVentanaSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnVentanaSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnVentanaSalir.Location = New System.Drawing.Point(689, 0)
@@ -271,6 +275,7 @@ Partial Class FormTecnologia
         '
         'GroupBox3
         '
+        Me.GroupBox3.Controls.Add(Me.Button1)
         Me.GroupBox3.Controls.Add(Me.btnSalir)
         Me.GroupBox3.Controls.Add(Me.btnAgregar)
         Me.GroupBox3.Controls.Add(Me.btnCalcular)
@@ -284,7 +289,7 @@ Partial Class FormTecnologia
         '
         'btnSalir
         '
-        Me.btnSalir.Location = New System.Drawing.Point(174, 124)
+        Me.btnSalir.Location = New System.Drawing.Point(254, 124)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(75, 23)
         Me.btnSalir.TabIndex = 3
@@ -440,6 +445,15 @@ Partial Class FormTecnologia
         Me.GroupBox6.TabIndex = 6
         Me.GroupBox6.TabStop = False
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(173, 124)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 4
+        Me.Button1.Text = "Eliminar"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'PictureBox3
         '
         Me.PictureBox3.BackgroundImage = Global.Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.bannerDiunsa
@@ -554,4 +568,5 @@ Partial Class FormTecnologia
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents PictureBox3 As PictureBox
     Friend WithEvents pbAccesorios As PictureBox
+    Friend WithEvents Button1 As Button
 End Class

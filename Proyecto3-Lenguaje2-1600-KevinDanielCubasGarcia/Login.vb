@@ -2,6 +2,7 @@
     Dim Ventana As New VentanaEstilo
     Dim validacion As New Validaciones
     Dim user, pass As String
+    Public sD As Integer
 
     Private Sub chkMostrarContra_CheckedChanged(sender As Object, e As EventArgs) Handles chkMostrarContra.CheckedChanged
         If chkMostrarContra.Checked = True Then
@@ -28,20 +29,21 @@
     Private Sub FormLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         user = "pedrito"
         pass = "clavounclavito"
-        Main.Show()
-        FormTecnologia.Show()
+        'Main.Show()
+        'FormTecnologia.Show()
+        'FormRopa.Show()
     End Sub
 
     Private Sub btnValidar_MouseMove(sender As Object, e As MouseEventArgs) Handles btnValidar.MouseMove
         btnValidar.ForeColor = Color.Black
         btnValidar.Height = 35
-        btnValidar.Location = New Point(1, 141)
+        btnValidar.Location = New Point(0, 141)
     End Sub
 
     Private Sub btnValidar_MouseLeave(sender As Object, e As EventArgs) Handles btnValidar.MouseLeave
         btnValidar.ForeColor = Color.White
         btnValidar.Height = 29
-        btnValidar.Location = New Point(1, 147)
+        btnValidar.Location = New Point(0, 147)
     End Sub
 
     Private Sub btnCerrar_MouseMove(sender As Object, e As MouseEventArgs) Handles btnCerrar.MouseMove
@@ -59,6 +61,7 @@
     Private Sub btnValidar_Click(sender As Object, e As EventArgs) Handles btnValidar.Click
         If user = txtUsuario.Text And pass = txtContraseña.Text Then
             Main.Show()
+            Me.Hide()
             Main.txtNombre.Focus()
         Else
             MessageBox.Show("Usuario y contraseña equivocada.", "Datos erroneos")
@@ -95,5 +98,4 @@
         Me.WindowState = FormWindowState.Minimized
         txtUsuario.Focus()
     End Sub
-
 End Class

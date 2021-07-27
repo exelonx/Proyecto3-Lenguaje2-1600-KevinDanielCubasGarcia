@@ -1,4 +1,6 @@
-﻿Public Class VentanaEstilo
+﻿Imports System.Runtime.InteropServices
+
+Public Class VentanaEstilo
     'Atributos publicos
     Public clickVentana
     Public x, y
@@ -21,4 +23,9 @@
         y = mouse.Y
     End Sub
 
+    'Metodos para sombras
+    Public Declare Function getClassLong Lib "user32" Alias "getClassLongA" (dT As IntPtr, uI As Integer) As Integer
+    Public Declare Function getDesktopWindow Lib "user32" () As Integer
+    Public Declare Function setClassLong Lib "user32" Alias "setClassLongA" (dT As IntPtr, iDF As Integer, iGT As Integer) As Integer
+    Public Declare Function setWindowsLong Lib "user32" Alias "setWindowLongA" (wO As IntPtr, nI As Integer, nK As Integer) As Integer
 End Class

@@ -33,7 +33,7 @@
     End Sub
 
     Private Sub btnVentanaSalir_Click(sender As Object, e As EventArgs) Handles btnVentanaSalir.Click
-        Close()
+        Application.Exit()
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnTecno.Click
@@ -49,5 +49,17 @@
             MessageBox.Show("Casilla vacia, ingrese el nombre del cliente.", "Faltan Requisitos")
             Exit Sub
         End If
+    End Sub
+
+    Private Sub btnRopa_Click(sender As Object, e As EventArgs) Handles btnRopa.Click
+        FormRopa.Show()
+    End Sub
+
+    Private Sub btnDeporte_Click(sender As Object, e As EventArgs) Handles btnDeporte.Click
+        FormDeporte.Show()
+    End Sub
+
+    Private Sub btnEscOfi_Click(sender As Object, e As EventArgs) Handles btnEscOfi.Click
+        FormEscOfi.Show()
     End Sub
 End Class

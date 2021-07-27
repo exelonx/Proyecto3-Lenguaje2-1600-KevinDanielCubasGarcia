@@ -16,8 +16,6 @@
             Case 1  'Para Números
                 If Char.IsNumber(key.KeyChar) Then
                     key.Handled = False
-                ElseIf Char.IsSeparator(key.KeyChar) Then
-                    key.Handled = False
                 ElseIf Char.IsControl(key.KeyChar) Then
                     key.Handled = False
                 Else
@@ -58,5 +56,23 @@
         chk1.Checked = False
         chk2.Checked = False
         chk3.Checked = False
+    End Sub
+
+    'Metodo para activar groupbox por rb
+    Public Sub setGroupBoxEnabledRB(rb As RadioButton, gpx As GroupBox)
+        If rb.Checked = True Then
+            gpx.Enabled = True
+        Else
+            gpx.Enabled = False
+        End If
+    End Sub
+
+    'Metodo para activar groupbox por chk
+    Public Sub setGroupBoxEnabledCHK(chk As CheckBox, gpx As GroupBox)
+        If chk.Checked = True Then
+            gpx.Enabled = True
+        Else
+            gpx.Enabled = False
+        End If
     End Sub
 End Class

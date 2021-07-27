@@ -73,12 +73,6 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormBellSal.Designer.vb">
-      <DependentUpon>FormBellSal.vb</DependentUpon>
-    </Compile>
-    <Compile Include="FormBellSal.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="FormDeporte.Designer.vb">
       <DependentUpon>FormDeporte.vb</DependentUpon>
     </Compile>
@@ -141,6 +135,12 @@
     <Compile Include="VentanaEstilo.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FormDeporte.resx">
+      <DependentUpon>FormDeporte.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRopa.resx">
+      <DependentUpon>FormRopa.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormTecnologia.resx">
       <DependentUpon>FormTecnologia.vb</DependentUpon>
     </EmbeddedResource>
@@ -198,6 +198,42 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\bannerAccesorios1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\moda.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\f03c74078d0894b46996fa05bd67e355.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Deporte Diunsa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Moda Diunsa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tecnologia Diunsa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tecnologia Diunsa Fixed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Oficina Diunsa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Oficina Diunsa Fixed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Exit Diunsa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Exit Diunsa2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Exit Diunsa2Fixed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Oficina Diunsa Fixed2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
