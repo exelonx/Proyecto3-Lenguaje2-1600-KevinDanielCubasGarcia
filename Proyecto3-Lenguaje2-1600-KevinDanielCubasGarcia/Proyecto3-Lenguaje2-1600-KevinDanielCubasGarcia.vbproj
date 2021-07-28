@@ -138,6 +138,9 @@
     <EmbeddedResource Include="FormDeporte.resx">
       <DependentUpon>FormDeporte.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormEscOfi.resx">
+      <DependentUpon>FormEscOfi.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormRopa.resx">
       <DependentUpon>FormRopa.vb</DependentUpon>
     </EmbeddedResource>
@@ -267,6 +270,75 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\GuardarIcono1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CalcularBoton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CalcularBotonFixed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CalcularBotonFixed2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add-rule.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AgregarBoton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AgregarBotonFixed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AgregarBotonFixed2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EliminarBoton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EliminarBoton2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EliminarBoton3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EliminarBoton3Fixed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AgregarBotonFixed21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EliminarBoton3Fixed2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guardarBoton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guardarBoton2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guardarBoton2Fixed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CalcularBotonBlanco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AgregarBotonBlanco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EliminarBoton3Blanco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guardarBoton2Blanco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bannerModaDiunsaFixed2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bannerOficinaDiunsa.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bannerTecnologiaDiunsaFixed2.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

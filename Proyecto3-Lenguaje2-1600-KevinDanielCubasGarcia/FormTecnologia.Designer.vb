@@ -469,7 +469,7 @@ Partial Class FormTecnologia
         '
         'PictureBox4
         '
-        Me.PictureBox4.BackgroundImage = Global.Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.bannerTecnologiaDiunsaFixed1
+        Me.PictureBox4.BackgroundImage = Global.Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.bannerTecnologiaDiunsaFixed2
         Me.PictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.PictureBox4.Dock = System.Windows.Forms.DockStyle.Top
         Me.PictureBox4.Location = New System.Drawing.Point(0, 29)
@@ -481,9 +481,9 @@ Partial Class FormTecnologia
         'PictureBox3
         '
         Me.PictureBox3.BackgroundImage = Global.Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.bannerDiunsa
-        Me.PictureBox3.Location = New System.Drawing.Point(12, 454)
+        Me.PictureBox3.Location = New System.Drawing.Point(14, 454)
         Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(363, 86)
+        Me.PictureBox3.Size = New System.Drawing.Size(361, 86)
         Me.PictureBox3.TabIndex = 7
         Me.PictureBox3.TabStop = False
         '

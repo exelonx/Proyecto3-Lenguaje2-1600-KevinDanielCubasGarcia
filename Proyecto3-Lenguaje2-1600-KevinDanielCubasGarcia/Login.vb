@@ -29,10 +29,11 @@
     Private Sub FormLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         user = "pedrito"
         pass = "clavounclavito"
-        Main.Show()
-        FormTecnologia.Show()
+        'Main.Show()
+        'FormTecnologia.Show()
         FormRopa.Show()
         FormDeporte.Show()
+        FormEscOfi.Show()
     End Sub
 
     Private Sub btnValidar_MouseMove(sender As Object, e As MouseEventArgs) Handles btnValidar.MouseMove

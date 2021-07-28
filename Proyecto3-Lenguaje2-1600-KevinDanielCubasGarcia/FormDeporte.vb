@@ -3,7 +3,7 @@
     Dim Ventana As New VentanaEstilo
     Dim Validacion As New Validaciones
     'Variables globales
-    Dim productos(5), extras As Integer
+    Dim productos(5), extras, cantidad As Integer
     Dim subTotal, impuesto, total As Double
 
     'Procedimientos
@@ -57,26 +57,9 @@
     End Sub
 
     Private Sub FormDeporte_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        cantidad = 0
         PictureBox3.Location = New Point(199, 192)
-        Me.Size = New Size(730, 456)
-    End Sub
-
-    'Ventana personalizada
-    Private Sub panelVentana_MouseDown(sender As Object, e As MouseEventArgs) Handles panelVentana.MouseDown
-        Ventana.setUbicacionMouse(e)
-    End Sub
-
-    Private Sub panelVentana_MouseUp(sender As Object, e As MouseEventArgs) Handles panelVentana.MouseUp
-        Ventana.clickVentana = False
-    End Sub
-
-    Private Sub panelVentana_MouseMove(sender As Object, e As MouseEventArgs) Handles panelVentana.MouseMove
-        Ventana.ventanaPresionada(Me, e, panelVentana)
-    End Sub
-
-    'Botones de cerrar y minimizar
-    Private Sub btnVentanaMin_Click(sender As Object, e As EventArgs) Handles btnVentanaMin.Click
-        Me.WindowState = FormWindowState.Minimized
+        Me.Size = New Size(710, 446)
     End Sub
 
     Private Sub cmbProductos_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cmbProductos.KeyPress
@@ -132,7 +115,8 @@
             'Acciones para dar dinamismo al programa
             txtCantidad.Clear()
             If txtCantidad.Text <> Nothing Then
-                txtPrecio.Text = Format(productos(5) * txtCantidad.Text, "0.00")
+                cantidad = txtCantidad.Text
+                txtPrecio.Text = Format(productos(5) * cantidad, "0.00")
             End If
             'Habilitar txtCantidad
             txtCantidad.Enabled = True
@@ -143,8 +127,10 @@
     Private Sub txtCantidad_TextChanged(sender As Object, e As EventArgs) Handles txtCantidad.TextChanged
         Validacion.validarCantidad(txtCantidad)
         If txtCantidad.Text <> Nothing Then
-            txtPrecio.Text = Format(productos(5) * txtCantidad.Text, "0.00")
+            cantidad = txtCantidad.Text
+            txtPrecio.Text = Format(productos(5) * cantidad, "0.00")
         Else
+            cantidad = 0
             txtPrecio.Text = Format(0, "0.00")
         End If
     End Sub
@@ -152,19 +138,25 @@
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnCalcular.Click
         'Validaciones
         If rbAccesorios.Checked = True And rbBalones.Checked = True And rbBalones.Checked = True And chkExtras.Checked = False Then
-            MessageBox.Show("Seleccione el tipo de producto", "Faltan Requisitos")
+            MessageBox.Show("Seleccione el tipo de producto.", "Faltan Requisitos")
             Exit Sub
-        ElseIf cmbProductos.Text = Nothing Then
-            MessageBox.Show("Producto sin seleccionar", "Faltan Requisitos")
+        ElseIf cmbProductos.Text = Nothing And chkExtras.Checked = False Then
+            MessageBox.Show("Producto sin seleccionar.", "Faltan Requisitos")
             Exit Sub
-        ElseIf txtCantidad.Text = Nothing Then
-            MessageBox.Show("Casilla vacia, ingrese la cantidad", "Faltan Requisitos")
+        ElseIf txtCantidad.Text = Nothing And chkExtras.Checked = False Then
+            MessageBox.Show("Casilla vacia, ingrese la cantidad.", "Faltan Requisitos")
             txtCantidad.Focus()
+            Exit Sub
+        ElseIf chkSuelas.Checked = False And chkBombaAire.Checked = False And chkExtras.Checked = True Then
+            MessageBox.Show("Seleccione al menos un extra.", "Faltan Requisitos")
             Exit Sub
         End If
         'Calculos
+        If txtCantidad.Text = Nothing Then
+            txtPrecio.Text = Format(0, "0.00")
+        End If
         'SubTotal
-        subTotal = (productos(5) * txtCantidad.Text) + extras
+        subTotal = (productos(5) * cantidad) + extras
         txtSubT.Text = Format(subTotal, "0.00")
         'Impuestos
         impuesto = subTotal * 0.15
@@ -172,6 +164,24 @@
         'Total
         total = subTotal + impuesto
         txtTotal.Text = Format(total, "0.00")
+    End Sub
+
+    'Ventana personalizada
+    Private Sub panelVentana_MouseDown(sender As Object, e As MouseEventArgs) Handles panelVentana.MouseDown
+        Ventana.setUbicacionMouse(e)
+    End Sub
+
+    Private Sub panelVentana_MouseUp(sender As Object, e As MouseEventArgs) Handles panelVentana.MouseUp
+        Ventana.clickVentana = False
+    End Sub
+
+    Private Sub panelVentana_MouseMove(sender As Object, e As MouseEventArgs) Handles panelVentana.MouseMove
+        Ventana.ventanaPresionada(Me, e, panelVentana)
+    End Sub
+
+    'Botones de cerrar y minimizar
+    Private Sub btnVentanaMin_Click(sender As Object, e As EventArgs) Handles btnVentanaMin.Click
+        Me.WindowState = FormWindowState.Minimized
     End Sub
 
     Private Sub btnVentanaSalir_Click(sender As Object, e As EventArgs) Handles btnVentanaSalir.Click
