@@ -22,9 +22,10 @@ Partial Class FormRopa
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormRopa))
+        Me.panelVentana = New System.Windows.Forms.Panel()
+        Me.btnVentanaMin = New System.Windows.Forms.Button()
+        Me.btnVentanaSalir = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.gpxClasificacion = New System.Windows.Forms.GroupBox()
         Me.cmbClasificacion = New System.Windows.Forms.ComboBox()
@@ -46,20 +47,23 @@ Partial Class FormRopa
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-        Me.Button6 = New System.Windows.Forms.Button()
-        Me.Button5 = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
+        Me.btnSalir = New System.Windows.Forms.Button()
+        Me.btnEliminar = New System.Windows.Forms.Button()
+        Me.btnAgregar = New System.Windows.Forms.Button()
+        Me.btnCalcular = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
         Me.gpxTipoCalcetines = New System.Windows.Forms.GroupBox()
         Me.cmbTipoCalcetin = New System.Windows.Forms.ComboBox()
         Me.chkPulceras = New System.Windows.Forms.CheckBox()
         Me.chkCalcetines = New System.Windows.Forms.CheckBox()
-        Me.pbBanner = New System.Windows.Forms.PictureBox()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.pbBanner = New System.Windows.Forms.PictureBox()
+        Me.btnGuardar = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Panel1.SuspendLayout()
+        Me.panelVentana.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.gpxClasificacion.SuspendLayout()
         Me.gpxRopa.SuspendLayout()
@@ -68,59 +72,60 @@ Partial Class FormRopa
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox6.SuspendLayout()
         Me.gpxTipoCalcetines.SuspendLayout()
-        CType(Me.pbBanner, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox2.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pbBanner, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'Panel1
+        'panelVentana
         '
-        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(24, Byte), Integer), CType(CType(16, Byte), Integer), CType(CType(114, Byte), Integer))
-        Me.Panel1.Controls.Add(Me.PictureBox1)
-        Me.Panel1.Controls.Add(Me.Button2)
-        Me.Panel1.Controls.Add(Me.Button1)
-        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel1.Location = New System.Drawing.Point(0, 0)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(824, 29)
-        Me.Panel1.TabIndex = 0
+        Me.panelVentana.BackColor = System.Drawing.Color.FromArgb(CType(CType(24, Byte), Integer), CType(CType(16, Byte), Integer), CType(CType(114, Byte), Integer))
+        Me.panelVentana.Controls.Add(Me.PictureBox1)
+        Me.panelVentana.Controls.Add(Me.btnVentanaMin)
+        Me.panelVentana.Controls.Add(Me.btnVentanaSalir)
+        Me.panelVentana.Dock = System.Windows.Forms.DockStyle.Top
+        Me.panelVentana.Location = New System.Drawing.Point(0, 0)
+        Me.panelVentana.Name = "panelVentana"
+        Me.panelVentana.Size = New System.Drawing.Size(792, 29)
+        Me.panelVentana.TabIndex = 0
         '
-        'Button2
+        'btnVentanaMin
         '
-        Me.Button2.BackColor = System.Drawing.Color.White
-        Me.Button2.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Button2.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.Button2.FlatAppearance.BorderSize = 0
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(742, 0)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(41, 29)
-        Me.Button2.TabIndex = 1
-        Me.Button2.Text = "-"
-        Me.Button2.UseVisualStyleBackColor = False
+        Me.btnVentanaMin.BackColor = System.Drawing.Color.White
+        Me.btnVentanaMin.Dock = System.Windows.Forms.DockStyle.Right
+        Me.btnVentanaMin.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.btnVentanaMin.FlatAppearance.BorderSize = 0
+        Me.btnVentanaMin.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnVentanaMin.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnVentanaMin.Location = New System.Drawing.Point(710, 0)
+        Me.btnVentanaMin.Name = "btnVentanaMin"
+        Me.btnVentanaMin.Size = New System.Drawing.Size(41, 29)
+        Me.btnVentanaMin.TabIndex = 1
+        Me.btnVentanaMin.Text = "-"
+        Me.btnVentanaMin.UseVisualStyleBackColor = False
         '
-        'Button1
+        'btnVentanaSalir
         '
-        Me.Button1.BackColor = System.Drawing.Color.White
-        Me.Button1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Button1.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.Button1.FlatAppearance.BorderSize = 0
-        Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(17, Byte), Integer), CType(CType(35, Byte), Integer))
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Location = New System.Drawing.Point(783, 0)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(41, 29)
-        Me.Button1.TabIndex = 0
-        Me.Button1.Text = "X"
-        Me.Button1.UseVisualStyleBackColor = False
+        Me.btnVentanaSalir.BackColor = System.Drawing.Color.White
+        Me.btnVentanaSalir.Dock = System.Windows.Forms.DockStyle.Right
+        Me.btnVentanaSalir.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.btnVentanaSalir.FlatAppearance.BorderSize = 0
+        Me.btnVentanaSalir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(17, Byte), Integer), CType(CType(35, Byte), Integer))
+        Me.btnVentanaSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnVentanaSalir.Location = New System.Drawing.Point(751, 0)
+        Me.btnVentanaSalir.Name = "btnVentanaSalir"
+        Me.btnVentanaSalir.Size = New System.Drawing.Size(41, 29)
+        Me.btnVentanaSalir.TabIndex = 0
+        Me.btnVentanaSalir.Text = "X"
+        Me.btnVentanaSalir.UseVisualStyleBackColor = False
         '
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.gpxClasificacion)
         Me.GroupBox1.Controls.Add(Me.rbMujer)
         Me.GroupBox1.Controls.Add(Me.rbHombre)
-        Me.GroupBox1.Location = New System.Drawing.Point(13, 36)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 186)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(218, 88)
         Me.GroupBox1.TabIndex = 1
@@ -171,7 +176,7 @@ Partial Class FormRopa
         Me.gpxRopa.Controls.Add(Me.lbCantidad)
         Me.gpxRopa.Controls.Add(Me.txtCantidad)
         Me.gpxRopa.Controls.Add(Me.cmbRopa)
-        Me.gpxRopa.Location = New System.Drawing.Point(237, 36)
+        Me.gpxRopa.Location = New System.Drawing.Point(236, 186)
         Me.gpxRopa.Name = "gpxRopa"
         Me.gpxRopa.Size = New System.Drawing.Size(176, 88)
         Me.gpxRopa.TabIndex = 2
@@ -217,7 +222,7 @@ Partial Class FormRopa
         Me.GroupBox3.Controls.Add(Me.Label4)
         Me.GroupBox3.Controls.Add(Me.Label3)
         Me.GroupBox3.Controls.Add(Me.Label2)
-        Me.GroupBox3.Location = New System.Drawing.Point(13, 130)
+        Me.GroupBox3.Location = New System.Drawing.Point(12, 280)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(200, 158)
         Me.GroupBox3.TabIndex = 3
@@ -316,60 +321,69 @@ Partial Class FormRopa
         '
         'GroupBox4
         '
-        Me.GroupBox4.Controls.Add(Me.Button6)
-        Me.GroupBox4.Controls.Add(Me.Button5)
-        Me.GroupBox4.Controls.Add(Me.Button4)
-        Me.GroupBox4.Controls.Add(Me.Button3)
+        Me.GroupBox4.Controls.Add(Me.btnGuardar)
+        Me.GroupBox4.Controls.Add(Me.btnSalir)
+        Me.GroupBox4.Controls.Add(Me.btnEliminar)
+        Me.GroupBox4.Controls.Add(Me.btnAgregar)
+        Me.GroupBox4.Controls.Add(Me.btnCalcular)
         Me.GroupBox4.Controls.Add(Me.DataGridView1)
-        Me.GroupBox4.Location = New System.Drawing.Point(219, 130)
+        Me.GroupBox4.Location = New System.Drawing.Point(218, 280)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Size = New System.Drawing.Size(425, 158)
         Me.GroupBox4.TabIndex = 4
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Salida"
         '
-        'Button6
+        'btnSalir
         '
-        Me.Button6.Location = New System.Drawing.Point(249, 127)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(75, 23)
-        Me.Button6.TabIndex = 4
-        Me.Button6.Text = "Salir"
-        Me.Button6.UseVisualStyleBackColor = True
+        Me.btnSalir.BackColor = System.Drawing.Color.White
+        Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSalir.Location = New System.Drawing.Point(228, 127)
+        Me.btnSalir.Name = "btnSalir"
+        Me.btnSalir.Size = New System.Drawing.Size(75, 23)
+        Me.btnSalir.TabIndex = 4
+        Me.btnSalir.Text = "Salir"
+        Me.btnSalir.UseVisualStyleBackColor = False
         '
-        'Button5
+        'btnEliminar
         '
-        Me.Button5.Location = New System.Drawing.Point(168, 127)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(75, 23)
-        Me.Button5.TabIndex = 3
-        Me.Button5.Text = "Eliminar"
-        Me.Button5.UseVisualStyleBackColor = True
+        Me.btnEliminar.BackColor = System.Drawing.Color.White
+        Me.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnEliminar.Location = New System.Drawing.Point(154, 127)
+        Me.btnEliminar.Name = "btnEliminar"
+        Me.btnEliminar.Size = New System.Drawing.Size(75, 23)
+        Me.btnEliminar.TabIndex = 3
+        Me.btnEliminar.Text = "Eliminar"
+        Me.btnEliminar.UseVisualStyleBackColor = False
         '
-        'Button4
+        'btnAgregar
         '
-        Me.Button4.Location = New System.Drawing.Point(87, 127)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(75, 23)
-        Me.Button4.TabIndex = 2
-        Me.Button4.Text = "Agregar"
-        Me.Button4.UseVisualStyleBackColor = True
+        Me.btnAgregar.BackColor = System.Drawing.Color.White
+        Me.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAgregar.Location = New System.Drawing.Point(80, 127)
+        Me.btnAgregar.Name = "btnAgregar"
+        Me.btnAgregar.Size = New System.Drawing.Size(75, 23)
+        Me.btnAgregar.TabIndex = 2
+        Me.btnAgregar.Text = "Agregar"
+        Me.btnAgregar.UseVisualStyleBackColor = False
         '
-        'Button3
+        'btnCalcular
         '
-        Me.Button3.Location = New System.Drawing.Point(6, 127)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(75, 23)
-        Me.Button3.TabIndex = 1
-        Me.Button3.Text = "Calcular"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.btnCalcular.BackColor = System.Drawing.Color.White
+        Me.btnCalcular.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCalcular.Location = New System.Drawing.Point(6, 127)
+        Me.btnCalcular.Name = "btnCalcular"
+        Me.btnCalcular.Size = New System.Drawing.Size(75, 23)
+        Me.btnCalcular.TabIndex = 1
+        Me.btnCalcular.Text = "Calcular"
+        Me.btnCalcular.UseVisualStyleBackColor = False
         '
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Location = New System.Drawing.Point(6, 20)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(413, 98)
+        Me.DataGridView1.Size = New System.Drawing.Size(413, 101)
         Me.DataGridView1.TabIndex = 0
         '
         'GroupBox6
@@ -377,7 +391,7 @@ Partial Class FormRopa
         Me.GroupBox6.Controls.Add(Me.gpxTipoCalcetines)
         Me.GroupBox6.Controls.Add(Me.chkPulceras)
         Me.GroupBox6.Controls.Add(Me.chkCalcetines)
-        Me.GroupBox6.Location = New System.Drawing.Point(419, 36)
+        Me.GroupBox6.Location = New System.Drawing.Point(418, 186)
         Me.GroupBox6.Name = "GroupBox6"
         Me.GroupBox6.Size = New System.Drawing.Size(225, 88)
         Me.GroupBox6.TabIndex = 6
@@ -424,23 +438,55 @@ Partial Class FormRopa
         Me.chkCalcetines.Text = "Calcetines"
         Me.chkCalcetines.UseVisualStyleBackColor = True
         '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.PictureBox2)
+        Me.GroupBox2.Location = New System.Drawing.Point(649, 186)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(134, 252)
+        Me.GroupBox2.TabIndex = 8
+        Me.GroupBox2.TabStop = False
+        '
+        'Panel1
+        '
+        Me.Panel1.BackgroundImage = Global.Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.bannerModaDiunsa4
+        Me.Panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel1.Location = New System.Drawing.Point(0, 29)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(792, 151)
+        Me.Panel1.TabIndex = 9
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PictureBox2.Location = New System.Drawing.Point(3, 16)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(128, 233)
+        Me.PictureBox2.TabIndex = 5
+        Me.PictureBox2.TabStop = False
+        '
         'pbBanner
         '
         Me.pbBanner.BackgroundImage = Global.Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.bannerAccesorios
         Me.pbBanner.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.pbBanner.Location = New System.Drawing.Point(237, 294)
+        Me.pbBanner.Location = New System.Drawing.Point(236, 444)
         Me.pbBanner.Name = "pbBanner"
         Me.pbBanner.Size = New System.Drawing.Size(176, 81)
         Me.pbBanner.TabIndex = 7
         Me.pbBanner.TabStop = False
         '
-        'PictureBox2
+        'btnGuardar
         '
-        Me.PictureBox2.Location = New System.Drawing.Point(650, 42)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(165, 246)
-        Me.PictureBox2.TabIndex = 5
-        Me.PictureBox2.TabStop = False
+        Me.btnGuardar.BackgroundImage = Global.Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.GuardarIcono
+        Me.btnGuardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnGuardar.FlatAppearance.BorderSize = 0
+        Me.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnGuardar.Location = New System.Drawing.Point(380, 123)
+        Me.btnGuardar.Name = "btnGuardar"
+        Me.btnGuardar.Size = New System.Drawing.Size(37, 31)
+        Me.btnGuardar.TabIndex = 5
+        Me.btnGuardar.UseVisualStyleBackColor = True
         '
         'PictureBox1
         '
@@ -456,18 +502,22 @@ Partial Class FormRopa
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(824, 383)
+        Me.BackColor = System.Drawing.Color.White
+        Me.ClientSize = New System.Drawing.Size(792, 537)
+        Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.pbBanner)
         Me.Controls.Add(Me.GroupBox6)
-        Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.gpxRopa)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.panelVentana)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FormRopa"
-        Me.Text = "FormRopa"
-        Me.Panel1.ResumeLayout(False)
+        Me.Text = "Ropa"
+        Me.panelVentana.ResumeLayout(False)
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.gpxClasificacion.ResumeLayout(False)
@@ -480,17 +530,18 @@ Partial Class FormRopa
         Me.GroupBox6.ResumeLayout(False)
         Me.GroupBox6.PerformLayout()
         Me.gpxTipoCalcetines.ResumeLayout(False)
-        CType(Me.pbBanner, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox2.ResumeLayout(False)
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pbBanner, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
 
-    Friend WithEvents Panel1 As Panel
+    Friend WithEvents panelVentana As Panel
     Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents Button2 As Button
-    Friend WithEvents Button1 As Button
+    Friend WithEvents btnVentanaMin As Button
+    Friend WithEvents btnVentanaSalir As Button
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents gpxRopa As GroupBox
     Friend WithEvents gpxClasificacion As GroupBox
@@ -510,10 +561,10 @@ Partial Class FormRopa
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents GroupBox4 As GroupBox
-    Friend WithEvents Button6 As Button
-    Friend WithEvents Button5 As Button
-    Friend WithEvents Button4 As Button
-    Friend WithEvents Button3 As Button
+    Friend WithEvents btnSalir As Button
+    Friend WithEvents btnEliminar As Button
+    Friend WithEvents btnAgregar As Button
+    Friend WithEvents btnCalcular As Button
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents txtExtras As TextBox
@@ -524,4 +575,7 @@ Partial Class FormRopa
     Friend WithEvents chkPulceras As CheckBox
     Friend WithEvents chkCalcetines As CheckBox
     Friend WithEvents pbBanner As PictureBox
+    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents btnGuardar As Button
+    Friend WithEvents Panel1 As Panel
 End Class

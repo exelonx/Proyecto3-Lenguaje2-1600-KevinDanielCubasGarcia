@@ -22,85 +22,402 @@ Partial Class FormDeporte
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormDeporte))
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.chkExtras = New System.Windows.Forms.CheckBox()
+        Me.rbBalones = New System.Windows.Forms.RadioButton()
+        Me.rbAccesorios = New System.Windows.Forms.RadioButton()
+        Me.rbBicicletas = New System.Windows.Forms.RadioButton()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.txtTotal = New System.Windows.Forms.TextBox()
+        Me.txtImpuesto = New System.Windows.Forms.TextBox()
+        Me.txtSubT = New System.Windows.Forms.TextBox()
+        Me.txtExtras = New System.Windows.Forms.TextBox()
+        Me.txtPrecio = New System.Windows.Forms.TextBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.lbImpuesto = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.btnSalir = New System.Windows.Forms.Button()
+        Me.btnEliminar = New System.Windows.Forms.Button()
+        Me.btnAgregar = New System.Windows.Forms.Button()
+        Me.btnCalcular = New System.Windows.Forms.Button()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.gpxTipoProducto = New System.Windows.Forms.GroupBox()
+        Me.txtCantidad = New System.Windows.Forms.TextBox()
+        Me.lbCantidad = New System.Windows.Forms.Label()
+        Me.cmbProductos = New System.Windows.Forms.ComboBox()
+        Me.panelVentana = New System.Windows.Forms.Panel()
+        Me.btnVentanaMin = New System.Windows.Forms.Button()
+        Me.btnVentanaSalir = New System.Windows.Forms.Button()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.chkBombaAire = New System.Windows.Forms.CheckBox()
+        Me.chkSuelas = New System.Windows.Forms.CheckBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Panel1.SuspendLayout()
+        Me.btnGuardar = New System.Windows.Forms.Button()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
+        Me.GroupBox1.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
+        Me.GroupBox3.SuspendLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.gpxTipoProducto.SuspendLayout()
+        Me.panelVentana.SuspendLayout()
+        Me.GroupBox4.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox1
         '
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 35)
+        Me.GroupBox1.Controls.Add(Me.chkExtras)
+        Me.GroupBox1.Controls.Add(Me.rbBalones)
+        Me.GroupBox1.Controls.Add(Me.rbAccesorios)
+        Me.GroupBox1.Controls.Add(Me.rbBicicletas)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 186)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(200, 100)
+        Me.GroupBox1.Size = New System.Drawing.Size(181, 90)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Tipo de producto"
         '
+        'chkExtras
+        '
+        Me.chkExtras.AutoSize = True
+        Me.chkExtras.Location = New System.Drawing.Point(96, 43)
+        Me.chkExtras.Name = "chkExtras"
+        Me.chkExtras.Size = New System.Drawing.Size(79, 17)
+        Me.chkExtras.TabIndex = 3
+        Me.chkExtras.Text = "Solo Extras"
+        Me.chkExtras.UseVisualStyleBackColor = True
+        '
+        'rbBalones
+        '
+        Me.rbBalones.AutoSize = True
+        Me.rbBalones.Location = New System.Drawing.Point(7, 20)
+        Me.rbBalones.Name = "rbBalones"
+        Me.rbBalones.Size = New System.Drawing.Size(63, 17)
+        Me.rbBalones.TabIndex = 2
+        Me.rbBalones.Text = "Balones"
+        Me.rbBalones.UseVisualStyleBackColor = True
+        '
+        'rbAccesorios
+        '
+        Me.rbAccesorios.AutoSize = True
+        Me.rbAccesorios.Location = New System.Drawing.Point(7, 67)
+        Me.rbAccesorios.Name = "rbAccesorios"
+        Me.rbAccesorios.Size = New System.Drawing.Size(77, 17)
+        Me.rbAccesorios.TabIndex = 1
+        Me.rbAccesorios.Text = "Accesorios"
+        Me.rbAccesorios.UseVisualStyleBackColor = True
+        '
+        'rbBicicletas
+        '
+        Me.rbBicicletas.AutoSize = True
+        Me.rbBicicletas.Location = New System.Drawing.Point(7, 43)
+        Me.rbBicicletas.Name = "rbBicicletas"
+        Me.rbBicicletas.Size = New System.Drawing.Size(70, 17)
+        Me.rbBicicletas.TabIndex = 0
+        Me.rbBicicletas.Text = "Bicicletas"
+        Me.rbBicicletas.UseVisualStyleBackColor = True
+        '
         'GroupBox2
         '
-        Me.GroupBox2.Location = New System.Drawing.Point(13, 141)
+        Me.GroupBox2.Controls.Add(Me.txtTotal)
+        Me.GroupBox2.Controls.Add(Me.txtImpuesto)
+        Me.GroupBox2.Controls.Add(Me.txtSubT)
+        Me.GroupBox2.Controls.Add(Me.txtExtras)
+        Me.GroupBox2.Controls.Add(Me.txtPrecio)
+        Me.GroupBox2.Controls.Add(Me.Label5)
+        Me.GroupBox2.Controls.Add(Me.lbImpuesto)
+        Me.GroupBox2.Controls.Add(Me.Label3)
+        Me.GroupBox2.Controls.Add(Me.Label2)
+        Me.GroupBox2.Controls.Add(Me.Label1)
+        Me.GroupBox2.Location = New System.Drawing.Point(12, 282)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(200, 243)
+        Me.GroupBox2.Size = New System.Drawing.Size(181, 157)
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Calculos"
         '
+        'txtTotal
+        '
+        Me.txtTotal.Location = New System.Drawing.Point(68, 128)
+        Me.txtTotal.Name = "txtTotal"
+        Me.txtTotal.ReadOnly = True
+        Me.txtTotal.Size = New System.Drawing.Size(100, 20)
+        Me.txtTotal.TabIndex = 9
+        Me.txtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'txtImpuesto
+        '
+        Me.txtImpuesto.Location = New System.Drawing.Point(68, 101)
+        Me.txtImpuesto.Name = "txtImpuesto"
+        Me.txtImpuesto.ReadOnly = True
+        Me.txtImpuesto.Size = New System.Drawing.Size(100, 20)
+        Me.txtImpuesto.TabIndex = 8
+        Me.txtImpuesto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'txtSubT
+        '
+        Me.txtSubT.Location = New System.Drawing.Point(68, 74)
+        Me.txtSubT.Name = "txtSubT"
+        Me.txtSubT.ReadOnly = True
+        Me.txtSubT.Size = New System.Drawing.Size(100, 20)
+        Me.txtSubT.TabIndex = 7
+        Me.txtSubT.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'txtExtras
+        '
+        Me.txtExtras.Location = New System.Drawing.Point(68, 47)
+        Me.txtExtras.Name = "txtExtras"
+        Me.txtExtras.ReadOnly = True
+        Me.txtExtras.Size = New System.Drawing.Size(100, 20)
+        Me.txtExtras.TabIndex = 6
+        Me.txtExtras.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'txtPrecio
+        '
+        Me.txtPrecio.Location = New System.Drawing.Point(68, 20)
+        Me.txtPrecio.Name = "txtPrecio"
+        Me.txtPrecio.ReadOnly = True
+        Me.txtPrecio.Size = New System.Drawing.Size(100, 20)
+        Me.txtPrecio.TabIndex = 5
+        Me.txtPrecio.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(6, 131)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(31, 13)
+        Me.Label5.TabIndex = 4
+        Me.Label5.Text = "Total"
+        '
+        'lbImpuesto
+        '
+        Me.lbImpuesto.AutoSize = True
+        Me.lbImpuesto.Location = New System.Drawing.Point(6, 104)
+        Me.lbImpuesto.Name = "lbImpuesto"
+        Me.lbImpuesto.Size = New System.Drawing.Size(50, 13)
+        Me.lbImpuesto.TabIndex = 3
+        Me.lbImpuesto.Text = "Impuesto"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(6, 77)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(50, 13)
+        Me.Label3.TabIndex = 2
+        Me.Label3.Text = "SubTotal"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(6, 50)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(36, 13)
+        Me.Label2.TabIndex = 1
+        Me.Label2.Text = "Extras"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(6, 23)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(37, 13)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "Precio"
+        '
         'GroupBox3
         '
-        Me.GroupBox3.Location = New System.Drawing.Point(218, 141)
+        Me.GroupBox3.Controls.Add(Me.btnGuardar)
+        Me.GroupBox3.Controls.Add(Me.btnSalir)
+        Me.GroupBox3.Controls.Add(Me.btnEliminar)
+        Me.GroupBox3.Controls.Add(Me.btnAgregar)
+        Me.GroupBox3.Controls.Add(Me.btnCalcular)
+        Me.GroupBox3.Controls.Add(Me.DataGridView1)
+        Me.GroupBox3.Location = New System.Drawing.Point(199, 282)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(372, 243)
+        Me.GroupBox3.Size = New System.Drawing.Size(344, 157)
         Me.GroupBox3.TabIndex = 2
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Salida"
         '
+        'btnSalir
+        '
+        Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSalir.Location = New System.Drawing.Point(229, 125)
+        Me.btnSalir.Name = "btnSalir"
+        Me.btnSalir.Size = New System.Drawing.Size(75, 23)
+        Me.btnSalir.TabIndex = 4
+        Me.btnSalir.Text = "Salir"
+        Me.btnSalir.UseVisualStyleBackColor = True
+        '
+        'btnEliminar
+        '
+        Me.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnEliminar.Location = New System.Drawing.Point(155, 125)
+        Me.btnEliminar.Name = "btnEliminar"
+        Me.btnEliminar.Size = New System.Drawing.Size(75, 23)
+        Me.btnEliminar.TabIndex = 3
+        Me.btnEliminar.Text = "Eliminar"
+        Me.btnEliminar.UseVisualStyleBackColor = True
+        '
+        'btnAgregar
+        '
+        Me.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAgregar.Location = New System.Drawing.Point(81, 125)
+        Me.btnAgregar.Name = "btnAgregar"
+        Me.btnAgregar.Size = New System.Drawing.Size(75, 23)
+        Me.btnAgregar.TabIndex = 2
+        Me.btnAgregar.Text = "Agregar"
+        Me.btnAgregar.UseVisualStyleBackColor = True
+        '
+        'btnCalcular
+        '
+        Me.btnCalcular.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCalcular.Location = New System.Drawing.Point(7, 125)
+        Me.btnCalcular.Name = "btnCalcular"
+        Me.btnCalcular.Size = New System.Drawing.Size(75, 23)
+        Me.btnCalcular.TabIndex = 1
+        Me.btnCalcular.Text = "Calcular"
+        Me.btnCalcular.UseVisualStyleBackColor = True
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Location = New System.Drawing.Point(7, 20)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.Size = New System.Drawing.Size(331, 101)
+        Me.DataGridView1.TabIndex = 0
+        '
+        'gpxTipoProducto
+        '
+        Me.gpxTipoProducto.Controls.Add(Me.txtCantidad)
+        Me.gpxTipoProducto.Controls.Add(Me.lbCantidad)
+        Me.gpxTipoProducto.Controls.Add(Me.cmbProductos)
+        Me.gpxTipoProducto.Location = New System.Drawing.Point(199, 186)
+        Me.gpxTipoProducto.Name = "gpxTipoProducto"
+        Me.gpxTipoProducto.Size = New System.Drawing.Size(173, 90)
+        Me.gpxTipoProducto.TabIndex = 3
+        Me.gpxTipoProducto.TabStop = False
+        Me.gpxTipoProducto.Text = "Producto"
+        Me.gpxTipoProducto.Visible = False
+        '
+        'txtCantidad
+        '
+        Me.txtCantidad.Enabled = False
+        Me.txtCantidad.Location = New System.Drawing.Point(64, 56)
+        Me.txtCantidad.Name = "txtCantidad"
+        Me.txtCantidad.Size = New System.Drawing.Size(100, 20)
+        Me.txtCantidad.TabIndex = 2
+        '
+        'lbCantidad
+        '
+        Me.lbCantidad.AutoSize = True
+        Me.lbCantidad.Enabled = False
+        Me.lbCantidad.Location = New System.Drawing.Point(7, 59)
+        Me.lbCantidad.Name = "lbCantidad"
+        Me.lbCantidad.Size = New System.Drawing.Size(52, 13)
+        Me.lbCantidad.TabIndex = 1
+        Me.lbCantidad.Text = "Cantidad:"
+        '
+        'cmbProductos
+        '
+        Me.cmbProductos.DropDownWidth = 255
+        Me.cmbProductos.FormattingEnabled = True
+        Me.cmbProductos.Location = New System.Drawing.Point(7, 23)
+        Me.cmbProductos.Name = "cmbProductos"
+        Me.cmbProductos.Size = New System.Drawing.Size(158, 21)
+        Me.cmbProductos.TabIndex = 0
+        '
+        'panelVentana
+        '
+        Me.panelVentana.BackColor = System.Drawing.Color.FromArgb(CType(CType(24, Byte), Integer), CType(CType(16, Byte), Integer), CType(CType(114, Byte), Integer))
+        Me.panelVentana.Controls.Add(Me.PictureBox1)
+        Me.panelVentana.Controls.Add(Me.btnVentanaMin)
+        Me.panelVentana.Controls.Add(Me.btnVentanaSalir)
+        Me.panelVentana.Dock = System.Windows.Forms.DockStyle.Top
+        Me.panelVentana.Location = New System.Drawing.Point(0, 0)
+        Me.panelVentana.Name = "panelVentana"
+        Me.panelVentana.Size = New System.Drawing.Size(710, 29)
+        Me.panelVentana.TabIndex = 4
+        '
+        'btnVentanaMin
+        '
+        Me.btnVentanaMin.BackColor = System.Drawing.Color.White
+        Me.btnVentanaMin.Dock = System.Windows.Forms.DockStyle.Right
+        Me.btnVentanaMin.FlatAppearance.BorderSize = 0
+        Me.btnVentanaMin.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnVentanaMin.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnVentanaMin.Location = New System.Drawing.Point(628, 0)
+        Me.btnVentanaMin.Name = "btnVentanaMin"
+        Me.btnVentanaMin.Size = New System.Drawing.Size(41, 29)
+        Me.btnVentanaMin.TabIndex = 1
+        Me.btnVentanaMin.Text = "-"
+        Me.btnVentanaMin.UseVisualStyleBackColor = False
+        '
+        'btnVentanaSalir
+        '
+        Me.btnVentanaSalir.BackColor = System.Drawing.Color.White
+        Me.btnVentanaSalir.Dock = System.Windows.Forms.DockStyle.Right
+        Me.btnVentanaSalir.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.btnVentanaSalir.FlatAppearance.BorderSize = 0
+        Me.btnVentanaSalir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(17, Byte), Integer), CType(CType(35, Byte), Integer))
+        Me.btnVentanaSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnVentanaSalir.Location = New System.Drawing.Point(669, 0)
+        Me.btnVentanaSalir.Name = "btnVentanaSalir"
+        Me.btnVentanaSalir.Size = New System.Drawing.Size(41, 29)
+        Me.btnVentanaSalir.TabIndex = 0
+        Me.btnVentanaSalir.Text = "X"
+        Me.btnVentanaSalir.UseVisualStyleBackColor = False
+        '
         'GroupBox4
         '
-        Me.GroupBox4.Location = New System.Drawing.Point(218, 35)
+        Me.GroupBox4.Controls.Add(Me.chkBombaAire)
+        Me.GroupBox4.Controls.Add(Me.chkSuelas)
+        Me.GroupBox4.Location = New System.Drawing.Point(378, 186)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(200, 100)
-        Me.GroupBox4.TabIndex = 3
+        Me.GroupBox4.Size = New System.Drawing.Size(165, 90)
+        Me.GroupBox4.TabIndex = 5
         Me.GroupBox4.TabStop = False
-        Me.GroupBox4.Text = "GroupBox4"
+        Me.GroupBox4.Text = "Extras"
+        '
+        'chkBombaAire
+        '
+        Me.chkBombaAire.AutoSize = True
+        Me.chkBombaAire.Location = New System.Drawing.Point(6, 53)
+        Me.chkBombaAire.Name = "chkBombaAire"
+        Me.chkBombaAire.Size = New System.Drawing.Size(158, 17)
+        Me.chkBombaAire.TabIndex = 1
+        Me.chkBombaAire.Text = "Bomba de Aire       L.300.00"
+        Me.chkBombaAire.UseVisualStyleBackColor = True
+        '
+        'chkSuelas
+        '
+        Me.chkSuelas.AutoSize = True
+        Me.chkSuelas.Location = New System.Drawing.Point(6, 25)
+        Me.chkSuelas.Name = "chkSuelas"
+        Me.chkSuelas.Size = New System.Drawing.Size(157, 17)
+        Me.chkSuelas.TabIndex = 0
+        Me.chkSuelas.Text = "Suelas Deportivas L.150.00"
+        Me.chkSuelas.UseVisualStyleBackColor = True
         '
         'Panel1
         '
-        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(24, Byte), Integer), CType(CType(16, Byte), Integer), CType(CType(114, Byte), Integer))
-        Me.Panel1.Controls.Add(Me.PictureBox1)
-        Me.Panel1.Controls.Add(Me.Button2)
-        Me.Panel1.Controls.Add(Me.Button1)
+        Me.Panel1.BackgroundImage = Global.Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.bannerDeporteDiunsaFixed
+        Me.Panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel1.Location = New System.Drawing.Point(0, 0)
+        Me.Panel1.Location = New System.Drawing.Point(0, 29)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(800, 29)
-        Me.Panel1.TabIndex = 4
-        '
-        'Button1
-        '
-        Me.Button1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Button1.Location = New System.Drawing.Point(725, 0)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 29)
-        Me.Button1.TabIndex = 0
-        Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
-        'Button2
-        '
-        Me.Button2.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Button2.Location = New System.Drawing.Point(650, 0)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 29)
-        Me.Button2.TabIndex = 1
-        Me.Button2.Text = "Button2"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.Panel1.Size = New System.Drawing.Size(710, 151)
+        Me.Panel1.TabIndex = 7
         '
         'PictureBox1
         '
@@ -112,20 +429,72 @@ Partial Class FormDeporte
         Me.PictureBox1.TabIndex = 2
         Me.PictureBox1.TabStop = False
         '
+        'btnGuardar
+        '
+        Me.btnGuardar.BackgroundImage = Global.Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.GuardarIcono1
+        Me.btnGuardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnGuardar.FlatAppearance.BorderSize = 0
+        Me.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnGuardar.Location = New System.Drawing.Point(304, 121)
+        Me.btnGuardar.Name = "btnGuardar"
+        Me.btnGuardar.Size = New System.Drawing.Size(37, 31)
+        Me.btnGuardar.TabIndex = 5
+        Me.btnGuardar.UseVisualStyleBackColor = True
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
+        Me.PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PictureBox2.Dock = System.Windows.Forms.DockStyle.Right
+        Me.PictureBox2.Location = New System.Drawing.Point(549, 180)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(161, 359)
+        Me.PictureBox2.TabIndex = 8
+        Me.PictureBox2.TabStop = False
+        '
+        'PictureBox3
+        '
+        Me.PictureBox3.BackgroundImage = Global.Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.bannerAccesorios1
+        Me.PictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PictureBox3.Location = New System.Drawing.Point(199, 445)
+        Me.PictureBox3.Name = "PictureBox3"
+        Me.PictureBox3.Size = New System.Drawing.Size(173, 84)
+        Me.PictureBox3.TabIndex = 9
+        Me.PictureBox3.TabStop = False
+        '
         'FormDeporte
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 617)
+        Me.BackColor = System.Drawing.Color.White
+        Me.ClientSize = New System.Drawing.Size(710, 539)
+        Me.Controls.Add(Me.PictureBox3)
+        Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.GroupBox4)
+        Me.Controls.Add(Me.panelVentana)
+        Me.Controls.Add(Me.gpxTipoProducto)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FormDeporte"
-        Me.Text = "FormDeporte"
-        Me.Panel1.ResumeLayout(False)
+        Me.Text = "Deporte"
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
+        Me.GroupBox3.ResumeLayout(False)
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.gpxTipoProducto.ResumeLayout(False)
+        Me.gpxTipoProducto.PerformLayout()
+        Me.panelVentana.ResumeLayout(False)
+        Me.GroupBox4.ResumeLayout(False)
+        Me.GroupBox4.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -133,9 +502,38 @@ Partial Class FormDeporte
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents GroupBox3 As GroupBox
-    Friend WithEvents GroupBox4 As GroupBox
-    Friend WithEvents Panel1 As Panel
+    Friend WithEvents gpxTipoProducto As GroupBox
+    Friend WithEvents panelVentana As Panel
     Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents Button2 As Button
-    Friend WithEvents Button1 As Button
+    Friend WithEvents btnVentanaMin As Button
+    Friend WithEvents btnVentanaSalir As Button
+    Friend WithEvents btnSalir As Button
+    Friend WithEvents btnEliminar As Button
+    Friend WithEvents btnAgregar As Button
+    Friend WithEvents btnCalcular As Button
+    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents rbBalones As RadioButton
+    Friend WithEvents rbAccesorios As RadioButton
+    Friend WithEvents rbBicicletas As RadioButton
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Label1 As Label
+    Friend WithEvents chkExtras As CheckBox
+    Friend WithEvents cmbProductos As ComboBox
+    Friend WithEvents GroupBox4 As GroupBox
+    Friend WithEvents lbCantidad As Label
+    Friend WithEvents txtCantidad As TextBox
+    Friend WithEvents chkSuelas As CheckBox
+    Friend WithEvents chkBombaAire As CheckBox
+    Friend WithEvents txtTotal As TextBox
+    Friend WithEvents txtImpuesto As TextBox
+    Friend WithEvents txtSubT As TextBox
+    Friend WithEvents txtExtras As TextBox
+    Friend WithEvents txtPrecio As TextBox
+    Friend WithEvents Label5 As Label
+    Friend WithEvents lbImpuesto As Label
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents btnGuardar As Button
+    Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents PictureBox3 As PictureBox
 End Class

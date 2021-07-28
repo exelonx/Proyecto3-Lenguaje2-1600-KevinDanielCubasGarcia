@@ -122,31 +122,9 @@
     End Sub
 
     Private Sub FormTecnologia_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        PictureBox3.Location = New Point(189, 42)
-        pbAccesorios.Location = New Point(333, 42)
-        Me.Size = New Size(730, 307)
-
-    End Sub
-    'Ventana personalizada
-    Private Sub panelVentana_MouseDown(sender As Object, e As MouseEventArgs) Handles panelVentana.MouseDown
-        ventana.setUbicacionMouse(e)
-    End Sub
-
-    Private Sub panelVentana_MouseUp(sender As Object, e As MouseEventArgs) Handles panelVentana.MouseUp
-        Ventana.clickVentana = False
-    End Sub
-
-    Private Sub panelVentana_MouseMove(sender As Object, e As MouseEventArgs) Handles panelVentana.MouseMove
-        ventana.ventanaPresionada(Me, e, panelVentana)
-    End Sub
-
-    'Botones de cerrar y minimizar
-    Private Sub btnVentanaMin_Click(sender As Object, e As EventArgs) Handles btnVentanaMin.Click
-        Me.WindowState = FormWindowState.Minimized
-    End Sub
-
-    Private Sub btnVentanaSalir_Click(sender As Object, e As EventArgs) Handles btnVentanaSalir.Click
-        Close()
+        PictureBox3.Location = New Point(189, 193)
+        pbAccesorios.Location = New Point(333, 193)
+        Me.Size = New Size(730, 456)
     End Sub
 
     Private Sub rbConsolas_CheckedChanged(sender As Object, e As EventArgs) Handles rbSoloAccesorios.CheckedChanged
@@ -291,5 +269,35 @@
 
     Private Sub cmbAcces3_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbAcces3.SelectedIndexChanged
         salidaPrecioAccesorios(cmbAcces3, 2)
+    End Sub
+
+    Private Sub btnVentanaSalir_MouseMove(sender As Object, e As MouseEventArgs) Handles btnVentanaSalir.MouseMove
+        btnVentanaSalir.ForeColor = Color.White
+    End Sub
+
+    Private Sub btnVentanaSalir_MouseLeave(sender As Object, e As EventArgs) Handles btnVentanaSalir.MouseLeave
+        btnVentanaSalir.ForeColor = Color.Black
+    End Sub
+
+    'Ventana personalizada
+    Private Sub panelVentana_MouseDown(sender As Object, e As MouseEventArgs) Handles panelVentana.MouseDown
+        ventana.setUbicacionMouse(e)
+    End Sub
+
+    Private Sub panelVentana_MouseUp(sender As Object, e As MouseEventArgs) Handles panelVentana.MouseUp
+        ventana.clickVentana = False
+    End Sub
+
+    Private Sub panelVentana_MouseMove(sender As Object, e As MouseEventArgs) Handles panelVentana.MouseMove
+        ventana.ventanaPresionada(Me, e, panelVentana)
+    End Sub
+
+    'Botones de cerrar y minimizar
+    Private Sub btnVentanaMin_Click(sender As Object, e As EventArgs) Handles btnVentanaMin.Click
+        Me.WindowState = FormWindowState.Minimized
+    End Sub
+
+    Private Sub btnVentanaSalir_Click(sender As Object, e As EventArgs) Handles btnVentanaSalir.Click
+        Close()
     End Sub
 End Class

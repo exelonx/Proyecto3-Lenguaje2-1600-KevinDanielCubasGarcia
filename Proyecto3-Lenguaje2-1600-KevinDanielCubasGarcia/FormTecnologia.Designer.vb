@@ -22,6 +22,7 @@ Partial Class FormTecnologia
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormTecnologia))
         Me.panelVentana = New System.Windows.Forms.Panel()
         Me.btnVentanaMin = New System.Windows.Forms.Button()
         Me.btnVentanaSalir = New System.Windows.Forms.Button()
@@ -41,6 +42,7 @@ Partial Class FormTecnologia
         Me.txtPrecioB = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.btnSalir = New System.Windows.Forms.Button()
         Me.btnAgregar = New System.Windows.Forms.Button()
         Me.btnCalcular = New System.Windows.Forms.Button()
@@ -57,9 +59,10 @@ Partial Class FormTecnologia
         Me.txtCantidadProducto = New System.Windows.Forms.TextBox()
         Me.gpxProducto = New System.Windows.Forms.GroupBox()
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.btnGuardar = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.pbAccesorios = New System.Windows.Forms.PictureBox()
         Me.panelVentana.SuspendLayout()
@@ -70,6 +73,7 @@ Partial Class FormTecnologia
         Me.gpxAccesorios.SuspendLayout()
         Me.gpxProducto.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -124,7 +128,7 @@ Partial Class FormTecnologia
         Me.GroupBox1.Controls.Add(Me.rbSoloAccesorios)
         Me.GroupBox1.Controls.Add(Me.rbCelulares)
         Me.GroupBox1.Controls.Add(Me.rbComputadoras)
-        Me.GroupBox1.Location = New System.Drawing.Point(13, 36)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 186)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(169, 94)
         Me.GroupBox1.TabIndex = 1
@@ -176,7 +180,7 @@ Partial Class FormTecnologia
         Me.GroupBox2.Controls.Add(Me.Label3)
         Me.GroupBox2.Controls.Add(Me.txtPrecioB)
         Me.GroupBox2.Controls.Add(Me.Label1)
-        Me.GroupBox2.Location = New System.Drawing.Point(13, 137)
+        Me.GroupBox2.Location = New System.Drawing.Point(12, 287)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(169, 161)
         Me.GroupBox2.TabIndex = 2
@@ -275,51 +279,69 @@ Partial Class FormTecnologia
         '
         'GroupBox3
         '
+        Me.GroupBox3.Controls.Add(Me.btnGuardar)
         Me.GroupBox3.Controls.Add(Me.Button1)
         Me.GroupBox3.Controls.Add(Me.btnSalir)
         Me.GroupBox3.Controls.Add(Me.btnAgregar)
         Me.GroupBox3.Controls.Add(Me.btnCalcular)
         Me.GroupBox3.Controls.Add(Me.DataGridView1)
-        Me.GroupBox3.Location = New System.Drawing.Point(189, 137)
+        Me.GroupBox3.Location = New System.Drawing.Point(188, 287)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(362, 161)
         Me.GroupBox3.TabIndex = 3
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Salida"
         '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.White
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Location = New System.Drawing.Point(158, 128)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 4
+        Me.Button1.Text = "Eliminar"
+        Me.Button1.UseVisualStyleBackColor = False
+        '
         'btnSalir
         '
-        Me.btnSalir.Location = New System.Drawing.Point(254, 124)
+        Me.btnSalir.BackColor = System.Drawing.Color.White
+        Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSalir.Location = New System.Drawing.Point(232, 128)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(75, 23)
         Me.btnSalir.TabIndex = 3
         Me.btnSalir.Text = "Salir"
-        Me.btnSalir.UseVisualStyleBackColor = True
+        Me.btnSalir.UseVisualStyleBackColor = False
         '
         'btnAgregar
         '
-        Me.btnAgregar.Location = New System.Drawing.Point(92, 124)
+        Me.btnAgregar.BackColor = System.Drawing.Color.White
+        Me.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAgregar.Location = New System.Drawing.Point(84, 128)
         Me.btnAgregar.Name = "btnAgregar"
         Me.btnAgregar.Size = New System.Drawing.Size(75, 23)
         Me.btnAgregar.TabIndex = 2
         Me.btnAgregar.Text = "Agregar"
-        Me.btnAgregar.UseVisualStyleBackColor = True
+        Me.btnAgregar.UseVisualStyleBackColor = False
         '
         'btnCalcular
         '
-        Me.btnCalcular.Location = New System.Drawing.Point(10, 124)
+        Me.btnCalcular.BackColor = System.Drawing.Color.White
+        Me.btnCalcular.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCalcular.Location = New System.Drawing.Point(10, 128)
         Me.btnCalcular.Name = "btnCalcular"
         Me.btnCalcular.Size = New System.Drawing.Size(75, 23)
         Me.btnCalcular.TabIndex = 1
         Me.btnCalcular.Text = "Calcular"
-        Me.btnCalcular.UseVisualStyleBackColor = True
+        Me.btnCalcular.UseVisualStyleBackColor = False
         '
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Location = New System.Drawing.Point(10, 20)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(340, 101)
+        Me.DataGridView1.Size = New System.Drawing.Size(340, 102)
         Me.DataGridView1.TabIndex = 0
         '
         'gpxAccesorios
@@ -330,7 +352,7 @@ Partial Class FormTecnologia
         Me.gpxAccesorios.Controls.Add(Me.chkAcces3)
         Me.gpxAccesorios.Controls.Add(Me.chkAcces2)
         Me.gpxAccesorios.Controls.Add(Me.chkAcces1)
-        Me.gpxAccesorios.Location = New System.Drawing.Point(333, 36)
+        Me.gpxAccesorios.Location = New System.Drawing.Point(332, 186)
         Me.gpxAccesorios.Name = "gpxAccesorios"
         Me.gpxAccesorios.Size = New System.Drawing.Size(218, 94)
         Me.gpxAccesorios.TabIndex = 5
@@ -428,7 +450,7 @@ Partial Class FormTecnologia
         Me.gpxProducto.Controls.Add(Me.txtCantidadProducto)
         Me.gpxProducto.Controls.Add(Me.lbCantidad)
         Me.gpxProducto.Controls.Add(Me.cmbProducto)
-        Me.gpxProducto.Location = New System.Drawing.Point(189, 36)
+        Me.gpxProducto.Location = New System.Drawing.Point(188, 186)
         Me.gpxProducto.Name = "gpxProducto"
         Me.gpxProducto.Size = New System.Drawing.Size(138, 94)
         Me.gpxProducto.TabIndex = 4
@@ -439,25 +461,27 @@ Partial Class FormTecnologia
         'GroupBox6
         '
         Me.GroupBox6.Controls.Add(Me.PictureBox2)
-        Me.GroupBox6.Location = New System.Drawing.Point(558, 36)
+        Me.GroupBox6.Location = New System.Drawing.Point(557, 186)
         Me.GroupBox6.Name = "GroupBox6"
         Me.GroupBox6.Size = New System.Drawing.Size(160, 262)
         Me.GroupBox6.TabIndex = 6
         Me.GroupBox6.TabStop = False
         '
-        'Button1
+        'PictureBox4
         '
-        Me.Button1.Location = New System.Drawing.Point(173, 124)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 4
-        Me.Button1.Text = "Eliminar"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.PictureBox4.BackgroundImage = Global.Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.bannerTecnologiaDiunsaFixed1
+        Me.PictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PictureBox4.Dock = System.Windows.Forms.DockStyle.Top
+        Me.PictureBox4.Location = New System.Drawing.Point(0, 29)
+        Me.PictureBox4.Name = "PictureBox4"
+        Me.PictureBox4.Size = New System.Drawing.Size(730, 151)
+        Me.PictureBox4.TabIndex = 9
+        Me.PictureBox4.TabStop = False
         '
         'PictureBox3
         '
         Me.PictureBox3.BackgroundImage = Global.Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.bannerDiunsa
-        Me.PictureBox3.Location = New System.Drawing.Point(13, 304)
+        Me.PictureBox3.Location = New System.Drawing.Point(12, 454)
         Me.PictureBox3.Name = "PictureBox3"
         Me.PictureBox3.Size = New System.Drawing.Size(363, 86)
         Me.PictureBox3.TabIndex = 7
@@ -472,6 +496,19 @@ Partial Class FormTecnologia
         Me.PictureBox2.TabIndex = 0
         Me.PictureBox2.TabStop = False
         '
+        'btnGuardar
+        '
+        Me.btnGuardar.BackColor = System.Drawing.Color.White
+        Me.btnGuardar.BackgroundImage = Global.Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.GuardarIcono
+        Me.btnGuardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnGuardar.FlatAppearance.BorderSize = 0
+        Me.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnGuardar.Location = New System.Drawing.Point(313, 124)
+        Me.btnGuardar.Name = "btnGuardar"
+        Me.btnGuardar.Size = New System.Drawing.Size(37, 31)
+        Me.btnGuardar.TabIndex = 9
+        Me.btnGuardar.UseVisualStyleBackColor = False
+        '
         'PictureBox1
         '
         Me.PictureBox1.BackgroundImage = Global.Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.logoDiunsa2_Fixed3
@@ -485,7 +522,7 @@ Partial Class FormTecnologia
         'pbAccesorios
         '
         Me.pbAccesorios.BackgroundImage = Global.Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.bannerAccesorios1
-        Me.pbAccesorios.Location = New System.Drawing.Point(383, 305)
+        Me.pbAccesorios.Location = New System.Drawing.Point(382, 455)
         Me.pbAccesorios.Name = "pbAccesorios"
         Me.pbAccesorios.Size = New System.Drawing.Size(218, 86)
         Me.pbAccesorios.TabIndex = 8
@@ -496,7 +533,9 @@ Partial Class FormTecnologia
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(730, 380)
+        Me.BackColor = System.Drawing.Color.White
+        Me.ClientSize = New System.Drawing.Size(730, 549)
+        Me.Controls.Add(Me.PictureBox4)
         Me.Controls.Add(Me.PictureBox3)
         Me.Controls.Add(Me.GroupBox6)
         Me.Controls.Add(Me.gpxProducto)
@@ -507,8 +546,9 @@ Partial Class FormTecnologia
         Me.Controls.Add(Me.pbAccesorios)
         Me.Controls.Add(Me.gpxAccesorios)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FormTecnologia"
-        Me.Text = "FormTecnologia"
+        Me.Text = "Tecnología"
         Me.panelVentana.ResumeLayout(False)
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
@@ -521,6 +561,7 @@ Partial Class FormTecnologia
         Me.gpxProducto.ResumeLayout(False)
         Me.gpxProducto.PerformLayout()
         Me.GroupBox6.ResumeLayout(False)
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -569,4 +610,6 @@ Partial Class FormTecnologia
     Friend WithEvents PictureBox3 As PictureBox
     Friend WithEvents pbAccesorios As PictureBox
     Friend WithEvents Button1 As Button
+    Friend WithEvents btnGuardar As Button
+    Friend WithEvents PictureBox4 As PictureBox
 End Class

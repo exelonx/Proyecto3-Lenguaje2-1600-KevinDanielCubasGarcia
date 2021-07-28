@@ -83,9 +83,99 @@ Namespace My.Resources
         '''<summary>
         '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property bannerDeporteDiunsa() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("bannerDeporteDiunsa", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property bannerDeporteDiunsaFixed() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("bannerDeporteDiunsaFixed", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property bannerDiunsa() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("bannerDiunsa", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property bannerModaDiunsa2() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("bannerModaDiunsa2", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property bannerModaDiunsa2Fixed() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("bannerModaDiunsa2Fixed", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property bannerModaDiunsa4() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("bannerModaDiunsa4", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property bannerModaDiunsaFixed2() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("bannerModaDiunsaFixed2", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property bannerModaDiunsaFixed21() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("bannerModaDiunsaFixed21", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property bannerTecnologiaDiunsaFixed() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("bannerTecnologiaDiunsaFixed", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property bannerTecnologiaDiunsaFixed1() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("bannerTecnologiaDiunsaFixed1", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -156,6 +246,26 @@ Namespace My.Resources
         Friend ReadOnly Property fondoFormLogin1() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("fondoFormLogin1", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property GuardarIcono() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("GuardarIcono", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property GuardarIcono1() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("GuardarIcono1", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

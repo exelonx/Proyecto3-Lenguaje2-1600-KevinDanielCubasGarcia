@@ -1,6 +1,4 @@
-﻿Imports System.Runtime.InteropServices
-
-Public Class VentanaEstilo
+﻿Public Class VentanaEstilo
     'Atributos publicos
     Public clickVentana
     Public x, y
@@ -23,9 +21,15 @@ Public Class VentanaEstilo
         y = mouse.Y
     End Sub
 
-    'Metodos para sombras
-    Public Declare Function getClassLong Lib "user32" Alias "getClassLongA" (dT As IntPtr, uI As Integer) As Integer
-    Public Declare Function getDesktopWindow Lib "user32" () As Integer
-    Public Declare Function setClassLong Lib "user32" Alias "setClassLongA" (dT As IntPtr, iDF As Integer, iGT As Integer) As Integer
-    Public Declare Function setWindowsLong Lib "user32" Alias "setWindowLongA" (wO As IntPtr, nI As Integer, nK As Integer) As Integer
+    'metodo solo para estetica
+    Public Sub visibilidad(gpx As GroupBox, pb As PictureBox)
+        gpx.Visible = True
+        pb.Visible = False
+    End Sub
+
+
+    Public Sub visibilidadInversa(gpx As GroupBox, pb As PictureBox)
+        gpx.Visible = False
+        pb.Visible = True
+    End Sub
 End Class

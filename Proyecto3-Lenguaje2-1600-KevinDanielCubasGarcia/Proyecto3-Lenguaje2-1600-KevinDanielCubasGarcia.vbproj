@@ -235,5 +235,38 @@
   <ItemGroup>
     <None Include="Resources\Oficina Diunsa Fixed2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GuardarIcono.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bannerDeporteDiunsa.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bannerDeporteDiunsaFixed.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bannerTecnologiaDiunsaFixed.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bannerTecnologiaDiunsaFixed1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bannerModaDiunsaFixed2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bannerModaDiunsa2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bannerModaDiunsaFixed21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bannerModaDiunsa2Fixed.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bannerModaDiunsa4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GuardarIcono1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
