@@ -140,6 +140,10 @@
         precioExtra(chkBorrador, 5)
     End Sub
 
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+        Close()
+    End Sub
+
     'Botones de cerrar y minimizar
     Private Sub btnVentanaMin_Click(sender As Object, e As EventArgs) Handles btnVentanaMin.Click
         Me.WindowState = FormWindowState.Minimized

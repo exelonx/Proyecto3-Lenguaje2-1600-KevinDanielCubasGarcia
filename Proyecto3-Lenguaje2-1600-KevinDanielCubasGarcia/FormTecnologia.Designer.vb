@@ -65,6 +65,10 @@ Partial Class FormTecnologia
         Me.btnGuardar = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.pbAccesorios = New System.Windows.Forms.PictureBox()
+        Me.detalle = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.precio = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.impuesto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.total = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.panelVentana.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -339,6 +343,7 @@ Partial Class FormTecnologia
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.detalle, Me.precio, Me.impuesto, Me.total})
         Me.DataGridView1.Location = New System.Drawing.Point(10, 20)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.Size = New System.Drawing.Size(340, 102)
@@ -529,6 +534,30 @@ Partial Class FormTecnologia
         Me.pbAccesorios.TabStop = False
         Me.pbAccesorios.Visible = False
         '
+        'detalle
+        '
+        Me.detalle.HeaderText = "Detalle"
+        Me.detalle.Name = "detalle"
+        Me.detalle.ReadOnly = True
+        '
+        'precio
+        '
+        Me.precio.HeaderText = "Precio"
+        Me.precio.Name = "precio"
+        Me.precio.ReadOnly = True
+        '
+        'impuesto
+        '
+        Me.impuesto.HeaderText = "Impuesto"
+        Me.impuesto.Name = "impuesto"
+        Me.impuesto.ReadOnly = True
+        '
+        'total
+        '
+        Me.total.HeaderText = "Total"
+        Me.total.Name = "total"
+        Me.total.ReadOnly = True
+        '
         'FormTecnologia
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -612,4 +641,8 @@ Partial Class FormTecnologia
     Friend WithEvents Button1 As Button
     Friend WithEvents btnGuardar As Button
     Friend WithEvents PictureBox4 As PictureBox
+    Friend WithEvents detalle As DataGridViewTextBoxColumn
+    Friend WithEvents precio As DataGridViewTextBoxColumn
+    Friend WithEvents impuesto As DataGridViewTextBoxColumn
+    Friend WithEvents total As DataGridViewTextBoxColumn
 End Class

@@ -2,6 +2,9 @@
     Dim ventana As New VentanaEstilo
     Dim validacion As New Validaciones
     Dim factura As Integer
+    Public acumST, acumIVA, acumTot As Double
+    Public indexFila As Integer 'Contador para main
+    Public contFilas(3) As Integer 'Contador los demas formularios: 0 = Tecnologia, 1 = Oficina, 2 = Ropa, 3 = Deporte
 
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         factura = 1

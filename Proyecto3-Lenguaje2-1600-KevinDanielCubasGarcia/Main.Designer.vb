@@ -22,13 +22,16 @@ Partial Class Main
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Main))
         Me.panelVentana = New System.Windows.Forms.Panel()
         Me.btnVentanaMin = New System.Windows.Forms.Button()
         Me.btnVentanaSalir = New System.Windows.Forms.Button()
         Me.btnComprar = New System.Windows.Forms.Button()
         Me.btnHistorial = New System.Windows.Forms.Button()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.dgvMain = New System.Windows.Forms.DataGridView()
         Me.gpxDatosGenerales = New System.Windows.Forms.GroupBox()
         Me.chkMembresia = New System.Windows.Forms.CheckBox()
         Me.txtNombre = New System.Windows.Forms.TextBox()
@@ -40,16 +43,24 @@ Partial Class Main
         Me.RadioButton1 = New System.Windows.Forms.RadioButton()
         Me.btnSalir = New System.Windows.Forms.Button()
         Me.btnEliminar = New System.Windows.Forms.Button()
+        Me.txtTotal = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.btnTecno = New System.Windows.Forms.Button()
         Me.btnRopa = New System.Windows.Forms.Button()
         Me.btnEscOfi = New System.Windows.Forms.Button()
         Me.btnDeporte = New System.Windows.Forms.Button()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.txtTotal = New System.Windows.Forms.TextBox()
-        Me.Label3 = New System.Windows.Forms.Label()
+        Me.detalle = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.precio = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Impuesto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.total = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.txtIVA = New System.Windows.Forms.TextBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.txtSubT = New System.Windows.Forms.TextBox()
         Me.panelVentana.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvMain, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gpxDatosGenerales.SuspendLayout()
         Me.gpxPago.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -65,7 +76,7 @@ Partial Class Main
         Me.panelVentana.Dock = System.Windows.Forms.DockStyle.Top
         Me.panelVentana.Location = New System.Drawing.Point(0, 0)
         Me.panelVentana.Name = "panelVentana"
-        Me.panelVentana.Size = New System.Drawing.Size(483, 29)
+        Me.panelVentana.Size = New System.Drawing.Size(572, 29)
         Me.panelVentana.TabIndex = 0
         '
         'btnVentanaMin
@@ -76,7 +87,7 @@ Partial Class Main
         Me.btnVentanaMin.FlatAppearance.BorderSize = 0
         Me.btnVentanaMin.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnVentanaMin.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnVentanaMin.Location = New System.Drawing.Point(401, 0)
+        Me.btnVentanaMin.Location = New System.Drawing.Point(490, 0)
         Me.btnVentanaMin.Name = "btnVentanaMin"
         Me.btnVentanaMin.Size = New System.Drawing.Size(41, 29)
         Me.btnVentanaMin.TabIndex = 1
@@ -91,7 +102,7 @@ Partial Class Main
         Me.btnVentanaSalir.FlatAppearance.BorderSize = 0
         Me.btnVentanaSalir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(17, Byte), Integer), CType(CType(35, Byte), Integer))
         Me.btnVentanaSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnVentanaSalir.Location = New System.Drawing.Point(442, 0)
+        Me.btnVentanaSalir.Location = New System.Drawing.Point(531, 0)
         Me.btnVentanaSalir.Name = "btnVentanaSalir"
         Me.btnVentanaSalir.Size = New System.Drawing.Size(41, 29)
         Me.btnVentanaSalir.TabIndex = 0
@@ -105,7 +116,7 @@ Partial Class Main
         Me.btnComprar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnComprar.Font = New System.Drawing.Font("Yu Gothic UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnComprar.ForeColor = System.Drawing.Color.White
-        Me.btnComprar.Location = New System.Drawing.Point(0, 177)
+        Me.btnComprar.Location = New System.Drawing.Point(0, 237)
         Me.btnComprar.Name = "btnComprar"
         Me.btnComprar.Size = New System.Drawing.Size(128, 32)
         Me.btnComprar.TabIndex = 4
@@ -119,32 +130,34 @@ Partial Class Main
         Me.btnHistorial.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnHistorial.Font = New System.Drawing.Font("Yu Gothic UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnHistorial.ForeColor = System.Drawing.Color.White
-        Me.btnHistorial.Location = New System.Drawing.Point(0, 241)
+        Me.btnHistorial.Location = New System.Drawing.Point(0, 301)
         Me.btnHistorial.Name = "btnHistorial"
         Me.btnHistorial.Size = New System.Drawing.Size(128, 32)
         Me.btnHistorial.TabIndex = 5
         Me.btnHistorial.Text = "Ventas en la sesión"
         Me.btnHistorial.UseVisualStyleBackColor = False
         '
-        'DataGridView1
+        'dgvMain
         '
-        Me.DataGridView1.BackgroundColor = System.Drawing.Color.White
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(134, 145)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(342, 133)
-        Me.DataGridView1.TabIndex = 6
+        Me.dgvMain.AllowUserToAddRows = False
+        Me.dgvMain.AllowUserToDeleteRows = False
+        Me.dgvMain.BackgroundColor = System.Drawing.Color.White
+        Me.dgvMain.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvMain.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.detalle, Me.precio, Me.Impuesto, Me.total})
+        Me.dgvMain.Location = New System.Drawing.Point(134, 119)
+        Me.dgvMain.Name = "dgvMain"
+        Me.dgvMain.Size = New System.Drawing.Size(420, 159)
+        Me.dgvMain.TabIndex = 6
         '
         'gpxDatosGenerales
         '
-        Me.gpxDatosGenerales.Controls.Add(Me.chkMembresia)
         Me.gpxDatosGenerales.Controls.Add(Me.txtNombre)
         Me.gpxDatosGenerales.Controls.Add(Me.txtFactura)
         Me.gpxDatosGenerales.Controls.Add(Me.Label2)
         Me.gpxDatosGenerales.Controls.Add(Me.Label1)
         Me.gpxDatosGenerales.Location = New System.Drawing.Point(134, 35)
         Me.gpxDatosGenerales.Name = "gpxDatosGenerales"
-        Me.gpxDatosGenerales.Size = New System.Drawing.Size(225, 104)
+        Me.gpxDatosGenerales.Size = New System.Drawing.Size(225, 78)
         Me.gpxDatosGenerales.TabIndex = 7
         Me.gpxDatosGenerales.TabStop = False
         Me.gpxDatosGenerales.Text = "Datos Generales"
@@ -152,7 +165,7 @@ Partial Class Main
         'chkMembresia
         '
         Me.chkMembresia.AutoSize = True
-        Me.chkMembresia.Location = New System.Drawing.Point(112, 73)
+        Me.chkMembresia.Location = New System.Drawing.Point(110, 35)
         Me.chkMembresia.Name = "chkMembresia"
         Me.chkMembresia.Size = New System.Drawing.Size(79, 17)
         Me.chkMembresia.TabIndex = 4
@@ -195,11 +208,12 @@ Partial Class Main
         '
         'gpxPago
         '
+        Me.gpxPago.Controls.Add(Me.chkMembresia)
         Me.gpxPago.Controls.Add(Me.RadioButton2)
         Me.gpxPago.Controls.Add(Me.RadioButton1)
         Me.gpxPago.Location = New System.Drawing.Point(365, 36)
         Me.gpxPago.Name = "gpxPago"
-        Me.gpxPago.Size = New System.Drawing.Size(111, 103)
+        Me.gpxPago.Size = New System.Drawing.Size(195, 77)
         Me.gpxPago.TabIndex = 9
         Me.gpxPago.TabStop = False
         Me.gpxPago.Text = "Metodo de Pago"
@@ -207,7 +221,7 @@ Partial Class Main
         'RadioButton2
         '
         Me.RadioButton2.AutoSize = True
-        Me.RadioButton2.Location = New System.Drawing.Point(19, 61)
+        Me.RadioButton2.Location = New System.Drawing.Point(19, 47)
         Me.RadioButton2.Name = "RadioButton2"
         Me.RadioButton2.Size = New System.Drawing.Size(58, 17)
         Me.RadioButton2.TabIndex = 1
@@ -218,7 +232,7 @@ Partial Class Main
         'RadioButton1
         '
         Me.RadioButton1.AutoSize = True
-        Me.RadioButton1.Location = New System.Drawing.Point(19, 27)
+        Me.RadioButton1.Location = New System.Drawing.Point(19, 21)
         Me.RadioButton1.Name = "RadioButton1"
         Me.RadioButton1.Size = New System.Drawing.Size(64, 17)
         Me.RadioButton1.TabIndex = 0
@@ -235,7 +249,7 @@ Partial Class Main
         Me.btnSalir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(126, Byte), Integer), CType(CType(190, Byte), Integer))
         Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSalir.Font = New System.Drawing.Font("Yu Gothic UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSalir.Location = New System.Drawing.Point(0, 273)
+        Me.btnSalir.Location = New System.Drawing.Point(0, 333)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(128, 32)
         Me.btnSalir.TabIndex = 6
@@ -249,12 +263,31 @@ Partial Class Main
         Me.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnEliminar.Font = New System.Drawing.Font("Yu Gothic UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEliminar.ForeColor = System.Drawing.Color.White
-        Me.btnEliminar.Location = New System.Drawing.Point(0, 209)
+        Me.btnEliminar.Location = New System.Drawing.Point(0, 269)
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.Size = New System.Drawing.Size(128, 32)
         Me.btnEliminar.TabIndex = 10
         Me.btnEliminar.Text = "Eliminar"
         Me.btnEliminar.UseVisualStyleBackColor = False
+        '
+        'txtTotal
+        '
+        Me.txtTotal.Location = New System.Drawing.Point(454, 336)
+        Me.txtTotal.Name = "txtTotal"
+        Me.txtTotal.ReadOnly = True
+        Me.txtTotal.Size = New System.Drawing.Size(100, 20)
+        Me.txtTotal.TabIndex = 11
+        Me.txtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Yu Gothic UI Semibold", 8.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(391, 339)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(36, 15)
+        Me.Label3.TabIndex = 12
+        Me.Label3.Text = "Total:"
         '
         'btnTecno
         '
@@ -330,7 +363,7 @@ Partial Class Main
         Me.PictureBox2.Dock = System.Windows.Forms.DockStyle.Left
         Me.PictureBox2.Location = New System.Drawing.Point(0, 29)
         Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(128, 276)
+        Me.PictureBox2.Size = New System.Drawing.Size(128, 336)
         Me.PictureBox2.TabIndex = 8
         Me.PictureBox2.TabStop = False
         '
@@ -344,30 +377,84 @@ Partial Class Main
         Me.PictureBox1.TabIndex = 2
         Me.PictureBox1.TabStop = False
         '
-        'txtTotal
+        'detalle
         '
-        Me.txtTotal.Location = New System.Drawing.Point(376, 281)
-        Me.txtTotal.Name = "txtTotal"
-        Me.txtTotal.ReadOnly = True
-        Me.txtTotal.Size = New System.Drawing.Size(100, 20)
-        Me.txtTotal.TabIndex = 11
+        Me.detalle.HeaderText = "Detalle"
+        Me.detalle.Name = "detalle"
+        Me.detalle.ReadOnly = True
         '
-        'Label3
+        'precio
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Yu Gothic UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(330, 281)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(40, 17)
-        Me.Label3.TabIndex = 12
-        Me.Label3.Text = "Total:"
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.precio.DefaultCellStyle = DataGridViewCellStyle1
+        Me.precio.HeaderText = "Precio"
+        Me.precio.Name = "precio"
+        Me.precio.ReadOnly = True
+        '
+        'Impuesto
+        '
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Impuesto.DefaultCellStyle = DataGridViewCellStyle2
+        Me.Impuesto.HeaderText = "Total"
+        Me.Impuesto.Name = "Impuesto"
+        Me.Impuesto.ReadOnly = True
+        '
+        'total
+        '
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.total.DefaultCellStyle = DataGridViewCellStyle3
+        Me.total.HeaderText = "Total"
+        Me.total.Name = "total"
+        Me.total.ReadOnly = True
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Yu Gothic UI", 8.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(391, 313)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(29, 15)
+        Me.Label4.TabIndex = 13
+        Me.Label4.Text = "IVA:"
+        '
+        'txtIVA
+        '
+        Me.txtIVA.Location = New System.Drawing.Point(454, 310)
+        Me.txtIVA.Name = "txtIVA"
+        Me.txtIVA.ReadOnly = True
+        Me.txtIVA.Size = New System.Drawing.Size(100, 20)
+        Me.txtIVA.TabIndex = 14
+        Me.txtIVA.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Yu Gothic UI", 8.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(391, 287)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(57, 15)
+        Me.Label5.TabIndex = 15
+        Me.Label5.Text = "SubTotal:"
+        '
+        'txtSubT
+        '
+        Me.txtSubT.Location = New System.Drawing.Point(454, 284)
+        Me.txtSubT.Name = "txtSubT"
+        Me.txtSubT.ReadOnly = True
+        Me.txtSubT.Size = New System.Drawing.Size(100, 20)
+        Me.txtSubT.TabIndex = 16
+        Me.txtSubT.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(483, 305)
+        Me.ClientSize = New System.Drawing.Size(572, 365)
+        Me.Controls.Add(Me.txtSubT)
+        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.txtIVA)
+        Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.txtTotal)
         Me.Controls.Add(Me.btnHistorial)
@@ -381,14 +468,15 @@ Partial Class Main
         Me.Controls.Add(Me.btnDeporte)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.gpxDatosGenerales)
-        Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.dgvMain)
         Me.Controls.Add(Me.panelVentana)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Main"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Menú Principal"
         Me.panelVentana.ResumeLayout(False)
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvMain, System.ComponentModel.ISupportInitialize).EndInit()
         Me.gpxDatosGenerales.ResumeLayout(False)
         Me.gpxDatosGenerales.PerformLayout()
         Me.gpxPago.ResumeLayout(False)
@@ -411,7 +499,6 @@ Partial Class Main
     Friend WithEvents btnSalir As Button
     Friend WithEvents btnHistorial As Button
     Friend WithEvents btnComprar As Button
-    Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents gpxDatosGenerales As GroupBox
     Friend WithEvents chkMembresia As CheckBox
     Friend WithEvents txtNombre As TextBox
@@ -425,4 +512,13 @@ Partial Class Main
     Friend WithEvents btnEliminar As Button
     Friend WithEvents txtTotal As TextBox
     Friend WithEvents Label3 As Label
+    Public WithEvents dgvMain As DataGridView
+    Friend WithEvents detalle As DataGridViewTextBoxColumn
+    Friend WithEvents precio As DataGridViewTextBoxColumn
+    Friend WithEvents Impuesto As DataGridViewTextBoxColumn
+    Friend WithEvents total As DataGridViewTextBoxColumn
+    Friend WithEvents Label4 As Label
+    Friend WithEvents txtIVA As TextBox
+    Friend WithEvents Label5 As Label
+    Friend WithEvents txtSubT As TextBox
 End Class

@@ -292,6 +292,10 @@
         ventana.ventanaPresionada(Me, e, panelVentana)
     End Sub
 
+    Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
+        Close()
+    End Sub
+
     'Botones de cerrar y minimizar
     Private Sub btnVentanaMin_Click(sender As Object, e As EventArgs) Handles btnVentanaMin.Click
         Me.WindowState = FormWindowState.Minimized

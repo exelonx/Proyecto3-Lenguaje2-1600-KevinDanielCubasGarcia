@@ -5,6 +5,7 @@
     'Variables globales
     Dim productos(5), extras, cantidad As Integer
     Dim subTotal, impuesto, total As Double
+    Dim acumST, acumIVA, acumTot As Double 'Acumuladores
 
     'Procedimientos
     Private Sub precioExtra(chk As CheckBox, precio As Integer)
@@ -14,6 +15,13 @@
             extras -= precio
         End If
         txtExtras.Text = Format(extras, "0.00")
+    End Sub
+
+    'Para acumular
+    Public Sub setIncremento(ByRef acumulador1 As Double, ByRef acumulador2 As Double, ByRef acumulador3 As Double, SubT As Double, IVA As Double, Total As Double)
+        acumulador1 += SubT
+        acumulador2 += IVA
+        acumulador3 += Total
     End Sub
 
     'Para ingresar los productos al combobox
@@ -57,6 +65,7 @@
     End Sub
 
     Private Sub FormDeporte_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        txtAcumulador.Text = Format(0, "0.00")
         cantidad = 0
         PictureBox3.Location = New Point(199, 192)
         Me.Size = New Size(710, 446)
@@ -177,6 +186,98 @@
 
     Private Sub panelVentana_MouseMove(sender As Object, e As MouseEventArgs) Handles panelVentana.MouseMove
         Ventana.ventanaPresionada(Me, e, panelVentana)
+    End Sub
+
+    Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
+        If dgvSalida.Rows.Count > 0 Then
+            dgvSalida.Rows.Remove(dgvSalida.CurrentRow)
+        End If
+        btnEliminar.Enabled = False
+    End Sub
+
+    Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
+        'Paso de acumuladores al main
+        Main.acumST += Me.acumST
+        Main.txtSubT.Text = Main.acumST
+        Main.acumIVA += Me.acumIVA
+        Main.txtIVA.Text = Main.acumIVA
+        Main.acumTot += Me.acumTot
+        Main.txtTotal.Text = Main.acumTot
+        'DataGridV Deportes al DataGridV Main
+        Do While (Main.indexFila < Main.contFilas(3))
+            Dim index As Integer
+            Main.dgvMain.Rows.Add()
+            Main.dgvMain(0, Main.indexFila).Value = dgvSalida(0, index).Value.ToString
+            Main.dgvMain(1, Main.indexFila).Value = dgvSalida(1, index).Value.ToString
+            Main.dgvMain(2, Main.indexFila).Value = dgvSalida(2, index).Value.ToString
+            Main.dgvMain(3, Main.indexFila).Value = dgvSalida(3, index).Value.ToString
+            Main.indexFila += 1
+            index += 1
+        Loop
+        Me.Close()
+    End Sub
+
+    Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
+        Close()
+    End Sub
+
+    Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
+        Dim nfilas As Integer 'Contador de filas
+        If txtTotal.Text = Nothing Then
+            MessageBox.Show("Debe calcular primero.", "Faltan Requisitos")
+            Exit Sub
+        Else
+            'Llenado de la matriz
+            If rbBalones.Checked = True Or rbAccesorios.Checked = True Or rbBicicletas.Checked = True Then
+                nfilas = dgvSalida.Rows.Count
+                dgvSalida.Rows.Add()
+                dgvSalida(0, nfilas).Value = cmbProductos.Text
+                dgvSalida(1, nfilas).Value = txtPrecio.Text
+                dgvSalida(2, nfilas).Value = txtImpuesto.Text
+                dgvSalida(3, nfilas).Value = txtTotal.Text
+                Main.contFilas(3) += 1
+            End If
+            If chkBombaAire.Checked = True Then
+                nfilas = dgvSalida.Rows.Count
+                dgvSalida.Rows.Add()
+                dgvSalida(0, nfilas).Value = "Bomba de aire"
+                dgvSalida(1, nfilas).Value = Format(300, "0.00")
+                dgvSalida(2, nfilas).Value = Format(300 * 0.15, "0.00")
+                dgvSalida(3, nfilas).Value = Format(300 + (300 * 0.15), "0.00")
+                Main.contFilas(3) += 1
+            End If
+            If chkSuelas.Checked = True Then
+                nfilas = dgvSalida.Rows.Count
+                dgvSalida.Rows.Add()
+                dgvSalida(0, nfilas).Value = "Suelas deportivas"
+                dgvSalida(1, nfilas).Value = Format(150, "0.00")
+                dgvSalida(2, nfilas).Value = Format(150 * 0.15, "0.00")
+                dgvSalida(3, nfilas).Value = Format(150 + (150 * 0.15), "0.00")
+                Main.contFilas(3) += 1
+            End If
+            'Limpieza del formulario
+            rbBalones.Checked = False
+            rbBicicletas.Checked = False
+            rbAccesorios.Checked = False
+            chkExtras.Checked = False
+            chkBombaAire.Checked = False
+            chkSuelas.Checked = False
+            txtCantidad.Clear()
+            txtPrecio.Clear()
+            txtExtras.Clear()
+            txtSubT.Clear()
+            txtImpuesto.Clear()
+            txtTotal.Clear()
+            Ventana.visibilidadInversa(gpxTipoProducto, PictureBox3)
+            'Incrementos de acumuladores
+            acumST += subTotal
+            acumIVA += impuesto
+            acumTot += total
+            txtAcumulador.Text = acumTot
+            'Activar botones
+            btnEliminar.Enabled = True
+            btnGuardar.Enabled = True
+        End If
     End Sub
 
     'Botones de cerrar y minimizar
