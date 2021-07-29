@@ -552,20 +552,21 @@ Partial Class FormEscOfi
         Me.txtAcumulador.ReadOnly = True
         Me.txtAcumulador.Size = New System.Drawing.Size(100, 20)
         Me.txtAcumulador.TabIndex = 0
+        Me.txtAcumulador.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'FormEscOfi
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(689, 545)
+        Me.Controls.Add(Me.btnAgregar)
+        Me.Controls.Add(Me.btnCalcular)
         Me.Controls.Add(Me.PictureBox3)
         Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.gpxTipoProducto)
         Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.btnGuardar)
         Me.Controls.Add(Me.btnEliminar)
-        Me.Controls.Add(Me.btnAgregar)
-        Me.Controls.Add(Me.btnCalcular)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)

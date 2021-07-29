@@ -7,6 +7,7 @@
     Dim subTotal, impuesto, total As Double
     Dim acumST, acumIVA, acumTot As Double 'Acumuladores
     Dim selectPrecio, selectIVA, selectTot 'para hacer decremento a los acumuladores
+    Dim antiCloseBug As Boolean 'Para evitar bug al cerrar formulario cuando se trata de evitar de perder información
 
     'Procedimientos
 
@@ -75,6 +76,7 @@
     End Sub
 
     Private Sub FormDeporte_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        antiCloseBug = False
         txtAcumulador.Text = Format(0, "0.00")
         cantidad = 0
         PictureBox3.Location = New Point(199, 192)
@@ -214,12 +216,12 @@
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
         'Paso de acumuladores al main
         Main.acumST += Me.acumST
-        Main.txtSubT.Text = Main.acumST
+        Main.txtSubT.Text = Format(Main.acumST, "0.00")
         Main.acumIVA += Me.acumIVA
-        Main.txtIVA.Text = Main.acumIVA
+        Main.txtIVA.Text = Format(Main.acumIVA, "0.00")
         Main.acumTot += Me.acumTot
-        Main.txtTotal.Text = Main.acumTot
-        'DataGridV Deportes al DataGridV Main
+        Main.txtTotal.Text = Format(Main.acumTot, "0.00")
+        'DataGridV Deporte al DataGridV Main
         Do While (Main.indexFila < Main.contFilas)
             Dim index As Integer
             Main.dgvMain.Rows.Add()
@@ -230,6 +232,8 @@
             Main.indexFila += 1
             index += 1
         Loop
+        'Activar el seguro
+        antiCloseBug = True
         Me.Close()
     End Sub
 
@@ -246,6 +250,7 @@
     End Sub
 
     Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
+
         Close()
     End Sub
 
@@ -324,18 +329,31 @@
         btnVentanaSalir.ForeColor = Color.Black
     End Sub
 
+    Private Sub FormDeporte_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        'Disminución de contador contfilas
+        If antiCloseBug = False Then
+            Main.contFilas -= dgvSalida.Rows.Count
+        End If
+    End Sub
+
     'Colores de botones
     'Calcular
     Private Sub btnCalcular_MouseMove(sender As Object, e As MouseEventArgs) Handles btnCalcular.MouseMove
         btnCalcular.ForeColor = Color.White
         btnCalcular.FlatAppearance.BorderColor = ColorTranslator.FromHtml("#181072")
         btnCalcular.BackgroundImage = Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.CalcularBotonBlanco
+        'Tamaño
+        btnCalcular.Width = 171
+        btnCalcular.Location = New Point(539, 180)
     End Sub
 
     Private Sub btnCalcular_MouseLeave(sender As Object, e As EventArgs) Handles btnCalcular.MouseLeave
         btnCalcular.ForeColor = Color.Black
         btnCalcular.FlatAppearance.BorderColor = Color.White
         btnCalcular.BackgroundImage = Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.CalcularBotonFixed2
+        'Tamaño
+        btnCalcular.Width = 161
+        btnCalcular.Location = New Point(549, 180)
     End Sub
 
     'Agregar
@@ -343,12 +361,18 @@
         btnAgregar.ForeColor = Color.White
         btnAgregar.FlatAppearance.BorderColor = ColorTranslator.FromHtml("#181072")
         btnAgregar.BackgroundImage = Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.AgregarBotonBlanco
+        'Tamaño
+        btnAgregar.Width = 171
+        btnAgregar.Location = New Point(539, 230)
     End Sub
 
     Private Sub btnAgregar_MouseLeave(sender As Object, e As EventArgs) Handles btnAgregar.MouseLeave
         btnAgregar.ForeColor = Color.Black
         btnAgregar.FlatAppearance.BorderColor = Color.White
         btnAgregar.BackgroundImage = Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.AgregarBotonFixed2
+        'Tamaño
+        btnAgregar.Width = 161
+        btnAgregar.Location = New Point(549, 230)
     End Sub
 
     'Eliminar
@@ -356,12 +380,18 @@
         btnEliminar.ForeColor = Color.White
         btnEliminar.FlatAppearance.BorderColor = ColorTranslator.FromHtml("#181072")
         btnEliminar.BackgroundImage = Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.EliminarBoton3Blanco
+        'tamaño
+        btnEliminar.Width = 171
+        btnEliminar.Location = New Point(539, 280)
     End Sub
 
     Private Sub btnEliminar_MouseLeave(sender As Object, e As EventArgs) Handles btnEliminar.MouseLeave
         btnEliminar.ForeColor = Color.Black
         btnEliminar.FlatAppearance.BorderColor = Color.White
         btnEliminar.BackgroundImage = Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.EliminarBoton3Fixed2
+        'Tamaño
+        btnEliminar.Width = 161
+        btnEliminar.Location = New Point(549, 280)
     End Sub
 
     'Guardar
@@ -369,12 +399,17 @@
         btnGuardar.ForeColor = Color.White
         btnGuardar.FlatAppearance.BorderColor = ColorTranslator.FromHtml("#181072")
         btnGuardar.BackgroundImage = Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.guardarBoton2Blanco
+        'tamaño
+        btnGuardar.Width = 171
+        btnGuardar.Location = New Point(539, 330)
     End Sub
 
     Private Sub btnGuardar_MouseLeave(sender As Object, e As EventArgs) Handles btnGuardar.MouseLeave
         btnGuardar.ForeColor = Color.Black
         btnGuardar.FlatAppearance.BorderColor = Color.White
         btnGuardar.BackgroundImage = Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.guardarBoton2Fixed
+        'Tamaño
+        btnGuardar.Width = 161
+        btnGuardar.Location = New Point(549, 330)
     End Sub
-
 End Class

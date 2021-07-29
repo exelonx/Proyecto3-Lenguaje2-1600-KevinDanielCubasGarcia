@@ -444,7 +444,7 @@ Partial Class FormDeporte
         Me.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnGuardar.Font = New System.Drawing.Font("Yu Gothic UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnGuardar.ForeColor = System.Drawing.Color.Black
-        Me.btnGuardar.Location = New System.Drawing.Point(549, 327)
+        Me.btnGuardar.Location = New System.Drawing.Point(549, 330)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(161, 50)
         Me.btnGuardar.TabIndex = 5
@@ -462,7 +462,7 @@ Partial Class FormDeporte
         Me.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnEliminar.Font = New System.Drawing.Font("Yu Gothic UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEliminar.ForeColor = System.Drawing.Color.Black
-        Me.btnEliminar.Location = New System.Drawing.Point(549, 278)
+        Me.btnEliminar.Location = New System.Drawing.Point(549, 280)
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.Size = New System.Drawing.Size(161, 50)
         Me.btnEliminar.TabIndex = 3

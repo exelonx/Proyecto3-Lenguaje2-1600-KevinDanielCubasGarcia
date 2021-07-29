@@ -27,6 +27,7 @@ Partial Class FormRopa
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormRopa))
         Me.panelVentana = New System.Windows.Forms.Panel()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.btnVentanaMin = New System.Windows.Forms.Button()
         Me.btnVentanaSalir = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
@@ -50,28 +51,28 @@ Partial Class FormRopa
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.dgvSalida = New System.Windows.Forms.DataGridView()
+        Me.detalle = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.precio = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cImpuesto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cTotal = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.btnSalir = New System.Windows.Forms.Button()
         Me.btnEliminar = New System.Windows.Forms.Button()
         Me.btnAgregar = New System.Windows.Forms.Button()
         Me.btnCalcular = New System.Windows.Forms.Button()
-        Me.dgvSalida = New System.Windows.Forms.DataGridView()
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
         Me.gpxTipoCalcetines = New System.Windows.Forms.GroupBox()
         Me.cmbTipoCalcetin = New System.Windows.Forms.ComboBox()
         Me.chkPulceras = New System.Windows.Forms.CheckBox()
         Me.chkCalcetines = New System.Windows.Forms.CheckBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.txtAcumulador = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.pbBanner = New System.Windows.Forms.PictureBox()
         Me.btnGuardar = New System.Windows.Forms.Button()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.pbBotones = New System.Windows.Forms.PictureBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.txtAcumulador = New System.Windows.Forms.TextBox()
-        Me.detalle = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.precio = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cImpuesto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cTotal = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.panelVentana.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.gpxClasificacion.SuspendLayout()
         Me.gpxRopa.SuspendLayout()
@@ -82,7 +83,6 @@ Partial Class FormRopa
         Me.gpxTipoCalcetines.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.pbBanner, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pbBotones, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -97,6 +97,16 @@ Partial Class FormRopa
         Me.panelVentana.Name = "panelVentana"
         Me.panelVentana.Size = New System.Drawing.Size(810, 29)
         Me.panelVentana.TabIndex = 0
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackgroundImage = Global.Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.logoDiunsa2_Fixed3
+        Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Left
+        Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(80, 29)
+        Me.PictureBox1.TabIndex = 2
+        Me.PictureBox1.TabStop = False
         '
         'btnVentanaMin
         '
@@ -337,6 +347,49 @@ Partial Class FormRopa
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Salida"
         '
+        'dgvSalida
+        '
+        Me.dgvSalida.AllowUserToAddRows = False
+        Me.dgvSalida.AllowUserToDeleteRows = False
+        Me.dgvSalida.BackgroundColor = System.Drawing.Color.White
+        Me.dgvSalida.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvSalida.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.detalle, Me.precio, Me.cImpuesto, Me.cTotal})
+        Me.dgvSalida.Location = New System.Drawing.Point(6, 20)
+        Me.dgvSalida.Name = "dgvSalida"
+        Me.dgvSalida.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvSalida.Size = New System.Drawing.Size(413, 132)
+        Me.dgvSalida.TabIndex = 0
+        '
+        'detalle
+        '
+        Me.detalle.HeaderText = "Detalle"
+        Me.detalle.Name = "detalle"
+        Me.detalle.ReadOnly = True
+        '
+        'precio
+        '
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.precio.DefaultCellStyle = DataGridViewCellStyle1
+        Me.precio.HeaderText = "Precio"
+        Me.precio.Name = "precio"
+        Me.precio.ReadOnly = True
+        '
+        'cImpuesto
+        '
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.cImpuesto.DefaultCellStyle = DataGridViewCellStyle2
+        Me.cImpuesto.HeaderText = "Impuesto"
+        Me.cImpuesto.Name = "cImpuesto"
+        Me.cImpuesto.ReadOnly = True
+        '
+        'cTotal
+        '
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.cTotal.DefaultCellStyle = DataGridViewCellStyle3
+        Me.cTotal.HeaderText = "Total"
+        Me.cTotal.Name = "cTotal"
+        Me.cTotal.ReadOnly = True
+        '
         'btnSalir
         '
         Me.btnSalir.BackColor = System.Drawing.Color.White
@@ -402,19 +455,6 @@ Partial Class FormRopa
         Me.btnCalcular.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnCalcular.UseVisualStyleBackColor = False
         '
-        'dgvSalida
-        '
-        Me.dgvSalida.AllowUserToAddRows = False
-        Me.dgvSalida.AllowUserToDeleteRows = False
-        Me.dgvSalida.BackgroundColor = System.Drawing.Color.White
-        Me.dgvSalida.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvSalida.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.detalle, Me.precio, Me.cImpuesto, Me.cTotal})
-        Me.dgvSalida.Location = New System.Drawing.Point(6, 20)
-        Me.dgvSalida.Name = "dgvSalida"
-        Me.dgvSalida.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvSalida.Size = New System.Drawing.Size(413, 132)
-        Me.dgvSalida.TabIndex = 0
-        '
         'GroupBox6
         '
         Me.GroupBox6.Controls.Add(Me.gpxTipoCalcetines)
@@ -479,6 +519,27 @@ Partial Class FormRopa
         Me.Panel1.Size = New System.Drawing.Size(810, 151)
         Me.Panel1.TabIndex = 9
         '
+        'txtAcumulador
+        '
+        Me.txtAcumulador.Location = New System.Drawing.Point(697, 23)
+        Me.txtAcumulador.Name = "txtAcumulador"
+        Me.txtAcumulador.ReadOnly = True
+        Me.txtAcumulador.Size = New System.Drawing.Size(100, 20)
+        Me.txtAcumulador.TabIndex = 1
+        Me.txtAcumulador.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
+        Me.Label1.Font = New System.Drawing.Font("Yu Gothic UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.SystemColors.Control
+        Me.Label1.Location = New System.Drawing.Point(694, 3)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(80, 17)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "Acumulado:"
+        '
         'pbBanner
         '
         Me.pbBanner.BackgroundImage = Global.Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.bannerAccesorios
@@ -507,16 +568,6 @@ Partial Class FormRopa
         Me.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnGuardar.UseVisualStyleBackColor = False
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackgroundImage = Global.Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.logoDiunsa2_Fixed3
-        Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Left
-        Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(80, 29)
-        Me.PictureBox1.TabIndex = 2
-        Me.PictureBox1.TabStop = False
-        '
         'pbBotones
         '
         Me.pbBotones.BackColor = System.Drawing.Color.White
@@ -526,57 +577,6 @@ Partial Class FormRopa
         Me.pbBotones.Size = New System.Drawing.Size(161, 357)
         Me.pbBotones.TabIndex = 10
         Me.pbBotones.TabStop = False
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Font = New System.Drawing.Font("Yu Gothic UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.SystemColors.Control
-        Me.Label1.Location = New System.Drawing.Point(694, 3)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(80, 17)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Acumulado:"
-        '
-        'txtAcumulador
-        '
-        Me.txtAcumulador.Location = New System.Drawing.Point(697, 23)
-        Me.txtAcumulador.Name = "txtAcumulador"
-        Me.txtAcumulador.ReadOnly = True
-        Me.txtAcumulador.Size = New System.Drawing.Size(100, 20)
-        Me.txtAcumulador.TabIndex = 1
-        Me.txtAcumulador.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'detalle
-        '
-        Me.detalle.HeaderText = "Detalle"
-        Me.detalle.Name = "detalle"
-        Me.detalle.ReadOnly = True
-        '
-        'precio
-        '
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.precio.DefaultCellStyle = DataGridViewCellStyle1
-        Me.precio.HeaderText = "Precio"
-        Me.precio.Name = "precio"
-        Me.precio.ReadOnly = True
-        '
-        'cImpuesto
-        '
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.cImpuesto.DefaultCellStyle = DataGridViewCellStyle2
-        Me.cImpuesto.HeaderText = "Impuesto"
-        Me.cImpuesto.Name = "cImpuesto"
-        Me.cImpuesto.ReadOnly = True
-        '
-        'cTotal
-        '
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.cTotal.DefaultCellStyle = DataGridViewCellStyle3
-        Me.cTotal.HeaderText = "Total"
-        Me.cTotal.Name = "cTotal"
-        Me.cTotal.ReadOnly = True
         '
         'FormRopa
         '
@@ -603,6 +603,7 @@ Partial Class FormRopa
         Me.Name = "FormRopa"
         Me.Text = "Ropa"
         Me.panelVentana.ResumeLayout(False)
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.gpxClasificacion.ResumeLayout(False)
@@ -618,7 +619,6 @@ Partial Class FormRopa
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         CType(Me.pbBanner, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.pbBotones, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 

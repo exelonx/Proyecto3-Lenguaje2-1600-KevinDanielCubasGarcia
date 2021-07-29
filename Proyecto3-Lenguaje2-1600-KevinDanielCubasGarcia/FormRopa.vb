@@ -5,9 +5,10 @@
     Dim subTotal, impuesto, total As Double
     Dim acumST, acumIVA, acumTot As Double 'Acumuladores
     Dim selectPrecio, selectIVA, selectTot 'para hacer decremento a los acumuladores
+    Dim antiCloseBug As Boolean 'Para evitar bug al cerrar formulario cuando se trata de evitar de perder información
 
     'Procedimientos
-
+    'Procedimiento para disminuir acumuladores
     Public Sub setDecremento(e As DataGridViewCellEventArgs)
         If e.RowIndex > -1 Then
             selectPrecio = dgvSalida.Rows(e.RowIndex).Cells(1).Value
@@ -212,6 +213,7 @@
     End Sub
 
     Private Sub FormRopa_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        antiCloseBug = False
         txtAcumulador.Text = Format(0, "0.00")
         pbBanner.Location = New Point(237, 192)
         Me.Size = New Size(810, 445)
@@ -296,6 +298,30 @@
         End If
     End Sub
 
+    Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
+        'Paso de acumuladores al main
+        Main.acumST += Me.acumST
+        Main.txtSubT.Text = Format(Main.acumST, "0.00")
+        Main.acumIVA += Me.acumIVA
+        Main.txtIVA.Text = Format(Main.acumIVA, "0.00")
+        Main.acumTot += Me.acumTot
+        Main.txtTotal.Text = Format(Main.acumTot, "0.00")
+        'DataGridV Ropa al DataGridV Main
+        Do While (Main.indexFila < Main.contFilas)
+            Dim index As Integer
+            Main.dgvMain.Rows.Add()
+            Main.dgvMain(0, Main.indexFila).Value = dgvSalida(0, index).Value.ToString
+            Main.dgvMain(1, Main.indexFila).Value = dgvSalida(1, index).Value.ToString
+            Main.dgvMain(2, Main.indexFila).Value = dgvSalida(2, index).Value.ToString
+            Main.dgvMain(3, Main.indexFila).Value = dgvSalida(3, index).Value.ToString
+            Main.indexFila += 1
+            index += 1
+        Loop
+        'Activar el seguro
+        antiCloseBug = True
+        Me.Close()
+    End Sub
+
     'Ventana personalizada
     Private Sub panelVentana_MouseDown(sender As Object, e As MouseEventArgs) Handles panelVentana.MouseDown
         ventana.setUbicacionMouse(e)
@@ -373,26 +399,11 @@
         btnGuardar.Location = New Point(639, 330)
     End Sub
 
-    Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
-        'Paso de acumuladores al main
-        Main.acumST += Me.acumST
-        Main.txtSubT.Text = Main.acumST
-        Main.acumIVA += Me.acumIVA
-        Main.txtIVA.Text = Main.acumIVA
-        Main.acumTot += Me.acumTot
-        Main.txtTotal.Text = Main.acumTot
-        'DataGridV Oficina al DataGridV Main
-        Do While (Main.indexFila < Main.contFilas)
-            Dim index As Integer
-            Main.dgvMain.Rows.Add()
-            Main.dgvMain(0, Main.indexFila).Value = dgvSalida(0, index).Value.ToString
-            Main.dgvMain(1, Main.indexFila).Value = dgvSalida(1, index).Value.ToString
-            Main.dgvMain(2, Main.indexFila).Value = dgvSalida(2, index).Value.ToString
-            Main.dgvMain(3, Main.indexFila).Value = dgvSalida(3, index).Value.ToString
-            Main.indexFila += 1
-            index += 1
-        Loop
-        Me.Close()
+    Private Sub FormRopa_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        'Disminución de contador contfilas
+        If antiCloseBug = False Then
+            Main.contFilas -= dgvSalida.Rows.Count
+        End If
     End Sub
 
     Private Sub btnGuardar_MouseLeave(sender As Object, e As EventArgs) Handles btnGuardar.MouseLeave
@@ -414,6 +425,8 @@
     End Sub
 
     Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
+        'Disminución de contador contfilas
+        Main.contFilas -= dgvSalida.Rows.Count
         Close()
     End Sub
 
