@@ -264,6 +264,7 @@ Partial Class FormDeporte
         Me.dgvSalida.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.detalle, Me.precio, Me.cImpuesto, Me.cTotal})
         Me.dgvSalida.Location = New System.Drawing.Point(7, 20)
         Me.dgvSalida.Name = "dgvSalida"
+        Me.dgvSalida.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvSalida.Size = New System.Drawing.Size(331, 131)
         Me.dgvSalida.TabIndex = 0
         '
@@ -542,7 +543,7 @@ Partial Class FormDeporte
         Me.Label4.AutoSize = True
         Me.Label4.BackColor = System.Drawing.Color.Transparent
         Me.Label4.Font = New System.Drawing.Font("Yu Gothic UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.ForeColor = System.Drawing.Color.White
+        Me.Label4.ForeColor = System.Drawing.SystemColors.Control
         Me.Label4.Location = New System.Drawing.Point(595, 3)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(80, 17)

@@ -26,6 +26,7 @@ Partial Class FormTecnologia
         Me.panelVentana = New System.Windows.Forms.Panel()
         Me.btnVentanaMin = New System.Windows.Forms.Button()
         Me.btnVentanaSalir = New System.Windows.Forms.Button()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.rbSoloAccesorios = New System.Windows.Forms.RadioButton()
         Me.rbCelulares = New System.Windows.Forms.RadioButton()
@@ -42,11 +43,15 @@ Partial Class FormTecnologia
         Me.txtPrecioB = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.detalle = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.precio = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.impuesto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.total = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.btnSalir = New System.Windows.Forms.Button()
         Me.btnAgregar = New System.Windows.Forms.Button()
         Me.btnCalcular = New System.Windows.Forms.Button()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.gpxAccesorios = New System.Windows.Forms.GroupBox()
         Me.cmbAcces3 = New System.Windows.Forms.ComboBox()
         Me.cmbAcces2 = New System.Windows.Forms.ComboBox()
@@ -58,30 +63,23 @@ Partial Class FormTecnologia
         Me.lbCantidad = New System.Windows.Forms.Label()
         Me.txtCantidadProducto = New System.Windows.Forms.TextBox()
         Me.gpxProducto = New System.Windows.Forms.GroupBox()
-        Me.GroupBox6 = New System.Windows.Forms.GroupBox()
         Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.btnGuardar = New System.Windows.Forms.Button()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.pbAccesorios = New System.Windows.Forms.PictureBox()
-        Me.detalle = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.precio = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.impuesto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.total = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.pbBotones = New System.Windows.Forms.PictureBox()
         Me.panelVentana.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gpxAccesorios.SuspendLayout()
         Me.gpxProducto.SuspendLayout()
-        Me.GroupBox6.SuspendLayout()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pbAccesorios, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pbBotones, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'panelVentana
@@ -93,7 +91,7 @@ Partial Class FormTecnologia
         Me.panelVentana.Dock = System.Windows.Forms.DockStyle.Top
         Me.panelVentana.Location = New System.Drawing.Point(0, 0)
         Me.panelVentana.Name = "panelVentana"
-        Me.panelVentana.Size = New System.Drawing.Size(730, 29)
+        Me.panelVentana.Size = New System.Drawing.Size(717, 29)
         Me.panelVentana.TabIndex = 0
         '
         'btnVentanaMin
@@ -104,7 +102,7 @@ Partial Class FormTecnologia
         Me.btnVentanaMin.FlatAppearance.BorderSize = 0
         Me.btnVentanaMin.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnVentanaMin.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnVentanaMin.Location = New System.Drawing.Point(648, 0)
+        Me.btnVentanaMin.Location = New System.Drawing.Point(635, 0)
         Me.btnVentanaMin.Name = "btnVentanaMin"
         Me.btnVentanaMin.Size = New System.Drawing.Size(41, 29)
         Me.btnVentanaMin.TabIndex = 2
@@ -120,12 +118,22 @@ Partial Class FormTecnologia
         Me.btnVentanaSalir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(17, Byte), Integer), CType(CType(35, Byte), Integer))
         Me.btnVentanaSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnVentanaSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnVentanaSalir.Location = New System.Drawing.Point(689, 0)
+        Me.btnVentanaSalir.Location = New System.Drawing.Point(676, 0)
         Me.btnVentanaSalir.Name = "btnVentanaSalir"
         Me.btnVentanaSalir.Size = New System.Drawing.Size(41, 29)
         Me.btnVentanaSalir.TabIndex = 1
         Me.btnVentanaSalir.Text = "X"
         Me.btnVentanaSalir.UseVisualStyleBackColor = False
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackgroundImage = Global.Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.logoDiunsa2_Fixed3
+        Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Left
+        Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(80, 29)
+        Me.PictureBox1.TabIndex = 0
+        Me.PictureBox1.TabStop = False
         '
         'GroupBox1
         '
@@ -283,11 +291,6 @@ Partial Class FormTecnologia
         '
         'GroupBox3
         '
-        Me.GroupBox3.Controls.Add(Me.btnGuardar)
-        Me.GroupBox3.Controls.Add(Me.Button1)
-        Me.GroupBox3.Controls.Add(Me.btnSalir)
-        Me.GroupBox3.Controls.Add(Me.btnAgregar)
-        Me.GroupBox3.Controls.Add(Me.btnCalcular)
         Me.GroupBox3.Controls.Add(Me.DataGridView1)
         Me.GroupBox3.Location = New System.Drawing.Point(188, 287)
         Me.GroupBox3.Name = "GroupBox3"
@@ -296,24 +299,65 @@ Partial Class FormTecnologia
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Salida"
         '
+        'DataGridView1
+        '
+        Me.DataGridView1.BackgroundColor = System.Drawing.Color.White
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.detalle, Me.precio, Me.impuesto, Me.total})
+        Me.DataGridView1.Location = New System.Drawing.Point(6, 20)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.Size = New System.Drawing.Size(350, 135)
+        Me.DataGridView1.TabIndex = 0
+        '
+        'detalle
+        '
+        Me.detalle.HeaderText = "Detalle"
+        Me.detalle.Name = "detalle"
+        Me.detalle.ReadOnly = True
+        '
+        'precio
+        '
+        Me.precio.HeaderText = "Precio"
+        Me.precio.Name = "precio"
+        Me.precio.ReadOnly = True
+        '
+        'impuesto
+        '
+        Me.impuesto.HeaderText = "Impuesto"
+        Me.impuesto.Name = "impuesto"
+        Me.impuesto.ReadOnly = True
+        '
+        'total
+        '
+        Me.total.HeaderText = "Total"
+        Me.total.Name = "total"
+        Me.total.ReadOnly = True
+        '
         'Button1
         '
         Me.Button1.BackColor = System.Drawing.Color.White
+        Me.Button1.BackgroundImage = Global.Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.EliminarBoton3Fixed2
+        Me.Button1.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(24, Byte), Integer), CType(CType(16, Byte), Integer), CType(CType(114, Byte), Integer))
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Location = New System.Drawing.Point(158, 128)
+        Me.Button1.Font = New System.Drawing.Font("Yu Gothic UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Location = New System.Drawing.Point(556, 278)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.Size = New System.Drawing.Size(161, 50)
         Me.Button1.TabIndex = 4
         Me.Button1.Text = "Eliminar"
+        Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Button1.UseVisualStyleBackColor = False
         '
         'btnSalir
         '
         Me.btnSalir.BackColor = System.Drawing.Color.White
+        Me.btnSalir.FlatAppearance.BorderColor = System.Drawing.Color.White
         Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSalir.Location = New System.Drawing.Point(232, 128)
+        Me.btnSalir.Font = New System.Drawing.Font("Yu Gothic UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSalir.Location = New System.Drawing.Point(556, 416)
         Me.btnSalir.Name = "btnSalir"
-        Me.btnSalir.Size = New System.Drawing.Size(75, 23)
+        Me.btnSalir.Size = New System.Drawing.Size(161, 40)
         Me.btnSalir.TabIndex = 3
         Me.btnSalir.Text = "Salir"
         Me.btnSalir.UseVisualStyleBackColor = False
@@ -321,33 +365,34 @@ Partial Class FormTecnologia
         'btnAgregar
         '
         Me.btnAgregar.BackColor = System.Drawing.Color.White
+        Me.btnAgregar.BackgroundImage = Global.Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.AgregarBotonFixed2
+        Me.btnAgregar.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.btnAgregar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(24, Byte), Integer), CType(CType(16, Byte), Integer), CType(CType(114, Byte), Integer))
         Me.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAgregar.Location = New System.Drawing.Point(84, 128)
+        Me.btnAgregar.Font = New System.Drawing.Font("Yu Gothic UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAgregar.Location = New System.Drawing.Point(556, 229)
         Me.btnAgregar.Name = "btnAgregar"
-        Me.btnAgregar.Size = New System.Drawing.Size(75, 23)
+        Me.btnAgregar.Size = New System.Drawing.Size(161, 50)
         Me.btnAgregar.TabIndex = 2
         Me.btnAgregar.Text = "Agregar"
+        Me.btnAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnAgregar.UseVisualStyleBackColor = False
         '
         'btnCalcular
         '
         Me.btnCalcular.BackColor = System.Drawing.Color.White
+        Me.btnCalcular.BackgroundImage = Global.Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.CalcularBotonFixed2
+        Me.btnCalcular.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.btnCalcular.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(24, Byte), Integer), CType(CType(16, Byte), Integer), CType(CType(114, Byte), Integer))
         Me.btnCalcular.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnCalcular.Location = New System.Drawing.Point(10, 128)
+        Me.btnCalcular.Font = New System.Drawing.Font("Yu Gothic UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCalcular.Location = New System.Drawing.Point(556, 180)
         Me.btnCalcular.Name = "btnCalcular"
-        Me.btnCalcular.Size = New System.Drawing.Size(75, 23)
+        Me.btnCalcular.Size = New System.Drawing.Size(161, 50)
         Me.btnCalcular.TabIndex = 1
         Me.btnCalcular.Text = "Calcular"
+        Me.btnCalcular.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnCalcular.UseVisualStyleBackColor = False
-        '
-        'DataGridView1
-        '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.detalle, Me.precio, Me.impuesto, Me.total})
-        Me.DataGridView1.Location = New System.Drawing.Point(10, 20)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(340, 102)
-        Me.DataGridView1.TabIndex = 0
         '
         'gpxAccesorios
         '
@@ -463,15 +508,6 @@ Partial Class FormTecnologia
         Me.gpxProducto.Text = "Computadoras"
         Me.gpxProducto.Visible = False
         '
-        'GroupBox6
-        '
-        Me.GroupBox6.Controls.Add(Me.PictureBox2)
-        Me.GroupBox6.Location = New System.Drawing.Point(557, 186)
-        Me.GroupBox6.Name = "GroupBox6"
-        Me.GroupBox6.Size = New System.Drawing.Size(160, 262)
-        Me.GroupBox6.TabIndex = 6
-        Me.GroupBox6.TabStop = False
-        '
         'PictureBox4
         '
         Me.PictureBox4.BackgroundImage = Global.Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.bannerTecnologiaDiunsaFixed2
@@ -479,7 +515,7 @@ Partial Class FormTecnologia
         Me.PictureBox4.Dock = System.Windows.Forms.DockStyle.Top
         Me.PictureBox4.Location = New System.Drawing.Point(0, 29)
         Me.PictureBox4.Name = "PictureBox4"
-        Me.PictureBox4.Size = New System.Drawing.Size(730, 151)
+        Me.PictureBox4.Size = New System.Drawing.Size(717, 151)
         Me.PictureBox4.TabIndex = 9
         Me.PictureBox4.TabStop = False
         '
@@ -492,37 +528,22 @@ Partial Class FormTecnologia
         Me.PictureBox3.TabIndex = 7
         Me.PictureBox3.TabStop = False
         '
-        'PictureBox2
-        '
-        Me.PictureBox2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PictureBox2.Location = New System.Drawing.Point(3, 16)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(154, 243)
-        Me.PictureBox2.TabIndex = 0
-        Me.PictureBox2.TabStop = False
-        '
         'btnGuardar
         '
         Me.btnGuardar.BackColor = System.Drawing.Color.White
-        Me.btnGuardar.BackgroundImage = Global.Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.GuardarIcono
+        Me.btnGuardar.BackgroundImage = Global.Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.guardarBoton2Fixed
         Me.btnGuardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnGuardar.FlatAppearance.BorderSize = 0
+        Me.btnGuardar.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.btnGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(24, Byte), Integer), CType(CType(16, Byte), Integer), CType(CType(114, Byte), Integer))
         Me.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnGuardar.Location = New System.Drawing.Point(313, 124)
+        Me.btnGuardar.Font = New System.Drawing.Font("Yu Gothic UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnGuardar.Location = New System.Drawing.Point(556, 327)
         Me.btnGuardar.Name = "btnGuardar"
-        Me.btnGuardar.Size = New System.Drawing.Size(37, 31)
+        Me.btnGuardar.Size = New System.Drawing.Size(161, 50)
         Me.btnGuardar.TabIndex = 9
+        Me.btnGuardar.Text = "Guardar"
+        Me.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnGuardar.UseVisualStyleBackColor = False
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackgroundImage = Global.Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.logoDiunsa2_Fixed3
-        Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Left
-        Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(80, 29)
-        Me.PictureBox1.TabIndex = 0
-        Me.PictureBox1.TabStop = False
         '
         'pbAccesorios
         '
@@ -534,39 +555,30 @@ Partial Class FormTecnologia
         Me.pbAccesorios.TabStop = False
         Me.pbAccesorios.Visible = False
         '
-        'detalle
+        'pbBotones
         '
-        Me.detalle.HeaderText = "Detalle"
-        Me.detalle.Name = "detalle"
-        Me.detalle.ReadOnly = True
-        '
-        'precio
-        '
-        Me.precio.HeaderText = "Precio"
-        Me.precio.Name = "precio"
-        Me.precio.ReadOnly = True
-        '
-        'impuesto
-        '
-        Me.impuesto.HeaderText = "Impuesto"
-        Me.impuesto.Name = "impuesto"
-        Me.impuesto.ReadOnly = True
-        '
-        'total
-        '
-        Me.total.HeaderText = "Total"
-        Me.total.Name = "total"
-        Me.total.ReadOnly = True
+        Me.pbBotones.BackColor = System.Drawing.Color.White
+        Me.pbBotones.Dock = System.Windows.Forms.DockStyle.Right
+        Me.pbBotones.Location = New System.Drawing.Point(556, 180)
+        Me.pbBotones.Name = "pbBotones"
+        Me.pbBotones.Size = New System.Drawing.Size(161, 369)
+        Me.pbBotones.TabIndex = 10
+        Me.pbBotones.TabStop = False
         '
         'FormTecnologia
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(730, 549)
+        Me.BackColor = System.Drawing.SystemColors.Control
+        Me.ClientSize = New System.Drawing.Size(717, 549)
+        Me.Controls.Add(Me.btnGuardar)
+        Me.Controls.Add(Me.btnSalir)
+        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.btnAgregar)
+        Me.Controls.Add(Me.btnCalcular)
+        Me.Controls.Add(Me.pbBotones)
         Me.Controls.Add(Me.PictureBox4)
         Me.Controls.Add(Me.PictureBox3)
-        Me.Controls.Add(Me.GroupBox6)
         Me.Controls.Add(Me.gpxProducto)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
@@ -579,6 +591,7 @@ Partial Class FormTecnologia
         Me.Name = "FormTecnologia"
         Me.Text = "Tecnología"
         Me.panelVentana.ResumeLayout(False)
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
@@ -589,12 +602,10 @@ Partial Class FormTecnologia
         Me.gpxAccesorios.PerformLayout()
         Me.gpxProducto.ResumeLayout(False)
         Me.gpxProducto.PerformLayout()
-        Me.GroupBox6.ResumeLayout(False)
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.pbAccesorios, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pbBotones, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -634,8 +645,6 @@ Partial Class FormTecnologia
     Friend WithEvents btnSalir As Button
     Friend WithEvents btnAgregar As Button
     Friend WithEvents btnCalcular As Button
-    Friend WithEvents GroupBox6 As GroupBox
-    Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents PictureBox3 As PictureBox
     Friend WithEvents pbAccesorios As PictureBox
     Friend WithEvents Button1 As Button
@@ -645,4 +654,5 @@ Partial Class FormTecnologia
     Friend WithEvents precio As DataGridViewTextBoxColumn
     Friend WithEvents impuesto As DataGridViewTextBoxColumn
     Friend WithEvents total As DataGridViewTextBoxColumn
+    Friend WithEvents pbBotones As PictureBox
 End Class

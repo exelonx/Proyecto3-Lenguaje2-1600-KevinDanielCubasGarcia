@@ -22,8 +22,12 @@ Partial Class FormEscOfi
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormEscOfi))
         Me.panelVentana = New System.Windows.Forms.Panel()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.btnVentanaMin = New System.Windows.Forms.Button()
         Me.btnVentanaSalir = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
@@ -42,7 +46,11 @@ Partial Class FormEscOfi
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.dgvSalida = New System.Windows.Forms.DataGridView()
+        Me.detalle = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.precio = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.impuestoC = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.totalC = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.gpxTipoProducto = New System.Windows.Forms.GroupBox()
         Me.lbCantidad = New System.Windows.Forms.Label()
@@ -59,17 +67,19 @@ Partial Class FormEscOfi
         Me.btnCalcular = New System.Windows.Forms.Button()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.txtAcumulador = New System.Windows.Forms.TextBox()
         Me.panelVentana.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvSalida, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gpxTipoProducto.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
         '
         'panelVentana
@@ -83,6 +93,16 @@ Partial Class FormEscOfi
         Me.panelVentana.Name = "panelVentana"
         Me.panelVentana.Size = New System.Drawing.Size(689, 29)
         Me.panelVentana.TabIndex = 0
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackgroundImage = Global.Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.logoDiunsa2_Fixed3
+        Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Left
+        Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(80, 29)
+        Me.PictureBox1.TabIndex = 2
+        Me.PictureBox1.TabStop = False
         '
         'btnVentanaMin
         '
@@ -267,7 +287,7 @@ Partial Class FormEscOfi
         '
         'GroupBox3
         '
-        Me.GroupBox3.Controls.Add(Me.DataGridView1)
+        Me.GroupBox3.Controls.Add(Me.dgvSalida)
         Me.GroupBox3.Location = New System.Drawing.Point(184, 274)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(338, 154)
@@ -275,13 +295,50 @@ Partial Class FormEscOfi
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Salida"
         '
-        'DataGridView1
+        'dgvSalida
         '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(7, 20)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(325, 128)
-        Me.DataGridView1.TabIndex = 0
+        Me.dgvSalida.AllowUserToAddRows = False
+        Me.dgvSalida.AllowUserToDeleteRows = False
+        Me.dgvSalida.AllowUserToOrderColumns = True
+        Me.dgvSalida.BackgroundColor = System.Drawing.Color.White
+        Me.dgvSalida.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvSalida.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.detalle, Me.precio, Me.impuestoC, Me.totalC})
+        Me.dgvSalida.Location = New System.Drawing.Point(7, 20)
+        Me.dgvSalida.Name = "dgvSalida"
+        Me.dgvSalida.ReadOnly = True
+        Me.dgvSalida.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvSalida.Size = New System.Drawing.Size(325, 128)
+        Me.dgvSalida.TabIndex = 0
+        '
+        'detalle
+        '
+        Me.detalle.HeaderText = "Detalle"
+        Me.detalle.Name = "detalle"
+        Me.detalle.ReadOnly = True
+        '
+        'precio
+        '
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.precio.DefaultCellStyle = DataGridViewCellStyle1
+        Me.precio.HeaderText = "Precio"
+        Me.precio.Name = "precio"
+        Me.precio.ReadOnly = True
+        '
+        'impuestoC
+        '
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.impuestoC.DefaultCellStyle = DataGridViewCellStyle2
+        Me.impuestoC.HeaderText = "Impuesto"
+        Me.impuestoC.Name = "impuestoC"
+        Me.impuestoC.ReadOnly = True
+        '
+        'totalC
+        '
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.totalC.DefaultCellStyle = DataGridViewCellStyle3
+        Me.totalC.HeaderText = "Total"
+        Me.totalC.Name = "totalC"
+        Me.totalC.ReadOnly = True
         '
         'Button5
         '
@@ -389,12 +446,14 @@ Partial Class FormEscOfi
         '
         'btnGuardar
         '
-        Me.btnGuardar.BackColor = System.Drawing.Color.FromArgb(CType(CType(24, Byte), Integer), CType(CType(16, Byte), Integer), CType(CType(114, Byte), Integer))
-        Me.btnGuardar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(24, Byte), Integer), CType(CType(16, Byte), Integer), CType(CType(114, Byte), Integer))
+        Me.btnGuardar.BackColor = System.Drawing.Color.White
+        Me.btnGuardar.BackgroundImage = Global.Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.guardarBoton2Fixed
+        Me.btnGuardar.Enabled = False
+        Me.btnGuardar.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.btnGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(24, Byte), Integer), CType(CType(16, Byte), Integer), CType(CType(114, Byte), Integer))
         Me.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnGuardar.Font = New System.Drawing.Font("Yu Gothic UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnGuardar.ForeColor = System.Drawing.Color.White
-        Me.btnGuardar.Image = Global.Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.guardarBoton2Blanco
+        Me.btnGuardar.ForeColor = System.Drawing.Color.Black
         Me.btnGuardar.Location = New System.Drawing.Point(528, 330)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(161, 50)
@@ -405,12 +464,14 @@ Partial Class FormEscOfi
         '
         'btnEliminar
         '
-        Me.btnEliminar.BackColor = System.Drawing.Color.FromArgb(CType(CType(24, Byte), Integer), CType(CType(16, Byte), Integer), CType(CType(114, Byte), Integer))
-        Me.btnEliminar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(24, Byte), Integer), CType(CType(16, Byte), Integer), CType(CType(114, Byte), Integer))
+        Me.btnEliminar.BackColor = System.Drawing.Color.White
+        Me.btnEliminar.BackgroundImage = Global.Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.EliminarBoton3Fixed2
+        Me.btnEliminar.Enabled = False
+        Me.btnEliminar.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.btnEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(24, Byte), Integer), CType(CType(16, Byte), Integer), CType(CType(114, Byte), Integer))
         Me.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnEliminar.Font = New System.Drawing.Font("Yu Gothic UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnEliminar.ForeColor = System.Drawing.Color.White
-        Me.btnEliminar.Image = Global.Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.EliminarBoton3Blanco
+        Me.btnEliminar.ForeColor = System.Drawing.Color.Black
         Me.btnEliminar.Location = New System.Drawing.Point(528, 280)
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.Size = New System.Drawing.Size(161, 50)
@@ -421,12 +482,13 @@ Partial Class FormEscOfi
         '
         'btnAgregar
         '
-        Me.btnAgregar.BackColor = System.Drawing.Color.FromArgb(CType(CType(24, Byte), Integer), CType(CType(16, Byte), Integer), CType(CType(114, Byte), Integer))
-        Me.btnAgregar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(24, Byte), Integer), CType(CType(16, Byte), Integer), CType(CType(114, Byte), Integer))
+        Me.btnAgregar.BackColor = System.Drawing.Color.White
+        Me.btnAgregar.BackgroundImage = Global.Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.AgregarBotonFixed2
+        Me.btnAgregar.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.btnAgregar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(24, Byte), Integer), CType(CType(16, Byte), Integer), CType(CType(114, Byte), Integer))
         Me.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAgregar.Font = New System.Drawing.Font("Yu Gothic UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAgregar.ForeColor = System.Drawing.Color.White
-        Me.btnAgregar.Image = Global.Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.AgregarBotonBlanco
+        Me.btnAgregar.ForeColor = System.Drawing.Color.Black
         Me.btnAgregar.Location = New System.Drawing.Point(528, 230)
         Me.btnAgregar.Name = "btnAgregar"
         Me.btnAgregar.Size = New System.Drawing.Size(161, 50)
@@ -437,12 +499,13 @@ Partial Class FormEscOfi
         '
         'btnCalcular
         '
-        Me.btnCalcular.BackColor = System.Drawing.Color.FromArgb(CType(CType(24, Byte), Integer), CType(CType(16, Byte), Integer), CType(CType(114, Byte), Integer))
-        Me.btnCalcular.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(24, Byte), Integer), CType(CType(16, Byte), Integer), CType(CType(114, Byte), Integer))
+        Me.btnCalcular.BackColor = System.Drawing.Color.White
+        Me.btnCalcular.BackgroundImage = Global.Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.CalcularBotonFixed2
+        Me.btnCalcular.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.btnCalcular.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(24, Byte), Integer), CType(CType(16, Byte), Integer), CType(CType(114, Byte), Integer))
         Me.btnCalcular.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCalcular.Font = New System.Drawing.Font("Yu Gothic UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCalcular.ForeColor = System.Drawing.Color.White
-        Me.btnCalcular.Image = Global.Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.CalcularBotonBlanco
+        Me.btnCalcular.ForeColor = System.Drawing.Color.Black
         Me.btnCalcular.Location = New System.Drawing.Point(528, 180)
         Me.btnCalcular.Name = "btnCalcular"
         Me.btnCalcular.Size = New System.Drawing.Size(161, 50)
@@ -464,21 +527,31 @@ Partial Class FormEscOfi
         'Panel2
         '
         Me.Panel2.BackgroundImage = Global.Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.bannerOficinaDiunsa
+        Me.Panel2.Controls.Add(Me.Label6)
+        Me.Panel2.Controls.Add(Me.txtAcumulador)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel2.Location = New System.Drawing.Point(0, 29)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(689, 151)
         Me.Panel2.TabIndex = 1
         '
-        'PictureBox1
+        'Label6
         '
-        Me.PictureBox1.BackgroundImage = Global.Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.logoDiunsa2_Fixed3
-        Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Left
-        Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(80, 29)
-        Me.PictureBox1.TabIndex = 2
-        Me.PictureBox1.TabStop = False
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Yu Gothic UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(574, 3)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(80, 17)
+        Me.Label6.TabIndex = 1
+        Me.Label6.Text = "Acumulado:"
+        '
+        'txtAcumulador
+        '
+        Me.txtAcumulador.Location = New System.Drawing.Point(577, 23)
+        Me.txtAcumulador.Name = "txtAcumulador"
+        Me.txtAcumulador.ReadOnly = True
+        Me.txtAcumulador.Size = New System.Drawing.Size(100, 20)
+        Me.txtAcumulador.TabIndex = 0
         '
         'FormEscOfi
         '
@@ -504,19 +577,21 @@ Partial Class FormEscOfi
         Me.Name = "FormEscOfi"
         Me.Text = "FormEscOfi"
         Me.panelVentana.ResumeLayout(False)
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvSalida, System.ComponentModel.ISupportInitialize).EndInit()
         Me.gpxTipoProducto.ResumeLayout(False)
         Me.gpxTipoProducto.PerformLayout()
         Me.GroupBox5.ResumeLayout(False)
         Me.GroupBox5.PerformLayout()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel2.ResumeLayout(False)
+        Me.Panel2.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -548,7 +623,6 @@ Partial Class FormEscOfi
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
-    Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents txtTotal As TextBox
     Friend WithEvents txtImpuesto As TextBox
     Friend WithEvents txtSubT As TextBox
@@ -558,4 +632,11 @@ Partial Class FormEscOfi
     Friend WithEvents chkBorrador As CheckBox
     Friend WithEvents chkSacapuntas As CheckBox
     Friend WithEvents chkPapel As CheckBox
+    Friend WithEvents detalle As DataGridViewTextBoxColumn
+    Friend WithEvents precio As DataGridViewTextBoxColumn
+    Friend WithEvents impuestoC As DataGridViewTextBoxColumn
+    Friend WithEvents totalC As DataGridViewTextBoxColumn
+    Friend WithEvents txtAcumulador As TextBox
+    Friend WithEvents Label6 As Label
+    Public WithEvents dgvSalida As DataGridView
 End Class

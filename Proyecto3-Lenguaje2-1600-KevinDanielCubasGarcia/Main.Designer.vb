@@ -51,14 +51,14 @@ Partial Class Main
         Me.btnDeporte = New System.Windows.Forms.Button()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.detalle = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.precio = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Impuesto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.total = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txtIVA = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.txtSubT = New System.Windows.Forms.TextBox()
+        Me.detalle = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.precio = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Impuesto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.total = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.panelVentana.SuspendLayout()
         CType(Me.dgvMain, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gpxDatosGenerales.SuspendLayout()
@@ -377,36 +377,6 @@ Partial Class Main
         Me.PictureBox1.TabIndex = 2
         Me.PictureBox1.TabStop = False
         '
-        'detalle
-        '
-        Me.detalle.HeaderText = "Detalle"
-        Me.detalle.Name = "detalle"
-        Me.detalle.ReadOnly = True
-        '
-        'precio
-        '
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.precio.DefaultCellStyle = DataGridViewCellStyle1
-        Me.precio.HeaderText = "Precio"
-        Me.precio.Name = "precio"
-        Me.precio.ReadOnly = True
-        '
-        'Impuesto
-        '
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Impuesto.DefaultCellStyle = DataGridViewCellStyle2
-        Me.Impuesto.HeaderText = "Total"
-        Me.Impuesto.Name = "Impuesto"
-        Me.Impuesto.ReadOnly = True
-        '
-        'total
-        '
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.total.DefaultCellStyle = DataGridViewCellStyle3
-        Me.total.HeaderText = "Total"
-        Me.total.Name = "total"
-        Me.total.ReadOnly = True
-        '
         'Label4
         '
         Me.Label4.AutoSize = True
@@ -444,6 +414,36 @@ Partial Class Main
         Me.txtSubT.Size = New System.Drawing.Size(100, 20)
         Me.txtSubT.TabIndex = 16
         Me.txtSubT.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'detalle
+        '
+        Me.detalle.HeaderText = "Detalle"
+        Me.detalle.Name = "detalle"
+        Me.detalle.ReadOnly = True
+        '
+        'precio
+        '
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.precio.DefaultCellStyle = DataGridViewCellStyle1
+        Me.precio.HeaderText = "Precio"
+        Me.precio.Name = "precio"
+        Me.precio.ReadOnly = True
+        '
+        'Impuesto
+        '
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Impuesto.DefaultCellStyle = DataGridViewCellStyle2
+        Me.Impuesto.HeaderText = "Impuesto"
+        Me.Impuesto.Name = "Impuesto"
+        Me.Impuesto.ReadOnly = True
+        '
+        'total
+        '
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.total.DefaultCellStyle = DataGridViewCellStyle3
+        Me.total.HeaderText = "Total"
+        Me.total.Name = "total"
+        Me.total.ReadOnly = True
         '
         'Main
         '
@@ -513,12 +513,12 @@ Partial Class Main
     Friend WithEvents txtTotal As TextBox
     Friend WithEvents Label3 As Label
     Public WithEvents dgvMain As DataGridView
-    Friend WithEvents detalle As DataGridViewTextBoxColumn
-    Friend WithEvents precio As DataGridViewTextBoxColumn
-    Friend WithEvents Impuesto As DataGridViewTextBoxColumn
-    Friend WithEvents total As DataGridViewTextBoxColumn
     Friend WithEvents Label4 As Label
     Friend WithEvents txtIVA As TextBox
     Friend WithEvents Label5 As Label
     Friend WithEvents txtSubT As TextBox
+    Friend WithEvents detalle As DataGridViewTextBoxColumn
+    Friend WithEvents precio As DataGridViewTextBoxColumn
+    Friend WithEvents Impuesto As DataGridViewTextBoxColumn
+    Friend WithEvents total As DataGridViewTextBoxColumn
 End Class

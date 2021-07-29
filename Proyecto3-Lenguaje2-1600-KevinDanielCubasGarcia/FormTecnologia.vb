@@ -124,7 +124,7 @@
     Private Sub FormTecnologia_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         PictureBox3.Location = New Point(189, 193)
         pbAccesorios.Location = New Point(333, 193)
-        Me.Size = New Size(730, 456)
+        Me.Size = New Size(717, 456)
     End Sub
 
     Private Sub rbConsolas_CheckedChanged(sender As Object, e As EventArgs) Handles rbSoloAccesorios.CheckedChanged
