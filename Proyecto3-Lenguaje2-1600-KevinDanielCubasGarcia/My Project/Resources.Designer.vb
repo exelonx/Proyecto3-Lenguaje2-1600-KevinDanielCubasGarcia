@@ -643,6 +643,16 @@ Namespace My.Resources
         '''<summary>
         '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property NuevoLogo_DIUNSA_Color() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("NuevoLogo_DIUNSA_Color", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property Oficina_Diunsa() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("Oficina Diunsa", resourceCulture)

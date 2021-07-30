@@ -14,7 +14,7 @@
     Dim candado As Integer 'Sirve de candado para evitar bucle en el checkbox de membresía
 
     'Variables auxiliares
-    Public nFacturaAux As Integer                  'Este se usara para buscar los datos
+    Public nFacturaAux As String                  'Este se usara para buscar los datos
     Public metodoPago, membresia, nombre As String
     Public dataGridAux(4, 50) As String   'Almacenara el datagrid en este arreglo
     Public subTAux, descAux, ivaAux, totalAux As Double
@@ -115,6 +115,7 @@
         'Limpieza
         contFilas = 0
         indexFila = 0
+        inicio.contFilas = dgvMain.Rows.Count
         dgvMain.Rows.Clear()
         acumDesc = 0
         acumIVA = 0
@@ -272,22 +273,27 @@
     Private Sub dgvMain_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvMain.CellContentClick
         setDecremento(e)
         btnEliminar.Enabled = Enabled
+        btnEliminar.BackColor = ColorTranslator.FromHtml("#181072")
     End Sub
 
     Private Sub dgvMain_RowsRemoved(sender As Object, e As DataGridViewRowsRemovedEventArgs) Handles dgvMain.RowsRemoved
         If dgvMain.Rows.Count = 0 Then
             btnFacturar.Enabled = False
+            btnEliminar.Enabled = False
         End If
     End Sub
 
     Private Sub dgvMain_RowsAdded(sender As Object, e As DataGridViewRowsAddedEventArgs) Handles dgvMain.RowsAdded
         btnFacturar.Enabled = True
+        btnFacturar.BackColor = ColorTranslator.FromHtml("#181072")
     End Sub
 
     Private Sub btnHistorial_Click(sender As Object, e As EventArgs) Handles btnHistorial.Click
+        Dim index As Integer
         actual = inicio
         nFacturaAux = InputBox("Ingrese el número de factura.", "Factura")
         While actual IsNot Nothing
+            'Si el número de factura ingresado coincide con el número de factura almacenado en la lista procedera a mostrar la información
             If nFacturaAux = actual.nfactura Then
                 FormHistorico.Show()
                 FormHistorico.txtFactura.Text = actual.nfactura
@@ -298,6 +304,16 @@
                 FormHistorico.txtDescuento.Text = actual.desc
                 FormHistorico.txtImpuesto.Text = actual.iva
                 FormHistorico.txtTotal.Text = actual.total
+                Do While (index < actual.contFilas)
+
+                    FormHistorico.dgvHistorial.Rows.Add()
+                    FormHistorico.dgvHistorial(0, index).Value = actual.dataGridC(0, index)
+                    FormHistorico.dgvHistorial(1, index).Value = actual.dataGridC(1, index)
+                    FormHistorico.dgvHistorial(2, index).Value = actual.dataGridC(2, index)
+                    FormHistorico.dgvHistorial(3, index).Value = actual.dataGridC(3, index)
+                    FormHistorico.dgvHistorial(4, index).Value = actual.dataGridC(4, index)
+                    index += 1
+                Loop
                 Exit Sub
             End If
             actual = actual.nodo

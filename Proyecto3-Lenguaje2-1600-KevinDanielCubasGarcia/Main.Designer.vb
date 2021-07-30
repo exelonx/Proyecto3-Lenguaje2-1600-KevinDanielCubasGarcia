@@ -28,7 +28,6 @@ Partial Class Main
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Main))
         Me.panelVentana = New System.Windows.Forms.Panel()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.btnVentanaMin = New System.Windows.Forms.Button()
         Me.btnVentanaSalir = New System.Windows.Forms.Button()
         Me.btnFacturar = New System.Windows.Forms.Button()
@@ -56,24 +55,27 @@ Partial Class Main
         Me.txtIVA = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.txtSubT = New System.Windows.Forms.TextBox()
+        Me.txtDesc = New System.Windows.Forms.TextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.btnTecno = New System.Windows.Forms.Button()
         Me.btnRopa = New System.Windows.Forms.Button()
         Me.btnEscOfi = New System.Windows.Forms.Button()
         Me.btnDeporte = New System.Windows.Forms.Button()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.txtDesc = New System.Windows.Forms.TextBox()
-        Me.Label6 = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.btnInfo = New System.Windows.Forms.Button()
         Me.panelVentana.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvMain, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gpxDatosGenerales.SuspendLayout()
         Me.gpxPago.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'panelVentana
         '
         Me.panelVentana.BackColor = System.Drawing.Color.FromArgb(CType(CType(24, Byte), Integer), CType(CType(16, Byte), Integer), CType(CType(114, Byte), Integer))
+        Me.panelVentana.Controls.Add(Me.btnInfo)
         Me.panelVentana.Controls.Add(Me.PictureBox1)
         Me.panelVentana.Controls.Add(Me.btnVentanaMin)
         Me.panelVentana.Controls.Add(Me.btnVentanaSalir)
@@ -82,16 +84,6 @@ Partial Class Main
         Me.panelVentana.Name = "panelVentana"
         Me.panelVentana.Size = New System.Drawing.Size(572, 29)
         Me.panelVentana.TabIndex = 0
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackgroundImage = Global.Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.logoDiunsa2_Fixed3
-        Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Left
-        Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(80, 29)
-        Me.PictureBox1.TabIndex = 2
-        Me.PictureBox1.TabStop = False
         '
         'btnVentanaMin
         '
@@ -125,7 +117,7 @@ Partial Class Main
         '
         'btnFacturar
         '
-        Me.btnFacturar.BackColor = System.Drawing.Color.FromArgb(CType(CType(24, Byte), Integer), CType(CType(16, Byte), Integer), CType(CType(114, Byte), Integer))
+        Me.btnFacturar.BackColor = System.Drawing.Color.LightSteelBlue
         Me.btnFacturar.Enabled = False
         Me.btnFacturar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(24, Byte), Integer), CType(CType(16, Byte), Integer), CType(CType(114, Byte), Integer))
         Me.btnFacturar.FlatAppearance.BorderSize = 0
@@ -319,7 +311,7 @@ Partial Class Main
         '
         'btnEliminar
         '
-        Me.btnEliminar.BackColor = System.Drawing.Color.FromArgb(CType(CType(24, Byte), Integer), CType(CType(16, Byte), Integer), CType(CType(114, Byte), Integer))
+        Me.btnEliminar.BackColor = System.Drawing.Color.LightSteelBlue
         Me.btnEliminar.Enabled = False
         Me.btnEliminar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(24, Byte), Integer), CType(CType(16, Byte), Integer), CType(CType(114, Byte), Integer))
         Me.btnEliminar.FlatAppearance.BorderSize = 0
@@ -393,6 +385,26 @@ Partial Class Main
         Me.txtSubT.Size = New System.Drawing.Size(100, 20)
         Me.txtSubT.TabIndex = 16
         Me.txtSubT.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'txtDesc
+        '
+        Me.txtDesc.Location = New System.Drawing.Point(460, 310)
+        Me.txtDesc.Name = "txtDesc"
+        Me.txtDesc.ReadOnly = True
+        Me.txtDesc.Size = New System.Drawing.Size(100, 20)
+        Me.txtDesc.TabIndex = 17
+        Me.txtDesc.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.BackColor = System.Drawing.Color.Transparent
+        Me.Label6.Font = New System.Drawing.Font("Yu Gothic UI", 8.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(385, 313)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(67, 15)
+        Me.Label6.TabIndex = 18
+        Me.Label6.Text = "Descuento:"
         '
         'btnTecno
         '
@@ -473,25 +485,29 @@ Partial Class Main
         Me.PictureBox2.TabIndex = 8
         Me.PictureBox2.TabStop = False
         '
-        'txtDesc
+        'PictureBox1
         '
-        Me.txtDesc.Location = New System.Drawing.Point(460, 310)
-        Me.txtDesc.Name = "txtDesc"
-        Me.txtDesc.ReadOnly = True
-        Me.txtDesc.Size = New System.Drawing.Size(100, 20)
-        Me.txtDesc.TabIndex = 17
-        Me.txtDesc.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.PictureBox1.BackgroundImage = Global.Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.logoDiunsa2_Fixed3
+        Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Left
+        Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(80, 29)
+        Me.PictureBox1.TabIndex = 2
+        Me.PictureBox1.TabStop = False
         '
-        'Label6
+        'btnInfo
         '
-        Me.Label6.AutoSize = True
-        Me.Label6.BackColor = System.Drawing.Color.Transparent
-        Me.Label6.Font = New System.Drawing.Font("Yu Gothic UI", 8.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(385, 313)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(67, 15)
-        Me.Label6.TabIndex = 18
-        Me.Label6.Text = "Descuento:"
+        Me.btnInfo.BackColor = System.Drawing.Color.White
+        Me.btnInfo.Dock = System.Windows.Forms.DockStyle.Right
+        Me.btnInfo.FlatAppearance.BorderSize = 0
+        Me.btnInfo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(172, Byte), Integer), CType(CType(217, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.btnInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnInfo.Location = New System.Drawing.Point(449, 0)
+        Me.btnInfo.Name = "btnInfo"
+        Me.btnInfo.Size = New System.Drawing.Size(41, 29)
+        Me.btnInfo.TabIndex = 3
+        Me.btnInfo.Text = "?"
+        Me.btnInfo.UseVisualStyleBackColor = False
         '
         'Main
         '
@@ -526,13 +542,13 @@ Partial Class Main
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Menú Principal"
         Me.panelVentana.ResumeLayout(False)
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvMain, System.ComponentModel.ISupportInitialize).EndInit()
         Me.gpxDatosGenerales.ResumeLayout(False)
         Me.gpxDatosGenerales.PerformLayout()
         Me.gpxPago.ResumeLayout(False)
         Me.gpxPago.PerformLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -574,4 +590,5 @@ Partial Class Main
     Friend WithEvents descuento As DataGridViewTextBoxColumn
     Friend WithEvents Impuesto As DataGridViewTextBoxColumn
     Friend WithEvents total As DataGridViewTextBoxColumn
+    Friend WithEvents btnInfo As Button
 End Class

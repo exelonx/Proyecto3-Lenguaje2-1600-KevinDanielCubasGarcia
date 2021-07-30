@@ -73,6 +73,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormInfo.Designer.vb">
+      <DependentUpon>FormInfo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormInfo.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormDeporte.Designer.vb">
       <DependentUpon>FormDeporte.vb</DependentUpon>
     </Compile>
@@ -388,6 +394,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Moda Diunsa blanco Long.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NuevoLogo_DIUNSA_Color.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
