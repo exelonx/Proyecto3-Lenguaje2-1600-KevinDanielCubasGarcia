@@ -34,6 +34,11 @@ Partial Class Main
         Me.btnFacturar = New System.Windows.Forms.Button()
         Me.btnHistorial = New System.Windows.Forms.Button()
         Me.dgvMain = New System.Windows.Forms.DataGridView()
+        Me.detalle = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.precio = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.descuento = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Impuesto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.total = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.gpxDatosGenerales = New System.Windows.Forms.GroupBox()
         Me.txtNombre = New System.Windows.Forms.TextBox()
         Me.txtFactura = New System.Windows.Forms.TextBox()
@@ -58,11 +63,6 @@ Partial Class Main
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.txtDesc = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.detalle = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.precio = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.descuento = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Impuesto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.total = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.panelVentana.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvMain, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -168,6 +168,48 @@ Partial Class Main
         Me.dgvMain.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvMain.Size = New System.Drawing.Size(426, 159)
         Me.dgvMain.TabIndex = 6
+        '
+        'detalle
+        '
+        Me.detalle.HeaderText = "Detalle"
+        Me.detalle.Name = "detalle"
+        Me.detalle.ReadOnly = True
+        '
+        'precio
+        '
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.precio.DefaultCellStyle = DataGridViewCellStyle1
+        Me.precio.HeaderText = "Precio"
+        Me.precio.Name = "precio"
+        Me.precio.ReadOnly = True
+        Me.precio.Width = 80
+        '
+        'descuento
+        '
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.descuento.DefaultCellStyle = DataGridViewCellStyle2
+        Me.descuento.HeaderText = "Descuento"
+        Me.descuento.Name = "descuento"
+        Me.descuento.ReadOnly = True
+        Me.descuento.Width = 65
+        '
+        'Impuesto
+        '
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Impuesto.DefaultCellStyle = DataGridViewCellStyle3
+        Me.Impuesto.HeaderText = "Impuesto"
+        Me.Impuesto.Name = "Impuesto"
+        Me.Impuesto.ReadOnly = True
+        Me.Impuesto.Width = 60
+        '
+        'total
+        '
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.total.DefaultCellStyle = DataGridViewCellStyle4
+        Me.total.HeaderText = "Total"
+        Me.total.Name = "total"
+        Me.total.ReadOnly = True
+        Me.total.Width = 75
         '
         'gpxDatosGenerales
         '
@@ -450,48 +492,6 @@ Partial Class Main
         Me.Label6.Size = New System.Drawing.Size(67, 15)
         Me.Label6.TabIndex = 18
         Me.Label6.Text = "Descuento:"
-        '
-        'detalle
-        '
-        Me.detalle.HeaderText = "Detalle"
-        Me.detalle.Name = "detalle"
-        Me.detalle.ReadOnly = True
-        '
-        'precio
-        '
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.precio.DefaultCellStyle = DataGridViewCellStyle1
-        Me.precio.HeaderText = "Precio"
-        Me.precio.Name = "precio"
-        Me.precio.ReadOnly = True
-        Me.precio.Width = 80
-        '
-        'descuento
-        '
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.descuento.DefaultCellStyle = DataGridViewCellStyle2
-        Me.descuento.HeaderText = "Descuento"
-        Me.descuento.Name = "descuento"
-        Me.descuento.ReadOnly = True
-        Me.descuento.Width = 65
-        '
-        'Impuesto
-        '
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Impuesto.DefaultCellStyle = DataGridViewCellStyle3
-        Me.Impuesto.HeaderText = "Impuesto"
-        Me.Impuesto.Name = "Impuesto"
-        Me.Impuesto.ReadOnly = True
-        Me.Impuesto.Width = 60
-        '
-        'total
-        '
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.total.DefaultCellStyle = DataGridViewCellStyle4
-        Me.total.HeaderText = "Total"
-        Me.total.Name = "total"
-        Me.total.ReadOnly = True
-        Me.total.Width = 75
         '
         'Main
         '

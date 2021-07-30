@@ -20,7 +20,9 @@
     Public subTAux, descAux, ivaAux, totalAux As Double
 
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'El nodo al inicio toma el valor de nothing
         inicio = Nothing
+        membresia = "Sin Membresía"
         factura = 1
         txtFactura.Text = factura
         txtFactura.Focus()
@@ -76,6 +78,11 @@
                 txtTotal.Clear()
             End If
         End If
+        If chkMembresia.Checked = True Then
+            membresia = "Con Membresía"
+        Else
+            membresia = "Sin Membresía"
+        End If
     End Sub
 
     'Validaciones
@@ -96,18 +103,14 @@
             MessageBox.Show("Casilla vacia, ingrese el nombre del cliente.", "Faltan Requisitos")
             txtNombre.Focus()
             Exit Sub
-        ElseIf rbEfectivo.Checked = True And rbTarjeta.Checked = True Then
+        ElseIf rbEfectivo.Checked = False And rbTarjeta.Checked = False Then
             MessageBox.Show("Seleccione un metodo de pago.", "Faltan Requisitos")
             Exit Sub
         End If
-        'Crear un nodo
         factura = txtFactura.Text
         nombre = txtNombre.Text
-
-
+        'el nodo de inicio toma los valores del nuevo nodo creado
         inicio = New Nodo(factura, inicio, nombre, metodoPago, membresia, dgvMain, acumST, acumDesc, acumIVA, acumTot)
-
-        'inicio = New Nodo(factura, inicio, nombre, metodoPago, membresia, dgvMain, acumST, acumDesc, acumIVA, acumTot)
         actual = inicio
         'Limpieza
         contFilas = 0
@@ -245,6 +248,18 @@
         btnDeporte.BackgroundImage = Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.Deporte_Diunsa_Blanco_Long
         'tamaño
         btnDeporte.Width = 138
+    End Sub
+
+    Private Sub rbEfectivo_CheckedChanged(sender As Object, e As EventArgs) Handles rbEfectivo.CheckedChanged
+        If rbEfectivo.Checked = True Then
+            metodoPago = "Efectivo"
+        End If
+    End Sub
+
+    Private Sub rbTarjeta_CheckedChanged(sender As Object, e As EventArgs) Handles rbTarjeta.CheckedChanged
+        If rbTarjeta.Checked = True Then
+            metodoPago = "Tarjeta"
+        End If
     End Sub
 
     Private Sub btnDeporte_MouseLeave(sender As Object, e As EventArgs) Handles btnDeporte.MouseLeave

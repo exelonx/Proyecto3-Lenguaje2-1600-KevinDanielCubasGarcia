@@ -73,7 +73,6 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Coleccion.vb" />
     <Compile Include="FormDeporte.Designer.vb">
       <DependentUpon>FormDeporte.vb</DependentUpon>
     </Compile>
