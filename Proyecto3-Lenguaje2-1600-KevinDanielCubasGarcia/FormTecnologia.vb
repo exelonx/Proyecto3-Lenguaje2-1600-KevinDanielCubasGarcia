@@ -3,18 +3,29 @@
     Dim validacion As New Validaciones
     Dim preciosBase(3), cantidad As Integer
     Dim precioAccesorio(2, 3), precioAccesorioNeto As Integer
-    Dim indexAcces As Integer 'Para situar el arreglo de accesorios al agregar
-    Dim calculos(2) As Double '0 = SubTotal, 1 = Impuesto, 2 = Total
-    Dim acumST, acumIVA, acumTot As Double 'Acumuladores
-    Dim selectPrecio, selectIVA, selectTot 'para hacer decremento a los acumuladores
+    Dim calculos(2), descuento As Double '0 = SubTotal, 1 = Impuesto, 2 = Total
+    Dim acumST, acumIVA, acumTot, acumDesc As Double 'Acumuladores
+    Dim selectPrecio, selectIVA, selectTot, selectDesc 'para hacer decremento a los acumuladores
     Dim antiCloseBug As Boolean 'Para evitar bug al cerrar formulario cuando se trata de evitar de perder información
+
+    'Funciones
+    Public Function getDescuentoUnitario(variable As Double) As Double
+        Dim descAux
+        If Main.chkMembresia.Checked = True Then
+            descAux = variable * 0.1
+        Else
+            descAux = 0
+        End If
+        Return descAux
+    End Function
 
     'Procedimientos
     Public Sub setDecremento(e As DataGridViewCellEventArgs)
         If e.RowIndex > -1 Then
             selectPrecio = dgvSalida.Rows(e.RowIndex).Cells(1).Value
-            selectIVA = dgvSalida.Rows(e.RowIndex).Cells(2).Value
-            selectTot = dgvSalida.Rows(e.RowIndex).Cells(3).Value
+            selectDesc = dgvSalida.Rows(e.RowIndex).Cells(2).Value
+            selectIVA = dgvSalida.Rows(e.RowIndex).Cells(3).Value
+            selectTot = dgvSalida.Rows(e.RowIndex).Cells(4).Value
         End If
     End Sub
 
@@ -138,7 +149,7 @@
         txtAcumulador.Text = Format(0, "0.00")
         PictureBox3.Location = New Point(189, 193)
         pbAccesorios.Location = New Point(333, 193)
-        Me.Size = New Size(717, 456)
+        Me.Size = New Size(717, 477)
     End Sub
 
     Private Sub FormTecnologia_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
@@ -150,7 +161,6 @@
 
     Private Sub rbConsolas_CheckedChanged(sender As Object, e As EventArgs) Handles rbSoloAccesorios.CheckedChanged
         seleccionProducto()
-        indexAcces = 2
     End Sub
 
     Private Sub cmbProducto_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cmbProducto.KeyPress
@@ -175,12 +185,10 @@
 
     Private Sub rbComputadoras_CheckedChanged(sender As Object, e As EventArgs) Handles rbComputadoras.CheckedChanged
         seleccionProducto()
-        indexAcces = 0
     End Sub
 
     Private Sub rbCelulares_CheckedChanged(sender As Object, e As EventArgs) Handles rbCelulares.CheckedChanged
         seleccionProducto()
-        indexAcces = 1
     End Sub
 
     Private Sub chkAcces1_CheckedChanged(sender As Object, e As EventArgs) Handles chkAcces1.CheckedChanged
@@ -237,11 +245,18 @@
         cantidad = txtCantidadProducto.Text
         calculos(0) = (preciosBase(3) * cantidad) + precioAccesorioNeto
         txtSubT.Text = Format(calculos(0), "0.00")
+        'Descuento de membresía
+        If Main.chkMembresia.Checked = True Then
+            descuento = calculos(0) * 0.1
+        Else
+            descuento = 0
+        End If
+        txtDescuento.Text = Format(descuento, "0.00")
         'Impuesto
-        calculos(1) = calculos(0) * 0.15
+        calculos(1) = (calculos(0) - descuento) * 0.15
         txtImpuesto.Text = Format(calculos(1), "0.00")
         'Total
-        calculos(2) = calculos(0) + calculos(1)
+        calculos(2) = calculos(0) + calculos(1) - descuento
         txtTotal.Text = Format(calculos(2), "0.00")
     End Sub
 
@@ -303,6 +318,7 @@
             acumST -= selectPrecio
             acumIVA -= selectIVA
             acumTot -= selectTot
+            acumDesc -= selectDesc
             txtAcumulador.Text = acumTot
             btnEliminar.Enabled = False
         End If
@@ -312,11 +328,13 @@
         'Paso de acumuladores al main
         Main.acumST += Me.acumST
         Main.txtSubT.Text = Format(Main.acumST, "0.00")
+        Main.acumDesc += Me.acumDesc
+        Main.txtDesc.Text = Format(Main.acumDesc, "0.00")
         Main.acumIVA += Me.acumIVA
         Main.txtIVA.Text = Format(Main.acumIVA, "0.00")
         Main.acumTot += Me.acumTot
         Main.txtTotal.Text = Format(Main.acumTot, "0.00")
-        'DataGridV Deporte al DataGridV Main
+        'DataGridV Oficina al DataGridV Main
         Do While (Main.indexFila < Main.contFilas)
             Dim index As Integer
             Main.dgvMain.Rows.Add()
@@ -324,6 +342,7 @@
             Main.dgvMain(1, Main.indexFila).Value = dgvSalida(1, index).Value.ToString
             Main.dgvMain(2, Main.indexFila).Value = dgvSalida(2, index).Value.ToString
             Main.dgvMain(3, Main.indexFila).Value = dgvSalida(3, index).Value.ToString
+            Main.dgvMain(4, Main.indexFila).Value = dgvSalida(4, index).Value.ToString
             Main.indexFila += 1
             index += 1
         Loop
@@ -349,17 +368,19 @@
             dgvSalida.Rows.Add()
             dgvSalida(0, nfilas).Value = cmbProducto.Text
             dgvSalida(1, nfilas).Value = txtPrecioB.Text
-            dgvSalida(2, nfilas).Value = Format(txtPrecioB.Text * 0.15, "0.00")
-            dgvSalida(3, nfilas).Value = Format(txtPrecioB.Text + (txtPrecioB.Text * 0.15), "0.00")
+            dgvSalida(2, nfilas).Value = Format(getDescuentoUnitario(txtPrecioB.Text), "0.00")
+            dgvSalida(3, nfilas).Value = Format(txtPrecioB.Text * 0.15, "0.00")
+            dgvSalida(4, nfilas).Value = Format(txtPrecioB.Text - getDescuentoUnitario(txtPrecioB.Text) + (txtPrecioB.Text * 0.15), "0.00")
             Main.contFilas += 1
             'Extras
             If chkAcces1.Checked = True Then
                 nfilas = dgvSalida.Rows.Count
                 dgvSalida.Rows.Add()
                 dgvSalida(0, nfilas).Value = cmbAcces1.Text
-                dgvSalida(1, nfilas).Value = Format(precioAccesorio(indexAcces, 0), "0.00")
-                dgvSalida(2, nfilas).Value = Format(precioAccesorio(indexAcces, 0) * 0.15, "0.00")
-                dgvSalida(3, nfilas).Value = Format(precioAccesorio(indexAcces, 0) + (precioAccesorio(0, 0) * 0.15), "0.00")
+                dgvSalida(1, nfilas).Value = Format(precioAccesorio(0, cmbAcces1.SelectedIndex), "0.00")
+                dgvSalida(2, nfilas).Value = Format(getDescuentoUnitario(precioAccesorio(0, cmbAcces1.SelectedIndex)), "0.00")
+                dgvSalida(3, nfilas).Value = Format(precioAccesorio(0, cmbAcces1.SelectedIndex) * 0.15, "0.00")
+                dgvSalida(4, nfilas).Value = Format(precioAccesorio(0, cmbAcces1.SelectedIndex) - getDescuentoUnitario(precioAccesorio(0, cmbAcces1.SelectedIndex)) + (precioAccesorio(0, cmbAcces1.SelectedIndex) * 0.15), "0.00")
                 Main.contFilas += 1
             End If
 
@@ -367,9 +388,10 @@
                 nfilas = dgvSalida.Rows.Count
                 dgvSalida.Rows.Add()
                 dgvSalida(0, nfilas).Value = cmbAcces2.Text
-                dgvSalida(1, nfilas).Value = Format(precioAccesorio(indexAcces, 1), "0.00")
-                dgvSalida(2, nfilas).Value = Format(precioAccesorio(indexAcces, 1) * 0.15, "0.00")
-                dgvSalida(3, nfilas).Value = Format(precioAccesorio(indexAcces, 1) + (precioAccesorio(1, 0) * 0.15), "0.00")
+                dgvSalida(1, nfilas).Value = Format(precioAccesorio(1, cmbAcces2.SelectedIndex), "0.00")
+                dgvSalida(2, nfilas).Value = Format(getDescuentoUnitario(precioAccesorio(1, cmbAcces2.SelectedIndex)), "0.00")
+                dgvSalida(3, nfilas).Value = Format(precioAccesorio(1, cmbAcces2.SelectedIndex) * 0.15, "0.00")
+                dgvSalida(4, nfilas).Value = Format(precioAccesorio(1, cmbAcces2.SelectedIndex) - getDescuentoUnitario(precioAccesorio(1, cmbAcces2.SelectedIndex)) + (precioAccesorio(1, cmbAcces2.SelectedIndex) * 0.15), "0.00")
                 Main.contFilas += 1
             End If
 
@@ -378,8 +400,9 @@
                 dgvSalida.Rows.Add()
                 dgvSalida(0, nfilas).Value = "Protector"
                 dgvSalida(1, nfilas).Value = Format(300, "0.00")
-                dgvSalida(2, nfilas).Value = Format(300 * 0.15, "0.00")
-                dgvSalida(3, nfilas).Value = Format(300 + (300 * 0.15), "0.00")
+                dgvSalida(2, nfilas).Value = Format(getDescuentoUnitario(300), "0.00")
+                dgvSalida(3, nfilas).Value = Format(300 * 0.15, "0.00")
+                dgvSalida(4, nfilas).Value = Format(300 - getDescuentoUnitario(300) + (300 * 0.15), "0.00")
                 Main.contFilas += 1
             End If
 
@@ -387,9 +410,10 @@
                 nfilas = dgvSalida.Rows.Count
                 dgvSalida.Rows.Add()
                 dgvSalida(0, nfilas).Value = cmbAcces3.Text
-                dgvSalida(1, nfilas).Value = Format(precioAccesorio(indexAcces, 2), "0.00")
-                dgvSalida(2, nfilas).Value = Format(precioAccesorio(indexAcces, 2) * 0.15, "0.00")
-                dgvSalida(3, nfilas).Value = Format(precioAccesorio(indexAcces, 2) + (precioAccesorio(2, 0) * 0.15), "0.00")
+                dgvSalida(1, nfilas).Value = Format(precioAccesorio(2, cmbAcces3.SelectedIndex), "0.00")
+                dgvSalida(2, nfilas).Value = Format(getDescuentoUnitario(precioAccesorio(2, cmbAcces3.SelectedIndex)), "0.00")
+                dgvSalida(3, nfilas).Value = Format(precioAccesorio(2, cmbAcces3.SelectedIndex) * 0.15, "0.00")
+                dgvSalida(4, nfilas).Value = Format(precioAccesorio(2, cmbAcces3.SelectedIndex) - getDescuentoUnitario(precioAccesorio(2, cmbAcces3.SelectedIndex)) + (precioAccesorio(2, cmbAcces3.SelectedIndex) * 0.15), "0.00")
                 Main.contFilas += 1
             End If
 
@@ -401,6 +425,7 @@
             txtPrecioB.Clear()
             txtAccesorios.Clear()
             txtSubT.Clear()
+            txtDescuento.Clear()
             txtImpuesto.Clear()
             txtTotal.Clear()
             ventana.visibilidadInversa(gpxProducto, PictureBox3)
@@ -409,6 +434,7 @@
             acumST += calculos(0)
             acumIVA += calculos(1)
             acumTot += calculos(2)
+            acumDesc += descuento
             txtAcumulador.Text = Format(acumTot, "0.00")
             'Activar botones
             btnGuardar.Enabled = True

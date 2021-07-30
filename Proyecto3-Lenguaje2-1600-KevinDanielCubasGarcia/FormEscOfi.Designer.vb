@@ -25,9 +25,9 @@ Partial Class FormEscOfi
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormEscOfi))
         Me.panelVentana = New System.Windows.Forms.Panel()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.btnVentanaMin = New System.Windows.Forms.Button()
         Me.btnVentanaSalir = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
@@ -47,11 +47,7 @@ Partial Class FormEscOfi
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.dgvSalida = New System.Windows.Forms.DataGridView()
-        Me.detalle = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.precio = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.impuestoC = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.totalC = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Button5 = New System.Windows.Forms.Button()
+        Me.btnSalir = New System.Windows.Forms.Button()
         Me.gpxTipoProducto = New System.Windows.Forms.GroupBox()
         Me.lbCantidad = New System.Windows.Forms.Label()
         Me.txtCantidad = New System.Windows.Forms.TextBox()
@@ -60,17 +56,24 @@ Partial Class FormEscOfi
         Me.chkBorrador = New System.Windows.Forms.CheckBox()
         Me.chkSacapuntas = New System.Windows.Forms.CheckBox()
         Me.chkPapel = New System.Windows.Forms.CheckBox()
+        Me.btnAgregar = New System.Windows.Forms.Button()
+        Me.btnCalcular = New System.Windows.Forms.Button()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.btnGuardar = New System.Windows.Forms.Button()
         Me.btnEliminar = New System.Windows.Forms.Button()
-        Me.btnAgregar = New System.Windows.Forms.Button()
-        Me.btnCalcular = New System.Windows.Forms.Button()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.txtAcumulador = New System.Windows.Forms.TextBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.txtDescuento = New System.Windows.Forms.TextBox()
+        Me.detalle = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.precio = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cdescuento = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.impuestoC = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.totalC = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.panelVentana.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -80,6 +83,7 @@ Partial Class FormEscOfi
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'panelVentana
@@ -93,16 +97,6 @@ Partial Class FormEscOfi
         Me.panelVentana.Name = "panelVentana"
         Me.panelVentana.Size = New System.Drawing.Size(689, 29)
         Me.panelVentana.TabIndex = 0
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackgroundImage = Global.Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.logoDiunsa2_Fixed3
-        Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Left
-        Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(80, 29)
-        Me.PictureBox1.TabIndex = 2
-        Me.PictureBox1.TabStop = False
         '
         'btnVentanaMin
         '
@@ -178,6 +172,8 @@ Partial Class FormEscOfi
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.txtDescuento)
+        Me.GroupBox2.Controls.Add(Me.Label7)
         Me.GroupBox2.Controls.Add(Me.txtTotal)
         Me.GroupBox2.Controls.Add(Me.txtImpuesto)
         Me.GroupBox2.Controls.Add(Me.txtSubT)
@@ -190,60 +186,60 @@ Partial Class FormEscOfi
         Me.GroupBox2.Controls.Add(Me.Label1)
         Me.GroupBox2.Location = New System.Drawing.Point(13, 274)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(165, 154)
+        Me.GroupBox2.Size = New System.Drawing.Size(165, 178)
         Me.GroupBox2.TabIndex = 3
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Calculos"
         '
         'txtTotal
         '
-        Me.txtTotal.Location = New System.Drawing.Point(59, 123)
+        Me.txtTotal.Location = New System.Drawing.Point(69, 149)
         Me.txtTotal.Name = "txtTotal"
         Me.txtTotal.ReadOnly = True
-        Me.txtTotal.Size = New System.Drawing.Size(100, 20)
+        Me.txtTotal.Size = New System.Drawing.Size(90, 20)
         Me.txtTotal.TabIndex = 9
         Me.txtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'txtImpuesto
         '
-        Me.txtImpuesto.Location = New System.Drawing.Point(59, 97)
+        Me.txtImpuesto.Location = New System.Drawing.Point(69, 123)
         Me.txtImpuesto.Name = "txtImpuesto"
         Me.txtImpuesto.ReadOnly = True
-        Me.txtImpuesto.Size = New System.Drawing.Size(100, 20)
+        Me.txtImpuesto.Size = New System.Drawing.Size(90, 20)
         Me.txtImpuesto.TabIndex = 8
         Me.txtImpuesto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'txtSubT
         '
-        Me.txtSubT.Location = New System.Drawing.Point(59, 71)
+        Me.txtSubT.Location = New System.Drawing.Point(69, 97)
         Me.txtSubT.Name = "txtSubT"
         Me.txtSubT.ReadOnly = True
-        Me.txtSubT.Size = New System.Drawing.Size(100, 20)
+        Me.txtSubT.Size = New System.Drawing.Size(90, 20)
         Me.txtSubT.TabIndex = 7
         Me.txtSubT.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'txtExtras
         '
-        Me.txtExtras.Location = New System.Drawing.Point(59, 45)
+        Me.txtExtras.Location = New System.Drawing.Point(69, 45)
         Me.txtExtras.Name = "txtExtras"
         Me.txtExtras.ReadOnly = True
-        Me.txtExtras.Size = New System.Drawing.Size(100, 20)
+        Me.txtExtras.Size = New System.Drawing.Size(90, 20)
         Me.txtExtras.TabIndex = 6
         Me.txtExtras.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'txtPrecio
         '
-        Me.txtPrecio.Location = New System.Drawing.Point(59, 19)
+        Me.txtPrecio.Location = New System.Drawing.Point(69, 19)
         Me.txtPrecio.Name = "txtPrecio"
         Me.txtPrecio.ReadOnly = True
-        Me.txtPrecio.Size = New System.Drawing.Size(100, 20)
+        Me.txtPrecio.Size = New System.Drawing.Size(90, 20)
         Me.txtPrecio.TabIndex = 5
         Me.txtPrecio.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(6, 126)
+        Me.Label5.Location = New System.Drawing.Point(6, 152)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(31, 13)
         Me.Label5.TabIndex = 4
@@ -252,7 +248,7 @@ Partial Class FormEscOfi
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(6, 100)
+        Me.Label4.Location = New System.Drawing.Point(6, 126)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(50, 13)
         Me.Label4.TabIndex = 3
@@ -261,7 +257,7 @@ Partial Class FormEscOfi
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(6, 74)
+        Me.Label3.Location = New System.Drawing.Point(6, 100)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(50, 13)
         Me.Label3.TabIndex = 2
@@ -290,7 +286,7 @@ Partial Class FormEscOfi
         Me.GroupBox3.Controls.Add(Me.dgvSalida)
         Me.GroupBox3.Location = New System.Drawing.Point(184, 274)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(338, 154)
+        Me.GroupBox3.Size = New System.Drawing.Size(338, 178)
         Me.GroupBox3.TabIndex = 4
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Salida"
@@ -302,56 +298,27 @@ Partial Class FormEscOfi
         Me.dgvSalida.AllowUserToOrderColumns = True
         Me.dgvSalida.BackgroundColor = System.Drawing.Color.White
         Me.dgvSalida.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvSalida.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.detalle, Me.precio, Me.impuestoC, Me.totalC})
+        Me.dgvSalida.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.detalle, Me.precio, Me.cdescuento, Me.impuestoC, Me.totalC})
         Me.dgvSalida.Location = New System.Drawing.Point(7, 20)
         Me.dgvSalida.Name = "dgvSalida"
         Me.dgvSalida.ReadOnly = True
         Me.dgvSalida.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvSalida.Size = New System.Drawing.Size(325, 128)
+        Me.dgvSalida.Size = New System.Drawing.Size(325, 152)
         Me.dgvSalida.TabIndex = 0
         '
-        'detalle
+        'btnSalir
         '
-        Me.detalle.HeaderText = "Detalle"
-        Me.detalle.Name = "detalle"
-        Me.detalle.ReadOnly = True
-        '
-        'precio
-        '
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.precio.DefaultCellStyle = DataGridViewCellStyle1
-        Me.precio.HeaderText = "Precio"
-        Me.precio.Name = "precio"
-        Me.precio.ReadOnly = True
-        '
-        'impuestoC
-        '
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.impuestoC.DefaultCellStyle = DataGridViewCellStyle2
-        Me.impuestoC.HeaderText = "Impuesto"
-        Me.impuestoC.Name = "impuestoC"
-        Me.impuestoC.ReadOnly = True
-        '
-        'totalC
-        '
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.totalC.DefaultCellStyle = DataGridViewCellStyle3
-        Me.totalC.HeaderText = "Total"
-        Me.totalC.Name = "totalC"
-        Me.totalC.ReadOnly = True
-        '
-        'Button5
-        '
-        Me.Button5.BackColor = System.Drawing.Color.White
-        Me.Button5.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button5.Font = New System.Drawing.Font("Yu Gothic UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button5.Location = New System.Drawing.Point(528, 393)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(161, 40)
-        Me.Button5.TabIndex = 10
-        Me.Button5.Text = "Salir"
-        Me.Button5.UseVisualStyleBackColor = False
+        Me.btnSalir.BackColor = System.Drawing.Color.White
+        Me.btnSalir.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.btnSalir.FlatAppearance.BorderSize = 0
+        Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSalir.Font = New System.Drawing.Font("Yu Gothic UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSalir.Location = New System.Drawing.Point(528, 419)
+        Me.btnSalir.Name = "btnSalir"
+        Me.btnSalir.Size = New System.Drawing.Size(161, 40)
+        Me.btnSalir.TabIndex = 10
+        Me.btnSalir.Text = "Salir"
+        Me.btnSalir.UseVisualStyleBackColor = False
         '
         'gpxTipoProducto
         '
@@ -370,7 +337,7 @@ Partial Class FormEscOfi
         '
         Me.lbCantidad.AutoSize = True
         Me.lbCantidad.Enabled = False
-        Me.lbCantidad.Location = New System.Drawing.Point(7, 51)
+        Me.lbCantidad.Location = New System.Drawing.Point(8, 51)
         Me.lbCantidad.Name = "lbCantidad"
         Me.lbCantidad.Size = New System.Drawing.Size(52, 13)
         Me.lbCantidad.TabIndex = 2
@@ -379,15 +346,16 @@ Partial Class FormEscOfi
         'txtCantidad
         '
         Me.txtCantidad.Enabled = False
-        Me.txtCantidad.Location = New System.Drawing.Point(65, 48)
+        Me.txtCantidad.Location = New System.Drawing.Point(66, 48)
         Me.txtCantidad.Name = "txtCantidad"
         Me.txtCantidad.Size = New System.Drawing.Size(100, 20)
         Me.txtCantidad.TabIndex = 1
         '
         'cmbProductos
         '
+        Me.cmbProductos.DropDownWidth = 240
         Me.cmbProductos.FormattingEnabled = True
-        Me.cmbProductos.Location = New System.Drawing.Point(7, 21)
+        Me.cmbProductos.Location = New System.Drawing.Point(8, 21)
         Me.cmbProductos.Name = "cmbProductos"
         Me.cmbProductos.Size = New System.Drawing.Size(158, 21)
         Me.cmbProductos.TabIndex = 0
@@ -434,11 +402,45 @@ Partial Class FormEscOfi
         Me.chkPapel.Text = "Resma de papel L.150.00"
         Me.chkPapel.UseVisualStyleBackColor = True
         '
+        'btnAgregar
+        '
+        Me.btnAgregar.BackColor = System.Drawing.Color.White
+        Me.btnAgregar.BackgroundImage = Global.Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.AgregarBotonFixed2
+        Me.btnAgregar.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.btnAgregar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(24, Byte), Integer), CType(CType(16, Byte), Integer), CType(CType(114, Byte), Integer))
+        Me.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAgregar.Font = New System.Drawing.Font("Yu Gothic UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAgregar.ForeColor = System.Drawing.Color.Black
+        Me.btnAgregar.Location = New System.Drawing.Point(528, 230)
+        Me.btnAgregar.Name = "btnAgregar"
+        Me.btnAgregar.Size = New System.Drawing.Size(161, 50)
+        Me.btnAgregar.TabIndex = 7
+        Me.btnAgregar.Text = "Agregar"
+        Me.btnAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnAgregar.UseVisualStyleBackColor = False
+        '
+        'btnCalcular
+        '
+        Me.btnCalcular.BackColor = System.Drawing.Color.White
+        Me.btnCalcular.BackgroundImage = Global.Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.CalcularBotonFixed2
+        Me.btnCalcular.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.btnCalcular.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(24, Byte), Integer), CType(CType(16, Byte), Integer), CType(CType(114, Byte), Integer))
+        Me.btnCalcular.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCalcular.Font = New System.Drawing.Font("Yu Gothic UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCalcular.ForeColor = System.Drawing.Color.Black
+        Me.btnCalcular.Location = New System.Drawing.Point(528, 180)
+        Me.btnCalcular.Name = "btnCalcular"
+        Me.btnCalcular.Size = New System.Drawing.Size(161, 50)
+        Me.btnCalcular.TabIndex = 6
+        Me.btnCalcular.Text = "Calcular"
+        Me.btnCalcular.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnCalcular.UseVisualStyleBackColor = False
+        '
         'PictureBox3
         '
         Me.PictureBox3.BackgroundImage = Global.Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.bannerAccesorios1
         Me.PictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictureBox3.Location = New System.Drawing.Point(184, 434)
+        Me.PictureBox3.Location = New System.Drawing.Point(184, 470)
         Me.PictureBox3.Name = "PictureBox3"
         Me.PictureBox3.Size = New System.Drawing.Size(175, 75)
         Me.PictureBox3.TabIndex = 13
@@ -480,40 +482,6 @@ Partial Class FormEscOfi
         Me.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnEliminar.UseVisualStyleBackColor = False
         '
-        'btnAgregar
-        '
-        Me.btnAgregar.BackColor = System.Drawing.Color.White
-        Me.btnAgregar.BackgroundImage = Global.Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.AgregarBotonFixed2
-        Me.btnAgregar.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.btnAgregar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(24, Byte), Integer), CType(CType(16, Byte), Integer), CType(CType(114, Byte), Integer))
-        Me.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAgregar.Font = New System.Drawing.Font("Yu Gothic UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAgregar.ForeColor = System.Drawing.Color.Black
-        Me.btnAgregar.Location = New System.Drawing.Point(528, 230)
-        Me.btnAgregar.Name = "btnAgregar"
-        Me.btnAgregar.Size = New System.Drawing.Size(161, 50)
-        Me.btnAgregar.TabIndex = 7
-        Me.btnAgregar.Text = "Agregar"
-        Me.btnAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnAgregar.UseVisualStyleBackColor = False
-        '
-        'btnCalcular
-        '
-        Me.btnCalcular.BackColor = System.Drawing.Color.White
-        Me.btnCalcular.BackgroundImage = Global.Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.CalcularBotonFixed2
-        Me.btnCalcular.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.btnCalcular.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(24, Byte), Integer), CType(CType(16, Byte), Integer), CType(CType(114, Byte), Integer))
-        Me.btnCalcular.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnCalcular.Font = New System.Drawing.Font("Yu Gothic UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCalcular.ForeColor = System.Drawing.Color.Black
-        Me.btnCalcular.Location = New System.Drawing.Point(528, 180)
-        Me.btnCalcular.Name = "btnCalcular"
-        Me.btnCalcular.Size = New System.Drawing.Size(161, 50)
-        Me.btnCalcular.TabIndex = 6
-        Me.btnCalcular.Text = "Calcular"
-        Me.btnCalcular.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnCalcular.UseVisualStyleBackColor = False
-        '
         'PictureBox2
         '
         Me.PictureBox2.BackColor = System.Drawing.Color.White
@@ -538,6 +506,7 @@ Partial Class FormEscOfi
         'Label6
         '
         Me.Label6.AutoSize = True
+        Me.Label6.BackColor = System.Drawing.Color.Transparent
         Me.Label6.Font = New System.Drawing.Font("Yu Gothic UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.Location = New System.Drawing.Point(574, 3)
         Me.Label6.Name = "Label6"
@@ -554,6 +523,76 @@ Partial Class FormEscOfi
         Me.txtAcumulador.TabIndex = 0
         Me.txtAcumulador.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackgroundImage = Global.Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.logoDiunsa2_Fixed3
+        Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Left
+        Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(80, 29)
+        Me.PictureBox1.TabIndex = 2
+        Me.PictureBox1.TabStop = False
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(6, 74)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(59, 13)
+        Me.Label7.TabIndex = 10
+        Me.Label7.Text = "Descuento"
+        '
+        'txtDescuento
+        '
+        Me.txtDescuento.Location = New System.Drawing.Point(69, 71)
+        Me.txtDescuento.Name = "txtDescuento"
+        Me.txtDescuento.ReadOnly = True
+        Me.txtDescuento.Size = New System.Drawing.Size(90, 20)
+        Me.txtDescuento.TabIndex = 11
+        Me.txtDescuento.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'detalle
+        '
+        Me.detalle.HeaderText = "Detalle"
+        Me.detalle.Name = "detalle"
+        Me.detalle.ReadOnly = True
+        '
+        'precio
+        '
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.precio.DefaultCellStyle = DataGridViewCellStyle1
+        Me.precio.HeaderText = "Precio"
+        Me.precio.Name = "precio"
+        Me.precio.ReadOnly = True
+        Me.precio.Width = 65
+        '
+        'cdescuento
+        '
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.cdescuento.DefaultCellStyle = DataGridViewCellStyle2
+        Me.cdescuento.HeaderText = "Descuento"
+        Me.cdescuento.Name = "cdescuento"
+        Me.cdescuento.ReadOnly = True
+        Me.cdescuento.Width = 65
+        '
+        'impuestoC
+        '
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.impuestoC.DefaultCellStyle = DataGridViewCellStyle3
+        Me.impuestoC.HeaderText = "Impuesto"
+        Me.impuestoC.Name = "impuestoC"
+        Me.impuestoC.ReadOnly = True
+        Me.impuestoC.Width = 60
+        '
+        'totalC
+        '
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.totalC.DefaultCellStyle = DataGridViewCellStyle4
+        Me.totalC.HeaderText = "Total"
+        Me.totalC.Name = "totalC"
+        Me.totalC.ReadOnly = True
+        Me.totalC.Width = 65
+        '
         'FormEscOfi
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -564,7 +603,7 @@ Partial Class FormEscOfi
         Me.Controls.Add(Me.PictureBox3)
         Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.gpxTipoProducto)
-        Me.Controls.Add(Me.Button5)
+        Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.btnGuardar)
         Me.Controls.Add(Me.btnEliminar)
         Me.Controls.Add(Me.PictureBox2)
@@ -579,7 +618,6 @@ Partial Class FormEscOfi
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FormEscOfi"
         Me.panelVentana.ResumeLayout(False)
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
@@ -594,6 +632,7 @@ Partial Class FormEscOfi
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -614,7 +653,7 @@ Partial Class FormEscOfi
     Friend WithEvents btnAgregar As Button
     Friend WithEvents btnEliminar As Button
     Friend WithEvents btnGuardar As Button
-    Friend WithEvents Button5 As Button
+    Friend WithEvents btnSalir As Button
     Friend WithEvents gpxTipoProducto As GroupBox
     Friend WithEvents GroupBox5 As GroupBox
     Friend WithEvents lbCantidad As Label
@@ -634,11 +673,14 @@ Partial Class FormEscOfi
     Friend WithEvents chkBorrador As CheckBox
     Friend WithEvents chkSacapuntas As CheckBox
     Friend WithEvents chkPapel As CheckBox
-    Friend WithEvents detalle As DataGridViewTextBoxColumn
-    Friend WithEvents precio As DataGridViewTextBoxColumn
-    Friend WithEvents impuestoC As DataGridViewTextBoxColumn
-    Friend WithEvents totalC As DataGridViewTextBoxColumn
     Friend WithEvents txtAcumulador As TextBox
     Friend WithEvents Label6 As Label
     Public WithEvents dgvSalida As DataGridView
+    Friend WithEvents txtDescuento As TextBox
+    Friend WithEvents Label7 As Label
+    Friend WithEvents detalle As DataGridViewTextBoxColumn
+    Friend WithEvents precio As DataGridViewTextBoxColumn
+    Friend WithEvents cdescuento As DataGridViewTextBoxColumn
+    Friend WithEvents impuestoC As DataGridViewTextBoxColumn
+    Friend WithEvents totalC As DataGridViewTextBoxColumn
 End Class

@@ -25,9 +25,9 @@ Partial Class FormRopa
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormRopa))
         Me.panelVentana = New System.Windows.Forms.Panel()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.btnVentanaMin = New System.Windows.Forms.Button()
         Me.btnVentanaSalir = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
@@ -53,26 +53,29 @@ Partial Class FormRopa
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.dgvSalida = New System.Windows.Forms.DataGridView()
         Me.btnSalir = New System.Windows.Forms.Button()
-        Me.btnEliminar = New System.Windows.Forms.Button()
-        Me.btnAgregar = New System.Windows.Forms.Button()
-        Me.btnCalcular = New System.Windows.Forms.Button()
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
         Me.gpxTipoCalcetines = New System.Windows.Forms.GroupBox()
         Me.cmbTipoCalcetin = New System.Windows.Forms.ComboBox()
         Me.chkPulceras = New System.Windows.Forms.CheckBox()
         Me.chkCalcetines = New System.Windows.Forms.CheckBox()
+        Me.btnGuardar = New System.Windows.Forms.Button()
+        Me.btnEliminar = New System.Windows.Forms.Button()
+        Me.btnAgregar = New System.Windows.Forms.Button()
+        Me.btnCalcular = New System.Windows.Forms.Button()
+        Me.pbBotones = New System.Windows.Forms.PictureBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.txtAcumulador = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.pbBanner = New System.Windows.Forms.PictureBox()
-        Me.btnGuardar = New System.Windows.Forms.Button()
-        Me.pbBotones = New System.Windows.Forms.PictureBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.txtDescuento = New System.Windows.Forms.TextBox()
+        Me.Label7 = New System.Windows.Forms.Label()
         Me.detalle = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.precio = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cDescuento = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cImpuesto = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cTotal = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.panelVentana.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.gpxClasificacion.SuspendLayout()
         Me.gpxRopa.SuspendLayout()
@@ -81,9 +84,10 @@ Partial Class FormRopa
         CType(Me.dgvSalida, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox6.SuspendLayout()
         Me.gpxTipoCalcetines.SuspendLayout()
+        CType(Me.pbBotones, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.pbBanner, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pbBotones, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'panelVentana
@@ -97,16 +101,6 @@ Partial Class FormRopa
         Me.panelVentana.Name = "panelVentana"
         Me.panelVentana.Size = New System.Drawing.Size(810, 29)
         Me.panelVentana.TabIndex = 0
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackgroundImage = Global.Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.logoDiunsa2_Fixed3
-        Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Left
-        Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(80, 29)
-        Me.PictureBox1.TabIndex = 2
-        Me.PictureBox1.TabStop = False
         '
         'btnVentanaMin
         '
@@ -206,7 +200,7 @@ Partial Class FormRopa
         '
         Me.lbCantidad.AutoSize = True
         Me.lbCantidad.Enabled = False
-        Me.lbCantidad.Location = New System.Drawing.Point(6, 57)
+        Me.lbCantidad.Location = New System.Drawing.Point(9, 57)
         Me.lbCantidad.Name = "lbCantidad"
         Me.lbCantidad.Size = New System.Drawing.Size(52, 13)
         Me.lbCantidad.TabIndex = 2
@@ -215,23 +209,26 @@ Partial Class FormRopa
         'txtCantidad
         '
         Me.txtCantidad.Enabled = False
-        Me.txtCantidad.Location = New System.Drawing.Point(64, 54)
+        Me.txtCantidad.Location = New System.Drawing.Point(67, 54)
         Me.txtCantidad.Name = "txtCantidad"
         Me.txtCantidad.Size = New System.Drawing.Size(100, 20)
         Me.txtCantidad.TabIndex = 1
         '
         'cmbRopa
         '
+        Me.cmbRopa.DropDownWidth = 220
         Me.cmbRopa.FormattingEnabled = True
-        Me.cmbRopa.Location = New System.Drawing.Point(6, 22)
+        Me.cmbRopa.Location = New System.Drawing.Point(9, 22)
         Me.cmbRopa.Name = "cmbRopa"
         Me.cmbRopa.Size = New System.Drawing.Size(158, 21)
         Me.cmbRopa.TabIndex = 0
         '
         'GroupBox3
         '
+        Me.GroupBox3.Controls.Add(Me.Label7)
         Me.GroupBox3.Controls.Add(Me.txtExtras)
         Me.GroupBox3.Controls.Add(Me.Label6)
+        Me.GroupBox3.Controls.Add(Me.txtDescuento)
         Me.GroupBox3.Controls.Add(Me.txtTotal)
         Me.GroupBox3.Controls.Add(Me.txtImpuesto)
         Me.GroupBox3.Controls.Add(Me.txtSubTotal)
@@ -242,7 +239,7 @@ Partial Class FormRopa
         Me.GroupBox3.Controls.Add(Me.Label2)
         Me.GroupBox3.Location = New System.Drawing.Point(12, 280)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(200, 158)
+        Me.GroupBox3.Size = New System.Drawing.Size(200, 180)
         Me.GroupBox3.TabIndex = 3
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Calculos"
@@ -267,7 +264,7 @@ Partial Class FormRopa
         '
         'txtTotal
         '
-        Me.txtTotal.Location = New System.Drawing.Point(94, 124)
+        Me.txtTotal.Location = New System.Drawing.Point(94, 150)
         Me.txtTotal.Name = "txtTotal"
         Me.txtTotal.ReadOnly = True
         Me.txtTotal.Size = New System.Drawing.Size(100, 20)
@@ -276,7 +273,7 @@ Partial Class FormRopa
         '
         'txtImpuesto
         '
-        Me.txtImpuesto.Location = New System.Drawing.Point(94, 98)
+        Me.txtImpuesto.Location = New System.Drawing.Point(94, 124)
         Me.txtImpuesto.Name = "txtImpuesto"
         Me.txtImpuesto.ReadOnly = True
         Me.txtImpuesto.Size = New System.Drawing.Size(100, 20)
@@ -304,7 +301,7 @@ Partial Class FormRopa
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(6, 127)
+        Me.Label5.Location = New System.Drawing.Point(6, 153)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(31, 13)
         Me.Label5.TabIndex = 3
@@ -313,7 +310,7 @@ Partial Class FormRopa
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(6, 101)
+        Me.Label4.Location = New System.Drawing.Point(6, 127)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(50, 13)
         Me.Label4.TabIndex = 2
@@ -342,7 +339,7 @@ Partial Class FormRopa
         Me.GroupBox4.Controls.Add(Me.dgvSalida)
         Me.GroupBox4.Location = New System.Drawing.Point(218, 280)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(425, 158)
+        Me.GroupBox4.Size = New System.Drawing.Size(425, 180)
         Me.GroupBox4.TabIndex = 4
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Salida"
@@ -353,25 +350,97 @@ Partial Class FormRopa
         Me.dgvSalida.AllowUserToDeleteRows = False
         Me.dgvSalida.BackgroundColor = System.Drawing.Color.White
         Me.dgvSalida.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvSalida.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.detalle, Me.precio, Me.cImpuesto, Me.cTotal})
+        Me.dgvSalida.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.detalle, Me.precio, Me.cDescuento, Me.cImpuesto, Me.cTotal})
         Me.dgvSalida.Location = New System.Drawing.Point(6, 20)
         Me.dgvSalida.Name = "dgvSalida"
         Me.dgvSalida.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvSalida.Size = New System.Drawing.Size(413, 132)
+        Me.dgvSalida.Size = New System.Drawing.Size(413, 154)
         Me.dgvSalida.TabIndex = 0
         '
         'btnSalir
         '
         Me.btnSalir.BackColor = System.Drawing.Color.White
         Me.btnSalir.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.btnSalir.FlatAppearance.BorderSize = 0
         Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSalir.Font = New System.Drawing.Font("Yu Gothic UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSalir.Location = New System.Drawing.Point(649, 405)
+        Me.btnSalir.Location = New System.Drawing.Point(649, 427)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(161, 40)
         Me.btnSalir.TabIndex = 4
         Me.btnSalir.Text = "Salir"
         Me.btnSalir.UseVisualStyleBackColor = False
+        '
+        'GroupBox6
+        '
+        Me.GroupBox6.Controls.Add(Me.gpxTipoCalcetines)
+        Me.GroupBox6.Controls.Add(Me.chkPulceras)
+        Me.GroupBox6.Controls.Add(Me.chkCalcetines)
+        Me.GroupBox6.Location = New System.Drawing.Point(418, 186)
+        Me.GroupBox6.Name = "GroupBox6"
+        Me.GroupBox6.Size = New System.Drawing.Size(225, 88)
+        Me.GroupBox6.TabIndex = 6
+        Me.GroupBox6.TabStop = False
+        Me.GroupBox6.Text = "Extras"
+        '
+        'gpxTipoCalcetines
+        '
+        Me.gpxTipoCalcetines.Controls.Add(Me.cmbTipoCalcetin)
+        Me.gpxTipoCalcetines.Enabled = False
+        Me.gpxTipoCalcetines.Location = New System.Drawing.Point(102, 13)
+        Me.gpxTipoCalcetines.Name = "gpxTipoCalcetines"
+        Me.gpxTipoCalcetines.Size = New System.Drawing.Size(112, 67)
+        Me.gpxTipoCalcetines.TabIndex = 2
+        Me.gpxTipoCalcetines.TabStop = False
+        Me.gpxTipoCalcetines.Text = "Tipo de Calcetines"
+        '
+        'cmbTipoCalcetin
+        '
+        Me.cmbTipoCalcetin.DropDownWidth = 150
+        Me.cmbTipoCalcetin.FormattingEnabled = True
+        Me.cmbTipoCalcetin.Items.AddRange(New Object() {"Calcetines cortos L.30.00", "Calcetines normales L.50.00", "Calcetines tobilleros L.60.00", "Calcetines largos L.75.00", "Calcetines extra largos L.90.00"})
+        Me.cmbTipoCalcetin.Location = New System.Drawing.Point(6, 26)
+        Me.cmbTipoCalcetin.Name = "cmbTipoCalcetin"
+        Me.cmbTipoCalcetin.Size = New System.Drawing.Size(99, 21)
+        Me.cmbTipoCalcetin.TabIndex = 0
+        '
+        'chkPulceras
+        '
+        Me.chkPulceras.AutoSize = True
+        Me.chkPulceras.Location = New System.Drawing.Point(6, 51)
+        Me.chkPulceras.Name = "chkPulceras"
+        Me.chkPulceras.Size = New System.Drawing.Size(97, 17)
+        Me.chkPulceras.TabIndex = 1
+        Me.chkPulceras.Text = "Pulceras L.100"
+        Me.chkPulceras.UseVisualStyleBackColor = True
+        '
+        'chkCalcetines
+        '
+        Me.chkCalcetines.AutoSize = True
+        Me.chkCalcetines.Location = New System.Drawing.Point(6, 27)
+        Me.chkCalcetines.Name = "chkCalcetines"
+        Me.chkCalcetines.Size = New System.Drawing.Size(75, 17)
+        Me.chkCalcetines.TabIndex = 0
+        Me.chkCalcetines.Text = "Calcetines"
+        Me.chkCalcetines.UseVisualStyleBackColor = True
+        '
+        'btnGuardar
+        '
+        Me.btnGuardar.BackColor = System.Drawing.Color.White
+        Me.btnGuardar.BackgroundImage = Global.Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.guardarBoton2Fixed
+        Me.btnGuardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnGuardar.Enabled = False
+        Me.btnGuardar.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.btnGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(24, Byte), Integer), CType(CType(16, Byte), Integer), CType(CType(114, Byte), Integer))
+        Me.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnGuardar.Font = New System.Drawing.Font("Yu Gothic UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnGuardar.Location = New System.Drawing.Point(649, 330)
+        Me.btnGuardar.Name = "btnGuardar"
+        Me.btnGuardar.Size = New System.Drawing.Size(161, 50)
+        Me.btnGuardar.TabIndex = 5
+        Me.btnGuardar.Text = "Guardar"
+        Me.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnGuardar.UseVisualStyleBackColor = False
         '
         'btnEliminar
         '
@@ -425,57 +494,15 @@ Partial Class FormRopa
         Me.btnCalcular.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnCalcular.UseVisualStyleBackColor = False
         '
-        'GroupBox6
+        'pbBotones
         '
-        Me.GroupBox6.Controls.Add(Me.gpxTipoCalcetines)
-        Me.GroupBox6.Controls.Add(Me.chkPulceras)
-        Me.GroupBox6.Controls.Add(Me.chkCalcetines)
-        Me.GroupBox6.Location = New System.Drawing.Point(418, 186)
-        Me.GroupBox6.Name = "GroupBox6"
-        Me.GroupBox6.Size = New System.Drawing.Size(225, 88)
-        Me.GroupBox6.TabIndex = 6
-        Me.GroupBox6.TabStop = False
-        Me.GroupBox6.Text = "Extras"
-        '
-        'gpxTipoCalcetines
-        '
-        Me.gpxTipoCalcetines.Controls.Add(Me.cmbTipoCalcetin)
-        Me.gpxTipoCalcetines.Enabled = False
-        Me.gpxTipoCalcetines.Location = New System.Drawing.Point(102, 13)
-        Me.gpxTipoCalcetines.Name = "gpxTipoCalcetines"
-        Me.gpxTipoCalcetines.Size = New System.Drawing.Size(112, 67)
-        Me.gpxTipoCalcetines.TabIndex = 2
-        Me.gpxTipoCalcetines.TabStop = False
-        Me.gpxTipoCalcetines.Text = "Tipo de Calcetines"
-        '
-        'cmbTipoCalcetin
-        '
-        Me.cmbTipoCalcetin.FormattingEnabled = True
-        Me.cmbTipoCalcetin.Items.AddRange(New Object() {"Calcetines cortos L.30.00", "Calcetines normales L.50.00", "Calcetines tobilleros L.60.00", "Calcetines largos L.75.00", "Calcetines extra largos L.90.00"})
-        Me.cmbTipoCalcetin.Location = New System.Drawing.Point(6, 26)
-        Me.cmbTipoCalcetin.Name = "cmbTipoCalcetin"
-        Me.cmbTipoCalcetin.Size = New System.Drawing.Size(99, 21)
-        Me.cmbTipoCalcetin.TabIndex = 0
-        '
-        'chkPulceras
-        '
-        Me.chkPulceras.AutoSize = True
-        Me.chkPulceras.Location = New System.Drawing.Point(6, 51)
-        Me.chkPulceras.Name = "chkPulceras"
-        Me.chkPulceras.Size = New System.Drawing.Size(97, 17)
-        Me.chkPulceras.TabIndex = 1
-        Me.chkPulceras.Text = "Pulceras L.100"
-        Me.chkPulceras.UseVisualStyleBackColor = True
-        '
-        'chkCalcetines
-        '
-        Me.chkCalcetines.AutoSize = True
-        Me.chkCalcetines.Location = New System.Drawing.Point(6, 27)
-        Me.chkCalcetines.Name = "chkCalcetines"
-        Me.chkCalcetines.Size = New System.Drawing.Size(75, 17)
-        Me.chkCalcetines.TabIndex = 0
-        Me.chkCalcetines.Text = "Calcetines"
-        Me.chkCalcetines.UseVisualStyleBackColor = True
+        Me.pbBotones.BackColor = System.Drawing.Color.White
+        Me.pbBotones.Dock = System.Windows.Forms.DockStyle.Right
+        Me.pbBotones.Location = New System.Drawing.Point(649, 180)
+        Me.pbBotones.Name = "pbBotones"
+        Me.pbBotones.Size = New System.Drawing.Size(161, 378)
+        Me.pbBotones.TabIndex = 10
+        Me.pbBotones.TabStop = False
         '
         'Panel1
         '
@@ -514,39 +541,39 @@ Partial Class FormRopa
         '
         Me.pbBanner.BackgroundImage = Global.Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.bannerAccesorios
         Me.pbBanner.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.pbBanner.Location = New System.Drawing.Point(236, 444)
+        Me.pbBanner.Location = New System.Drawing.Point(236, 466)
         Me.pbBanner.Name = "pbBanner"
         Me.pbBanner.Size = New System.Drawing.Size(176, 81)
         Me.pbBanner.TabIndex = 7
         Me.pbBanner.TabStop = False
         '
-        'btnGuardar
+        'PictureBox1
         '
-        Me.btnGuardar.BackColor = System.Drawing.Color.White
-        Me.btnGuardar.BackgroundImage = Global.Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.guardarBoton2Fixed
-        Me.btnGuardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnGuardar.Enabled = False
-        Me.btnGuardar.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.btnGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(24, Byte), Integer), CType(CType(16, Byte), Integer), CType(CType(114, Byte), Integer))
-        Me.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnGuardar.Font = New System.Drawing.Font("Yu Gothic UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnGuardar.Location = New System.Drawing.Point(649, 330)
-        Me.btnGuardar.Name = "btnGuardar"
-        Me.btnGuardar.Size = New System.Drawing.Size(161, 50)
-        Me.btnGuardar.TabIndex = 5
-        Me.btnGuardar.Text = "Guardar"
-        Me.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnGuardar.UseVisualStyleBackColor = False
+        Me.PictureBox1.BackgroundImage = Global.Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.logoDiunsa2_Fixed3
+        Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Left
+        Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(80, 29)
+        Me.PictureBox1.TabIndex = 2
+        Me.PictureBox1.TabStop = False
         '
-        'pbBotones
+        'txtDescuento
         '
-        Me.pbBotones.BackColor = System.Drawing.Color.White
-        Me.pbBotones.Dock = System.Windows.Forms.DockStyle.Right
-        Me.pbBotones.Location = New System.Drawing.Point(649, 180)
-        Me.pbBotones.Name = "pbBotones"
-        Me.pbBotones.Size = New System.Drawing.Size(161, 357)
-        Me.pbBotones.TabIndex = 10
-        Me.pbBotones.TabStop = False
+        Me.txtDescuento.Location = New System.Drawing.Point(94, 98)
+        Me.txtDescuento.Name = "txtDescuento"
+        Me.txtDescuento.ReadOnly = True
+        Me.txtDescuento.Size = New System.Drawing.Size(100, 20)
+        Me.txtDescuento.TabIndex = 10
+        Me.txtDescuento.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(6, 101)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(59, 13)
+        Me.Label7.TabIndex = 11
+        Me.Label7.Text = "Descuento"
         '
         'detalle
         '
@@ -561,31 +588,41 @@ Partial Class FormRopa
         Me.precio.HeaderText = "Precio"
         Me.precio.Name = "precio"
         Me.precio.ReadOnly = True
+        Me.precio.Width = 70
+        '
+        'cDescuento
+        '
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.cDescuento.DefaultCellStyle = DataGridViewCellStyle2
+        Me.cDescuento.HeaderText = "Descuento"
+        Me.cDescuento.Name = "cDescuento"
+        Me.cDescuento.ReadOnly = True
+        Me.cDescuento.Width = 65
         '
         'cImpuesto
         '
-        Me.cImpuesto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.cImpuesto.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.cImpuesto.DefaultCellStyle = DataGridViewCellStyle3
         Me.cImpuesto.HeaderText = "Impuesto"
         Me.cImpuesto.Name = "cImpuesto"
         Me.cImpuesto.ReadOnly = True
-        Me.cImpuesto.Width = 75
+        Me.cImpuesto.Width = 60
         '
         'cTotal
         '
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.cTotal.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.cTotal.DefaultCellStyle = DataGridViewCellStyle4
         Me.cTotal.HeaderText = "Total"
         Me.cTotal.Name = "cTotal"
         Me.cTotal.ReadOnly = True
+        Me.cTotal.Width = 75
         '
         'FormRopa
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(810, 537)
+        Me.ClientSize = New System.Drawing.Size(810, 558)
         Me.Controls.Add(Me.btnGuardar)
         Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.btnEliminar)
@@ -603,10 +640,9 @@ Partial Class FormRopa
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FormRopa"
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Ropa"
         Me.panelVentana.ResumeLayout(False)
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.gpxClasificacion.ResumeLayout(False)
@@ -619,10 +655,11 @@ Partial Class FormRopa
         Me.GroupBox6.ResumeLayout(False)
         Me.GroupBox6.PerformLayout()
         Me.gpxTipoCalcetines.ResumeLayout(False)
+        CType(Me.pbBotones, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         CType(Me.pbBanner, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pbBotones, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -668,8 +705,11 @@ Partial Class FormRopa
     Friend WithEvents pbBotones As PictureBox
     Friend WithEvents txtAcumulador As TextBox
     Friend WithEvents Label1 As Label
+    Friend WithEvents Label7 As Label
+    Friend WithEvents txtDescuento As TextBox
     Friend WithEvents detalle As DataGridViewTextBoxColumn
     Friend WithEvents precio As DataGridViewTextBoxColumn
+    Friend WithEvents cDescuento As DataGridViewTextBoxColumn
     Friend WithEvents cImpuesto As DataGridViewTextBoxColumn
     Friend WithEvents cTotal As DataGridViewTextBoxColumn
 End Class

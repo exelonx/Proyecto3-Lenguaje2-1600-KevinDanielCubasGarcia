@@ -4,19 +4,29 @@
     Dim Validacion As New Validaciones
     'Variables globales
     Dim productos(5), extras, cantidad As Integer
-    Dim subTotal, impuesto, total As Double
-    Dim acumST, acumIVA, acumTot As Double 'Acumuladores
-    Dim selectPrecio, selectIVA, selectTot 'para hacer decremento a los acumuladores
+    Dim subTotal, descuento, impuesto, total As Double
+    Dim acumST, acumIVA, acumTot, acumDesc As Double 'Acumuladores
+    Dim selectPrecio, selectIVA, selectTot, selectDesc 'para hacer decremento a los acumuladores
     Dim antiCloseBug As Boolean 'Para evitar bug al cerrar formulario cuando se trata de evitar de perder información
-    Dim cantidadAUX As Integer 'Contador de objetos
+
+    'Funciones
+    Public Function getDescuentoUnitario(variable As Double) As Double
+        Dim descAux
+        If Main.chkMembresia.Checked = True Then
+            descAux = variable * 0.1
+        Else
+            descAux = 0
+        End If
+        Return descAux
+    End Function
 
     'Procedimientos
-
     Public Sub setDecremento(e As DataGridViewCellEventArgs)
         If e.RowIndex > -1 Then
             selectPrecio = dgvSalida.Rows(e.RowIndex).Cells(1).Value
-            selectIVA = dgvSalida.Rows(e.RowIndex).Cells(2).Value
-            selectTot = dgvSalida.Rows(e.RowIndex).Cells(3).Value
+            selectDesc = dgvSalida.Rows(e.RowIndex).Cells(2).Value
+            selectIVA = dgvSalida.Rows(e.RowIndex).Cells(3).Value
+            selectTot = dgvSalida.Rows(e.RowIndex).Cells(4).Value
         End If
     End Sub
 
@@ -81,7 +91,7 @@
         txtAcumulador.Text = Format(0, "0.00")
         cantidad = 0
         PictureBox3.Location = New Point(199, 192)
-        Me.Size = New Size(710, 446)
+        Me.Size = New Size(710, 472)
     End Sub
 
     Private Sub cmbProductos_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cmbProductos.KeyPress
@@ -157,7 +167,7 @@
         End If
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnCalcular.Click
+    Private Sub Calcular_Click(sender As Object, e As EventArgs) Handles btnCalcular.Click
         'Validaciones
         If rbAccesorios.Checked = True And rbBalones.Checked = True And rbBalones.Checked = True And chkExtras.Checked = False Then
             MessageBox.Show("Seleccione el tipo de producto.", "Faltan Requisitos")
@@ -183,11 +193,18 @@
         'SubTotal
         subTotal = (productos(5) * cantidad) + extras
         txtSubT.Text = Format(subTotal, "0.00")
+        'Descuento de membresía
+        If Main.chkMembresia.Checked = True Then
+            descuento = subTotal * 0.1
+        Else
+            descuento = 0
+        End If
+        txtDescuento.Text = Format(descuento, "0.00")
         'Impuestos
-        impuesto = subTotal * 0.15
+        impuesto = (subTotal - descuento) * 0.15
         txtImpuesto.Text = Format(impuesto, "0.00")
         'Total
-        total = subTotal + impuesto
+        total = subTotal - descuento + impuesto
         txtTotal.Text = Format(total, "0.00")
     End Sub
 
@@ -210,6 +227,7 @@
             Main.contFilas -= 1
             'Decremento a los acumuladores
             acumST -= selectPrecio
+            acumDesc -= selectDesc
             acumIVA -= selectIVA
             acumTot -= selectTot
             txtAcumulador.Text = acumTot
@@ -221,6 +239,8 @@
         'Paso de acumuladores al main
         Main.acumST += Me.acumST
         Main.txtSubT.Text = Format(Main.acumST, "0.00")
+        Main.acumdesc += Me.acumDesc
+        Main.txtdesc.Text = Format(Main.acumdesc, "0.00")
         Main.acumIVA += Me.acumIVA
         Main.txtIVA.Text = Format(Main.acumIVA, "0.00")
         Main.acumTot += Me.acumTot
@@ -233,11 +253,10 @@
             Main.dgvMain(1, Main.indexFila).Value = dgvSalida(1, index).Value.ToString
             Main.dgvMain(2, Main.indexFila).Value = dgvSalida(2, index).Value.ToString
             Main.dgvMain(3, Main.indexFila).Value = dgvSalida(3, index).Value.ToString
+            Main.dgvMain(4, Main.indexFila).Value = dgvSalida(4, index).Value.ToString
             Main.indexFila += 1
             index += 1
         Loop
-        'Manda el número de objetos a la lista
-        Main.txtObjetos.Text = Main.contFilas + cantidadAUX
         'Activar el seguro
         antiCloseBug = True
         Me.Close()
@@ -271,8 +290,9 @@
                 dgvSalida.Rows.Add()
                 dgvSalida(0, nfilas).Value = cmbProductos.Text
                 dgvSalida(1, nfilas).Value = txtPrecio.Text
-                dgvSalida(2, nfilas).Value = Format(txtPrecio.Text * 0.15, "0.00")
-                dgvSalida(3, nfilas).Value = Format(txtPrecio.Text + (txtPrecio.Text * 0.15), "0.00")
+                dgvSalida(2, nfilas).Value = Format(getDescuentoUnitario(txtPrecio.Text), "0.00")
+                dgvSalida(3, nfilas).Value = Format(txtPrecio.Text * 0.15, "0.00")
+                dgvSalida(4, nfilas).Value = Format(txtPrecio.Text - getDescuentoUnitario(txtPrecio.Text) + (txtPrecio.Text * 0.15), "0.00")
                 Main.contFilas += 1
             End If
             If chkBombaAire.Checked = True Then
@@ -280,8 +300,9 @@
                 dgvSalida.Rows.Add()
                 dgvSalida(0, nfilas).Value = "Bomba de aire"
                 dgvSalida(1, nfilas).Value = Format(300, "0.00")
-                dgvSalida(2, nfilas).Value = Format(300 * 0.15, "0.00")
-                dgvSalida(3, nfilas).Value = Format(300 + (300 * 0.15), "0.00")
+                dgvSalida(2, nfilas).Value = Format(getDescuentoUnitario(300), "0.00")
+                dgvSalida(3, nfilas).Value = Format(300 * 0.15, "0.00")
+                dgvSalida(4, nfilas).Value = Format(300 - getDescuentoUnitario(300) + (300 * 0.15), "0.00")
                 Main.contFilas += 1
             End If
             If chkSuelas.Checked = True Then
@@ -289,11 +310,11 @@
                 dgvSalida.Rows.Add()
                 dgvSalida(0, nfilas).Value = "Suelas deportivas"
                 dgvSalida(1, nfilas).Value = Format(150, "0.00")
-                dgvSalida(2, nfilas).Value = Format(150 * 0.15, "0.00")
-                dgvSalida(3, nfilas).Value = Format(150 + (150 * 0.15), "0.00")
+                dgvSalida(2, nfilas).Value = Format(getDescuentoUnitario(150), "0.00")
+                dgvSalida(3, nfilas).Value = Format(150 * 0.15, "0.00")
+                dgvSalida(4, nfilas).Value = Format(150 - getDescuentoUnitario(150) + (150 * 0.15), "0.00")
                 Main.contFilas += 1
             End If
-            cantidadAUX += txtCantidad.Text
             'Limpieza del formulario
             rbBalones.Checked = False
             rbBicicletas.Checked = False
@@ -305,11 +326,13 @@
             txtPrecio.Clear()
             txtExtras.Clear()
             txtSubT.Clear()
+            txtDescuento.Clear()
             txtImpuesto.Clear()
             txtTotal.Clear()
             Ventana.visibilidadInversa(gpxTipoProducto, PictureBox3)
             'Incrementos de acumuladores
             acumST += subTotal
+            acumDesc += descuento
             acumIVA += impuesto
             acumTot += total
             txtAcumulador.Text = Format(acumTot, "0.00")

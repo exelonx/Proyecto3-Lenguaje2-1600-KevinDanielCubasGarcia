@@ -73,6 +73,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Coleccion.vb" />
     <Compile Include="FormDeporte.Designer.vb">
       <DependentUpon>FormDeporte.vb</DependentUpon>
     </Compile>
@@ -131,6 +132,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Nodo.vb" />
     <Compile Include="Validaciones.vb" />
     <Compile Include="VentanaEstilo.vb" />
   </ItemGroup>
@@ -140,6 +142,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormEscOfi.resx">
       <DependentUpon>FormEscOfi.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHistorico.resx">
+      <DependentUpon>FormHistorico.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormRopa.resx">
       <DependentUpon>FormRopa.vb</DependentUpon>
