@@ -224,6 +224,9 @@
             MessageBox.Show("Seleccione al menos un extra.", "Faltan Requisitos")
             Exit Sub
         End If
+        If chkPapel.Checked = False And chkBorrador.Checked = False And chkSacapuntas.Checked = False Then
+            txtExtras.Text = Format(0, "0.00")
+        End If
         'Calculos
         If txtCantidad.Text = Nothing Then
             txtPrecio.Text = Format(0, "0.00")

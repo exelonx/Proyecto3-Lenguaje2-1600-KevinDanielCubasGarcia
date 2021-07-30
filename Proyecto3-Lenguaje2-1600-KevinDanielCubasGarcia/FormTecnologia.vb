@@ -3,9 +3,21 @@
     Dim validacion As New Validaciones
     Dim preciosBase(3), cantidad As Integer
     Dim precioAccesorio(2, 3), precioAccesorioNeto As Integer
+    Dim indexAcces As Integer 'Para situar el arreglo de accesorios al agregar
     Dim calculos(2) As Double '0 = SubTotal, 1 = Impuesto, 2 = Total
+    Dim acumST, acumIVA, acumTot As Double 'Acumuladores
+    Dim selectPrecio, selectIVA, selectTot 'para hacer decremento a los acumuladores
+    Dim antiCloseBug As Boolean 'Para evitar bug al cerrar formulario cuando se trata de evitar de perder información
 
     'Procedimientos
+    Public Sub setDecremento(e As DataGridViewCellEventArgs)
+        If e.RowIndex > -1 Then
+            selectPrecio = dgvSalida.Rows(e.RowIndex).Cells(1).Value
+            selectIVA = dgvSalida.Rows(e.RowIndex).Cells(2).Value
+            selectTot = dgvSalida.Rows(e.RowIndex).Cells(3).Value
+        End If
+    End Sub
+
     Public Sub visibilidad(indice As Integer)
         Select Case indice
             Case 0
@@ -122,13 +134,23 @@
     End Sub
 
     Private Sub FormTecnologia_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        antiCloseBug = False
+        txtAcumulador.Text = Format(0, "0.00")
         PictureBox3.Location = New Point(189, 193)
         pbAccesorios.Location = New Point(333, 193)
         Me.Size = New Size(717, 456)
     End Sub
 
+    Private Sub FormTecnologia_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        'Disminución de contador contfilas
+        If antiCloseBug = False Then
+            Main.contFilas -= dgvSalida.Rows.Count
+        End If
+    End Sub
+
     Private Sub rbConsolas_CheckedChanged(sender As Object, e As EventArgs) Handles rbSoloAccesorios.CheckedChanged
         seleccionProducto()
+        indexAcces = 2
     End Sub
 
     Private Sub cmbProducto_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cmbProducto.KeyPress
@@ -153,10 +175,12 @@
 
     Private Sub rbComputadoras_CheckedChanged(sender As Object, e As EventArgs) Handles rbComputadoras.CheckedChanged
         seleccionProducto()
+        indexAcces = 0
     End Sub
 
     Private Sub rbCelulares_CheckedChanged(sender As Object, e As EventArgs) Handles rbCelulares.CheckedChanged
         seleccionProducto()
+        indexAcces = 1
     End Sub
 
     Private Sub chkAcces1_CheckedChanged(sender As Object, e As EventArgs) Handles chkAcces1.CheckedChanged
@@ -271,6 +295,126 @@
         salidaPrecioAccesorios(cmbAcces3, 2)
     End Sub
 
+    Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
+        If dgvSalida.Rows.Count > 0 Then
+            dgvSalida.Rows.Remove(dgvSalida.CurrentRow)
+            Main.contFilas -= 1
+            'Decremento a los acumuladores
+            acumST -= selectPrecio
+            acumIVA -= selectIVA
+            acumTot -= selectTot
+            txtAcumulador.Text = acumTot
+            btnEliminar.Enabled = False
+        End If
+    End Sub
+
+    Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
+        'Paso de acumuladores al main
+        Main.acumST += Me.acumST
+        Main.txtSubT.Text = Format(Main.acumST, "0.00")
+        Main.acumIVA += Me.acumIVA
+        Main.txtIVA.Text = Format(Main.acumIVA, "0.00")
+        Main.acumTot += Me.acumTot
+        Main.txtTotal.Text = Format(Main.acumTot, "0.00")
+        'DataGridV Deporte al DataGridV Main
+        Do While (Main.indexFila < Main.contFilas)
+            Dim index As Integer
+            Main.dgvMain.Rows.Add()
+            Main.dgvMain(0, Main.indexFila).Value = dgvSalida(0, index).Value.ToString
+            Main.dgvMain(1, Main.indexFila).Value = dgvSalida(1, index).Value.ToString
+            Main.dgvMain(2, Main.indexFila).Value = dgvSalida(2, index).Value.ToString
+            Main.dgvMain(3, Main.indexFila).Value = dgvSalida(3, index).Value.ToString
+            Main.indexFila += 1
+            index += 1
+        Loop
+        'Activar el seguro
+        antiCloseBug = True
+        Me.Close()
+    End Sub
+
+    Private Sub dgvSalida_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvSalida.CellContentClick
+        setDecremento(e)
+        btnEliminar.Enabled = Enabled
+    End Sub
+
+    Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
+        Dim nfilas As Integer 'Contador de filas
+        If txtTotal.Text = Nothing Then
+            MessageBox.Show("Debe calcular primero.", "Faltan Requisitos")
+            Exit Sub
+        Else
+            'Llenado de la matriz
+            'Productos
+            nfilas = dgvSalida.Rows.Count
+            dgvSalida.Rows.Add()
+            dgvSalida(0, nfilas).Value = cmbProducto.Text
+            dgvSalida(1, nfilas).Value = txtPrecioB.Text
+            dgvSalida(2, nfilas).Value = Format(txtPrecioB.Text * 0.15, "0.00")
+            dgvSalida(3, nfilas).Value = Format(txtPrecioB.Text + (txtPrecioB.Text * 0.15), "0.00")
+            Main.contFilas += 1
+            'Extras
+            If chkAcces1.Checked = True Then
+                nfilas = dgvSalida.Rows.Count
+                dgvSalida.Rows.Add()
+                dgvSalida(0, nfilas).Value = cmbAcces1.Text
+                dgvSalida(1, nfilas).Value = Format(precioAccesorio(indexAcces, 0), "0.00")
+                dgvSalida(2, nfilas).Value = Format(precioAccesorio(indexAcces, 0) * 0.15, "0.00")
+                dgvSalida(3, nfilas).Value = Format(precioAccesorio(indexAcces, 0) + (precioAccesorio(0, 0) * 0.15), "0.00")
+                Main.contFilas += 1
+            End If
+
+            If chkAcces2.Checked = True And rbComputadoras.Checked = True Then
+                nfilas = dgvSalida.Rows.Count
+                dgvSalida.Rows.Add()
+                dgvSalida(0, nfilas).Value = cmbAcces2.Text
+                dgvSalida(1, nfilas).Value = Format(precioAccesorio(indexAcces, 1), "0.00")
+                dgvSalida(2, nfilas).Value = Format(precioAccesorio(indexAcces, 1) * 0.15, "0.00")
+                dgvSalida(3, nfilas).Value = Format(precioAccesorio(indexAcces, 1) + (precioAccesorio(1, 0) * 0.15), "0.00")
+                Main.contFilas += 1
+            End If
+
+            If chkAcces2.Checked = True And rbComputadoras.Checked = False Then
+                nfilas = dgvSalida.Rows.Count
+                dgvSalida.Rows.Add()
+                dgvSalida(0, nfilas).Value = "Protector"
+                dgvSalida(1, nfilas).Value = Format(300, "0.00")
+                dgvSalida(2, nfilas).Value = Format(300 * 0.15, "0.00")
+                dgvSalida(3, nfilas).Value = Format(300 + (300 * 0.15), "0.00")
+                Main.contFilas += 1
+            End If
+
+            If chkAcces3.Checked = True And rbComputadoras.Checked = True Then
+                nfilas = dgvSalida.Rows.Count
+                dgvSalida.Rows.Add()
+                dgvSalida(0, nfilas).Value = cmbAcces3.Text
+                dgvSalida(1, nfilas).Value = Format(precioAccesorio(indexAcces, 2), "0.00")
+                dgvSalida(2, nfilas).Value = Format(precioAccesorio(indexAcces, 2) * 0.15, "0.00")
+                dgvSalida(3, nfilas).Value = Format(precioAccesorio(indexAcces, 2) + (precioAccesorio(2, 0) * 0.15), "0.00")
+                Main.contFilas += 1
+            End If
+
+            'Limpieza del formulario
+            rbComputadoras.Checked = False
+            rbCelulares.Checked = False
+            rbSoloAccesorios.Checked = False
+            txtCantidadProducto.Clear()
+            txtPrecioB.Clear()
+            txtAccesorios.Clear()
+            txtSubT.Clear()
+            txtImpuesto.Clear()
+            txtTotal.Clear()
+            ventana.visibilidadInversa(gpxProducto, PictureBox3)
+            ventana.visibilidadInversa(gpxAccesorios, pbAccesorios)
+            'Incrementos de acumuladores
+            acumST += calculos(0)
+            acumIVA += calculos(1)
+            acumTot += calculos(2)
+            txtAcumulador.Text = Format(acumTot, "0.00")
+            'Activar botones
+            btnGuardar.Enabled = True
+        End If
+    End Sub
+
     Private Sub btnVentanaSalir_MouseMove(sender As Object, e As MouseEventArgs) Handles btnVentanaSalir.MouseMove
         btnVentanaSalir.ForeColor = Color.White
     End Sub
@@ -303,5 +447,82 @@
 
     Private Sub btnVentanaSalir_Click(sender As Object, e As EventArgs) Handles btnVentanaSalir.Click
         Close()
+    End Sub
+
+    'Colores de botones
+    'Calcular
+    Private Sub btnCalcular_MouseMove(sender As Object, e As MouseEventArgs) Handles btnCalcular.MouseMove
+        btnCalcular.ForeColor = Color.White
+        btnCalcular.FlatAppearance.BorderColor = ColorTranslator.FromHtml("#181072")
+        btnCalcular.BackgroundImage = Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.CalcularBotonBlanco
+        'Tamaño
+        btnCalcular.Width = 171
+        btnCalcular.Location = New Point(546, 180)
+    End Sub
+
+    Private Sub btnCalcular_MouseLeave(sender As Object, e As EventArgs) Handles btnCalcular.MouseLeave
+        btnCalcular.ForeColor = Color.Black
+        btnCalcular.FlatAppearance.BorderColor = Color.White
+        btnCalcular.BackgroundImage = Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.CalcularBotonFixed2
+        'Tamaño
+        btnCalcular.Width = 161
+        btnCalcular.Location = New Point(556, 180)
+    End Sub
+
+    'Agregar
+    Private Sub btnAgregar_MouseMove(sender As Object, e As MouseEventArgs) Handles btnAgregar.MouseMove
+        btnAgregar.ForeColor = Color.White
+        btnAgregar.FlatAppearance.BorderColor = ColorTranslator.FromHtml("#181072")
+        btnAgregar.BackgroundImage = Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.AgregarBotonBlanco
+        'Tamaño
+        btnAgregar.Width = 171
+        btnAgregar.Location = New Point(546, 230)
+    End Sub
+
+    Private Sub btnAgregar_MouseLeave(sender As Object, e As EventArgs) Handles btnAgregar.MouseLeave
+        btnAgregar.ForeColor = Color.Black
+        btnAgregar.FlatAppearance.BorderColor = Color.White
+        btnAgregar.BackgroundImage = Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.AgregarBotonFixed2
+        'Tamaño
+        btnAgregar.Width = 161
+        btnAgregar.Location = New Point(556, 230)
+    End Sub
+
+    'Eliminar
+    Private Sub btnEliminar_MouseMove(sender As Object, e As MouseEventArgs) Handles btnEliminar.MouseMove
+        btnEliminar.ForeColor = Color.White
+        btnEliminar.FlatAppearance.BorderColor = ColorTranslator.FromHtml("#181072")
+        btnEliminar.BackgroundImage = Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.EliminarBoton3Blanco
+        'tamaño
+        btnEliminar.Width = 171
+        btnEliminar.Location = New Point(546, 280)
+    End Sub
+
+    Private Sub btnEliminar_MouseLeave(sender As Object, e As EventArgs) Handles btnEliminar.MouseLeave
+        btnEliminar.ForeColor = Color.Black
+        btnEliminar.FlatAppearance.BorderColor = Color.White
+        btnEliminar.BackgroundImage = Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.EliminarBoton3Fixed2
+        'Tamaño
+        btnEliminar.Width = 161
+        btnEliminar.Location = New Point(556, 280)
+    End Sub
+
+    'Guardar
+    Private Sub btnGuardar_MouseMove(sender As Object, e As MouseEventArgs) Handles btnGuardar.MouseMove
+        btnGuardar.ForeColor = Color.White
+        btnGuardar.FlatAppearance.BorderColor = ColorTranslator.FromHtml("#181072")
+        btnGuardar.BackgroundImage = Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.guardarBoton2Blanco
+        'tamaño
+        btnGuardar.Width = 171
+        btnGuardar.Location = New Point(546, 330)
+    End Sub
+
+    Private Sub btnGuardar_MouseLeave(sender As Object, e As EventArgs) Handles btnGuardar.MouseLeave
+        btnGuardar.ForeColor = Color.Black
+        btnGuardar.FlatAppearance.BorderColor = Color.White
+        btnGuardar.BackgroundImage = Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.guardarBoton2Fixed
+        'Tamaño
+        btnGuardar.Width = 161
+        btnGuardar.Location = New Point(556, 330)
     End Sub
 End Class

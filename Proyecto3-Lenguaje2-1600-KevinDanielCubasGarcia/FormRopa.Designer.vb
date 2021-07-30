@@ -52,10 +52,6 @@ Partial Class FormRopa
         Me.Label2 = New System.Windows.Forms.Label()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.dgvSalida = New System.Windows.Forms.DataGridView()
-        Me.detalle = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.precio = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cImpuesto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cTotal = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.btnSalir = New System.Windows.Forms.Button()
         Me.btnEliminar = New System.Windows.Forms.Button()
         Me.btnAgregar = New System.Windows.Forms.Button()
@@ -71,6 +67,10 @@ Partial Class FormRopa
         Me.pbBanner = New System.Windows.Forms.PictureBox()
         Me.btnGuardar = New System.Windows.Forms.Button()
         Me.pbBotones = New System.Windows.Forms.PictureBox()
+        Me.detalle = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.precio = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cImpuesto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cTotal = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.panelVentana.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -360,36 +360,6 @@ Partial Class FormRopa
         Me.dgvSalida.Size = New System.Drawing.Size(413, 132)
         Me.dgvSalida.TabIndex = 0
         '
-        'detalle
-        '
-        Me.detalle.HeaderText = "Detalle"
-        Me.detalle.Name = "detalle"
-        Me.detalle.ReadOnly = True
-        '
-        'precio
-        '
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.precio.DefaultCellStyle = DataGridViewCellStyle1
-        Me.precio.HeaderText = "Precio"
-        Me.precio.Name = "precio"
-        Me.precio.ReadOnly = True
-        '
-        'cImpuesto
-        '
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.cImpuesto.DefaultCellStyle = DataGridViewCellStyle2
-        Me.cImpuesto.HeaderText = "Impuesto"
-        Me.cImpuesto.Name = "cImpuesto"
-        Me.cImpuesto.ReadOnly = True
-        '
-        'cTotal
-        '
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.cTotal.DefaultCellStyle = DataGridViewCellStyle3
-        Me.cTotal.HeaderText = "Total"
-        Me.cTotal.Name = "cTotal"
-        Me.cTotal.ReadOnly = True
-        '
         'btnSalir
         '
         Me.btnSalir.BackColor = System.Drawing.Color.White
@@ -578,6 +548,38 @@ Partial Class FormRopa
         Me.pbBotones.TabIndex = 10
         Me.pbBotones.TabStop = False
         '
+        'detalle
+        '
+        Me.detalle.HeaderText = "Detalle"
+        Me.detalle.Name = "detalle"
+        Me.detalle.ReadOnly = True
+        '
+        'precio
+        '
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.precio.DefaultCellStyle = DataGridViewCellStyle1
+        Me.precio.HeaderText = "Precio"
+        Me.precio.Name = "precio"
+        Me.precio.ReadOnly = True
+        '
+        'cImpuesto
+        '
+        Me.cImpuesto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.cImpuesto.DefaultCellStyle = DataGridViewCellStyle2
+        Me.cImpuesto.HeaderText = "Impuesto"
+        Me.cImpuesto.Name = "cImpuesto"
+        Me.cImpuesto.ReadOnly = True
+        Me.cImpuesto.Width = 75
+        '
+        'cTotal
+        '
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.cTotal.DefaultCellStyle = DataGridViewCellStyle3
+        Me.cTotal.HeaderText = "Total"
+        Me.cTotal.Name = "cTotal"
+        Me.cTotal.ReadOnly = True
+        '
         'FormRopa
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -601,6 +603,7 @@ Partial Class FormRopa
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FormRopa"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Ropa"
         Me.panelVentana.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()

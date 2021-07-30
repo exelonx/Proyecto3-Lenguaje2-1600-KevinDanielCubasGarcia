@@ -31,7 +31,7 @@
         pass = "clavounclavito"
         Main.Show()
         'FormTecnologia.Show()
-        FormRopa.Show()
+        'FormRopa.Show()
         'FormDeporte.Show()
         'FormEscOfi.Show()
     End Sub

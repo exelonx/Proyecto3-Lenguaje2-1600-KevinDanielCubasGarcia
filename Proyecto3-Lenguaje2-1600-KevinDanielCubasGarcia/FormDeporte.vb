@@ -8,6 +8,7 @@
     Dim acumST, acumIVA, acumTot As Double 'Acumuladores
     Dim selectPrecio, selectIVA, selectTot 'para hacer decremento a los acumuladores
     Dim antiCloseBug As Boolean 'Para evitar bug al cerrar formulario cuando se trata de evitar de perder información
+    Dim cantidadAUX As Integer 'Contador de objetos
 
     'Procedimientos
 
@@ -173,6 +174,9 @@
             Exit Sub
         End If
         'Calculos
+        If chkBombaAire.Checked = False And chkSuelas.Checked = False Then
+            txtExtras.Text = Format(0, "0.00")
+        End If
         If txtCantidad.Text = Nothing Then
             txtPrecio.Text = Format(0, "0.00")
         End If
@@ -232,6 +236,8 @@
             Main.indexFila += 1
             index += 1
         Loop
+        'Manda el número de objetos a la lista
+        Main.txtObjetos.Text = Main.contFilas + cantidadAUX
         'Activar el seguro
         antiCloseBug = True
         Me.Close()
@@ -250,7 +256,6 @@
     End Sub
 
     Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
-
         Close()
     End Sub
 
@@ -288,6 +293,7 @@
                 dgvSalida(3, nfilas).Value = Format(150 + (150 * 0.15), "0.00")
                 Main.contFilas += 1
             End If
+            cantidadAUX += txtCantidad.Text
             'Limpieza del formulario
             rbBalones.Checked = False
             rbBicicletas.Checked = False

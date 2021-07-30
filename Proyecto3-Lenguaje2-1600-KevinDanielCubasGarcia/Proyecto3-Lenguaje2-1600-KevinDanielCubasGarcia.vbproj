@@ -340,5 +340,50 @@
   <ItemGroup>
     <None Include="Resources\bannerTecnologiaDiunsaFixed2.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tecnologia Diunsa Fixed2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tecnologia Diunsa Blanco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Oficina2 Diunsa Fixed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Oficina2 Diunsa Fixed2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Oficina Diunsa Blanco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Oficina2 Diunsa Fixed3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Moda Diunsa Fixed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Moda Diunsa blanco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Deporte Diunsa Fixed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Deporte Diunsa Fixed2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Deporte Diunsa Blanco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Deporte Diunsa Blanco Long.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tecnologia Diunsa Blanco Long.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Oficina Diunsa Blanco Long.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Moda Diunsa blanco Long.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

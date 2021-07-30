@@ -44,10 +44,6 @@ Partial Class FormDeporte
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.dgvSalida = New System.Windows.Forms.DataGridView()
-        Me.detalle = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.precio = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cImpuesto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cTotal = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.btnSalir = New System.Windows.Forms.Button()
         Me.gpxTipoProducto = New System.Windows.Forms.GroupBox()
         Me.txtCantidad = New System.Windows.Forms.TextBox()
@@ -69,6 +65,10 @@ Partial Class FormDeporte
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txtAcumulador = New System.Windows.Forms.TextBox()
+        Me.detalle = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.precio = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cImpuesto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cTotal = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -268,36 +268,6 @@ Partial Class FormDeporte
         Me.dgvSalida.Size = New System.Drawing.Size(331, 131)
         Me.dgvSalida.TabIndex = 0
         '
-        'detalle
-        '
-        Me.detalle.HeaderText = "Detalle"
-        Me.detalle.Name = "detalle"
-        Me.detalle.ReadOnly = True
-        '
-        'precio
-        '
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.precio.DefaultCellStyle = DataGridViewCellStyle1
-        Me.precio.HeaderText = "Precio"
-        Me.precio.Name = "precio"
-        Me.precio.ReadOnly = True
-        '
-        'cImpuesto
-        '
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.cImpuesto.DefaultCellStyle = DataGridViewCellStyle2
-        Me.cImpuesto.HeaderText = "Impuesto"
-        Me.cImpuesto.Name = "cImpuesto"
-        Me.cImpuesto.ReadOnly = True
-        '
-        'cTotal
-        '
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.cTotal.DefaultCellStyle = DataGridViewCellStyle3
-        Me.cTotal.HeaderText = "Total"
-        Me.cTotal.Name = "cTotal"
-        Me.cTotal.ReadOnly = True
-        '
         'btnSalir
         '
         Me.btnSalir.BackColor = System.Drawing.Color.White
@@ -444,7 +414,7 @@ Partial Class FormDeporte
         Me.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnGuardar.Font = New System.Drawing.Font("Yu Gothic UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnGuardar.ForeColor = System.Drawing.Color.Black
-        Me.btnGuardar.Location = New System.Drawing.Point(549, 330)
+        Me.btnGuardar.Location = New System.Drawing.Point(549, 331)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(161, 50)
         Me.btnGuardar.TabIndex = 5
@@ -462,7 +432,7 @@ Partial Class FormDeporte
         Me.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnEliminar.Font = New System.Drawing.Font("Yu Gothic UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEliminar.ForeColor = System.Drawing.Color.Black
-        Me.btnEliminar.Location = New System.Drawing.Point(549, 280)
+        Me.btnEliminar.Location = New System.Drawing.Point(549, 281)
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.Size = New System.Drawing.Size(161, 50)
         Me.btnEliminar.TabIndex = 3
@@ -479,7 +449,7 @@ Partial Class FormDeporte
         Me.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAgregar.Font = New System.Drawing.Font("Yu Gothic UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAgregar.ForeColor = System.Drawing.Color.Black
-        Me.btnAgregar.Location = New System.Drawing.Point(549, 229)
+        Me.btnAgregar.Location = New System.Drawing.Point(549, 230)
         Me.btnAgregar.Name = "btnAgregar"
         Me.btnAgregar.Size = New System.Drawing.Size(161, 50)
         Me.btnAgregar.TabIndex = 2
@@ -559,6 +529,38 @@ Partial Class FormDeporte
         Me.txtAcumulador.TabIndex = 0
         Me.txtAcumulador.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
+        'detalle
+        '
+        Me.detalle.HeaderText = "Detalle"
+        Me.detalle.Name = "detalle"
+        Me.detalle.ReadOnly = True
+        '
+        'precio
+        '
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.precio.DefaultCellStyle = DataGridViewCellStyle1
+        Me.precio.HeaderText = "Precio"
+        Me.precio.Name = "precio"
+        Me.precio.ReadOnly = True
+        '
+        'cImpuesto
+        '
+        Me.cImpuesto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.cImpuesto.DefaultCellStyle = DataGridViewCellStyle2
+        Me.cImpuesto.HeaderText = "Impuesto"
+        Me.cImpuesto.Name = "cImpuesto"
+        Me.cImpuesto.ReadOnly = True
+        Me.cImpuesto.Width = 75
+        '
+        'cTotal
+        '
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.cTotal.DefaultCellStyle = DataGridViewCellStyle3
+        Me.cTotal.HeaderText = "Total"
+        Me.cTotal.Name = "cTotal"
+        Me.cTotal.ReadOnly = True
+        '
         'FormDeporte
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -582,6 +584,7 @@ Partial Class FormDeporte
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FormDeporte"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Deporte"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
@@ -638,12 +641,12 @@ Partial Class FormDeporte
     Friend WithEvents Panel1 As Panel
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents PictureBox3 As PictureBox
-    Friend WithEvents detalle As DataGridViewTextBoxColumn
-    Friend WithEvents precio As DataGridViewTextBoxColumn
-    Friend WithEvents cImpuesto As DataGridViewTextBoxColumn
-    Friend WithEvents cTotal As DataGridViewTextBoxColumn
     Friend WithEvents Label4 As Label
     Friend WithEvents txtAcumulador As TextBox
     Friend WithEvents btnGuardar As Button
     Public WithEvents dgvSalida As DataGridView
+    Friend WithEvents detalle As DataGridViewTextBoxColumn
+    Friend WithEvents precio As DataGridViewTextBoxColumn
+    Friend WithEvents cImpuesto As DataGridViewTextBoxColumn
+    Friend WithEvents cTotal As DataGridViewTextBoxColumn
 End Class
