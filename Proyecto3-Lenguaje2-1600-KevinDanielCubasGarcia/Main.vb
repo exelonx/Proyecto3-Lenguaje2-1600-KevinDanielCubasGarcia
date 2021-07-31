@@ -43,6 +43,8 @@ Public Class Main
     End Sub
 
     Private Sub Main_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        Dim usuario As String = Environ("username")
+        MsgBox("¡" & usuario & "!, " & "¡Gracias por usar mi programa!" + vbCr + "" + vbCr + "Te saluda Kevin Cubas, aka Exelon, espero te haya gustado mi proyecto. :)", vbInformation, "Despedida")
         Application.Exit()
     End Sub
 

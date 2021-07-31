@@ -300,7 +300,9 @@
         End If
         'Calculos
         'SubTotal
-        cantidad = txtCantidadProducto.Text
+        If txtCantidadProducto.Text <> Nothing Then
+            cantidad = txtCantidadProducto.Text
+        End If
         calculos(0) = (preciosBase(3) * cantidad) + precioAccesorioNeto
         txtSubT.Text = Format(calculos(0), "0.00")
         'Descuento de membresía

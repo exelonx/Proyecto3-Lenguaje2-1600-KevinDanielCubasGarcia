@@ -1,10 +1,116 @@
 ﻿'*********************************************************************************************************************************
 '**	Hecho por: Kevin Cubas aka Exelon *******   Proyecto No. 3 Diunsa - Lenguaje de programación 2               *****************     
 '***                                   *******   Fecha de creación: 20/07/2021         	                          ****************							
-'**** Contacto: Kevincubas@unah.hn      *******	  Última modificación: 30/06/2021                                  ***************   
+'**** Contacto: Kevincubas@unah.hn      *******	  Última modificación: 31/06/2021                                  ***************   
 '*****   		 Kevin.otaku@hotmail.com *******                                                                    **************			
 '******	  	      33598469                *******	Historial de cambios                                             *************							
 '*******	        		               *******			                                                          ************							
 '*********************************************************************************************************************************
 
 *******************************************************HISTORIAL DE CAMBIOS*******************************************************
+    
+    Se elimino un bug de cantidad, ventana de info terminada, código completamente documentado, se implemento sombras a las ventanas, aun quiero agregar 2 cosas mas
+
+commit 3265d9f90559c28bc344db2d9516e5ce661d77ee
+Author: kevin <kevin.otaku@hotmail.com>
+Date:   Fri Jul 30 17:29:02 2021 -0600
+
+    Diseño del formulario historico casi terminado, voy a programar una ventana de mensaje solo para decorar
+
+commit 0d54014367c04da6b72b81409b13f9d66dd010d4
+Author: kevin <kevin.otaku@hotmail.com>
+Date:   Fri Jul 30 14:12:23 2021 -0600
+
+    Se agrego tipo de pago y membresia al formulario historico
+
+commit d78c2e5113fff5a5d8ec464df0969f25637872d5
+Author: kevin <kevin.otaku@hotmail.com>
+Date:   Fri Jul 30 04:08:13 2021 -0600
+
+    Alfin, hice funcionar las listas enlazadas, solo falta terminar de programar el ultimo formulario
+
+commit 4666ad58854b49327a1393d0aab7e9d5891d2a55
+Author: kevin <kevin.otaku@hotmail.com>
+Date:   Thu Jul 29 20:36:15 2021 -0600
+
+    Formularios de venta terminados, estilos del principal casi listos, considerando poner descuento
+
+commit 20add59c0399f5c381d4705fd592833288b430f4
+Author: kevin <kevin.otaku@hotmail.com>
+Date:   Thu Jul 29 16:20:51 2021 -0600
+
+    Validación de salida en deportes, ropa y oficina
+
+commit 50a7060a2cc875f7e3ee011609292fa28bf0e54b
+Author: kevin <kevin.otaku@hotmail.com>
+Date:   Thu Jul 29 15:37:47 2021 -0600
+
+    Datagrid de ropa terminado, bug de los datagrid solucionados, estilo a botones agregados
+
+commit 1827fe21f108b56d45506d0872fcebc3feaf4597
+Author: kevin <kevin.otaku@hotmail.com>
+Date:   Wed Jul 28 18:11:04 2021 -0600
+Date:   Wed Jul 28 18:11:04 2021 -0600
+
+    Logre pasar datos de un datagrid a otro
+
+commit 34d25d75628163b0475e33405d95cfde69e3abc0
+Author: kevin <kevin.otaku@hotmail.com>
+Date:   Wed Jul 28 14:06:30 2021 -0600
+
+    Formulario Oficina terminado
+
+commit 6e4b0ce7e0f83292b47da74fe5d94a3c26d30607
+Author: kevin <kevin.otaku@hotmail.com>
+Date:   Wed Jul 28 08:40:58 2021 -0600
+
+    Formulario de deportes terminado)
+
+commit 3ce0331e65e0beba4adc86f8baca26f2e0e9fa74
+Author: kevin <kevin.otaku@hotmail.com>
+Date:   Tue Jul 27 12:20:22 2021 -0600
+
+    Diseño del main mejorado,se empezo a diseñar el formulario de deportes
+
+commit 1cd98273c34037356689950c2b8ee014640e6833
+Author: kevin <kevin.otaku@hotmail.com>
+Date:   Sat Jul 24 05:13:34 2021 -0600
+
+    Bugs solucionados, solo faltan detalles, continuar con el siguiente formulario
+
+commit bae00875e199037f25d8c25c2ee522f8f4c1e98e
+Author: kevin <kevin.otaku@hotmail.com>
+Date:   Sat Jul 24 03:05:59 2021 -0600
+
+    Calculos de tecnologia casi terminados, falta arreglar bug de combobox de accesorios de computadoras al cambiarlo y agregar imagenes
+
+commit 322c7c0fc93ec35c627541ddbbcf7b7ee3bca6c0
+Author: kevin <kevin.otaku@hotmail.com>
+Date:   Fri Jul 23 04:05:54 2021 -0600
+
+    Retoque a botones de login, Avance en el formulario de Tecnologia (Faltan los combobox de accesorios y colocar precios), formulario main mejora de flujo de datos
+
+commit 2a787cf0337542fa225ede2d34afa6f14b4d789f
+Author: kevin <kevin.otaku@hotmail.com>
+Date:   Thu Jul 22 00:56:22 2021 -0600
+
+    Se agregaron los formularios vacios, se preparo el borrador para el formulario principal
+
+commit 6697ca350b31ad827bc9ab9ee76f429831545c8a
+Author: kevin <kevin.otaku@hotmail.com>
+Date:   Wed Jul 21 16:08:40 2021 -0600
+
+    Diseño y login terminados, usar diseño en las demas formas
+
+commit 261ec7b52a67edc9cf2b99d2ac39bf92da9620ab
+Author: kevin <kevin.otaku@hotmail.com>
+Date:   Tue Jul 20 19:52:00 2021 -0600
+
+    Agregar archivos de proyecto.
+
+commit 3fa112d8c56f565dd104dd8b47b266f9887b5611
+Author: kevin <kevin.otaku@hotmail.com>
+Date:   Tue Jul 20 19:51:58 2021 -0600
+
+    Agregar .gitignore y .gitattributes.
+(END)

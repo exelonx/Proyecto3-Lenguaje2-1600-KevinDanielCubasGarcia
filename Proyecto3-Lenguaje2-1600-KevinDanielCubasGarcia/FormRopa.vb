@@ -236,7 +236,9 @@
             txtExtras.Text = Format(0, "0.00")
         End If
         'Calculos
-        cantidad = txtCantidad.Text
+        If txtCantidad.Text <> Nothing Then
+            cantidad = txtCantidad.Text
+        End If
         'SubTotal
         subTotal = (productos(5) * cantidad) + extras(2)
         txtSubTotal.Text = Format(subTotal, "0.00")
