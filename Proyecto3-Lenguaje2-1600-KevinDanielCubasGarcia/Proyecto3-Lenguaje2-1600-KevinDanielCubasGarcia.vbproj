@@ -151,6 +151,9 @@
     <EmbeddedResource Include="FormHistorico.resx">
       <DependentUpon>FormHistorico.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormInfo.resx">
+      <DependentUpon>FormInfo.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormRopa.resx">
       <DependentUpon>FormRopa.vb</DependentUpon>
     </EmbeddedResource>
@@ -397,6 +400,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\NuevoLogo_DIUNSA_Color.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IconoProyecto3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fondoInfo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fondoInfoShadow.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fondoInfoShadow2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fondoInfoShadow3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IconoProyecto31.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fondoInfoShadow4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Historial de cambios.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

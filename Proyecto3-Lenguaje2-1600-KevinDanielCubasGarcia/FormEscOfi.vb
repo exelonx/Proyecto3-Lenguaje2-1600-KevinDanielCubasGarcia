@@ -1,14 +1,16 @@
 ﻿Public Class FormEscOfi
-    'Objetos
+    '********************************************************Objetos************************************************************
     Dim Ventana As New VentanaEstilo
     Dim validacion As New Validaciones
-    'Variables globales
+
+    '*******************************************************Variables***********************************************************
     Dim productos(5), extras, cantidad As Integer
     Dim subTotal, descuento, impuesto, total As Double
     Dim acumST, acumIVA, acumTot, acumDesc As Double 'Acumuladores
     Dim selectPrecio, selectIVA, selectTot, selectDesc 'para hacer decremento a los acumuladores
     Dim antiCloseBug As Boolean 'Para evitar bug al cerrar formulario cuando se trata de evitar de perder información
 
+    '*************************************************Eventos de Formulario*****************************************************
     Private Sub FormDeporte_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         antiCloseBug = False
         txtAcumulador.Text = Format(0, "0.00")
@@ -17,7 +19,14 @@
         Me.Size = New Size(689, 459)
     End Sub
 
-    'Funciones
+    Private Sub FormEscOfi_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        'Disminución de contador contfilas
+        If antiCloseBug = False Then
+            Main.contFilas -= dgvSalida.Rows.Count
+        End If
+    End Sub
+
+    '******************************************************Funciones************************************************************
     Public Function getDescuentoUnitario(variable As Double) As Double
         Dim descAux
         If Main.chkMembresia.Checked = True Then
@@ -28,7 +37,7 @@
         Return descAux
     End Function
 
-    'Procedimientos
+    '****************************************************Procedimientos*********************************************************
     Public Sub setDecremento(e As DataGridViewCellEventArgs)
         If e.RowIndex > -1 Then
             selectPrecio = dgvSalida.Rows(e.RowIndex).Cells(1).Value
@@ -84,46 +93,7 @@
         End If
     End Sub
 
-    'Ventana personalizada
-    Private Sub panelVentana_MouseDown(sender As Object, e As MouseEventArgs) Handles panelVentana.MouseDown
-        Ventana.setUbicacionMouse(e)
-    End Sub
-
-    Private Sub panelVentana_MouseUp(sender As Object, e As MouseEventArgs) Handles panelVentana.MouseUp
-        Ventana.clickVentana = False
-    End Sub
-
-    Private Sub panelVentana_MouseMove(sender As Object, e As MouseEventArgs) Handles panelVentana.MouseMove
-        Ventana.ventanaPresionada(Me, e, panelVentana)
-    End Sub
-
-    Private Sub txtCantidad_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtCantidad.KeyPress
-        validacion.validar(1, e)
-    End Sub
-
-    Private Sub cmbProductos_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cmbProductos.KeyPress
-        validacion.validar(2, e)
-    End Sub
-
-    Private Sub rbSillas_CheckedChanged(sender As Object, e As EventArgs) Handles rbSillas.CheckedChanged
-        seleccionProducto()
-    End Sub
-
-    Private Sub rbLapices_CheckedChanged(sender As Object, e As EventArgs) Handles rbLapices.CheckedChanged
-        seleccionProducto()
-    End Sub
-
-    Private Sub txtCantidad_TextChanged(sender As Object, e As EventArgs) Handles txtCantidad.TextChanged
-        validacion.validarCantidad(txtCantidad)
-        If txtCantidad.Text <> Nothing Then
-            cantidad = txtCantidad.Text
-            txtPrecio.Text = Format(productos(5) * cantidad, "0.00")
-        Else
-            cantidad = 0
-            txtPrecio.Text = Format(0, "0.00")
-        End If
-    End Sub
-
+    '******************************************************CheckBoxs************************************************************
     Private Sub chkExtras_CheckedChanged(sender As Object, e As EventArgs) Handles chkExtras.CheckedChanged
         If chkExtras.Checked = True Then
             rbSillas.Checked = False
@@ -139,6 +109,34 @@
         End If
     End Sub
 
+    Private Sub chkPapel_CheckedChanged(sender As Object, e As EventArgs) Handles chkPapel.CheckedChanged
+        precioExtra(chkPapel, 150)
+    End Sub
+
+    Private Sub chkSacapuntas_CheckedChanged(sender As Object, e As EventArgs) Handles chkSacapuntas.CheckedChanged
+        precioExtra(chkSacapuntas, 10)
+    End Sub
+
+    Private Sub chkBorrador_CheckedChanged(sender As Object, e As EventArgs) Handles chkBorrador.CheckedChanged
+        precioExtra(chkBorrador, 5)
+    End Sub
+
+    '******************************************************TextBoxs*************************************************************
+    Private Sub txtCantidad_TextChanged(sender As Object, e As EventArgs) Handles txtCantidad.TextChanged
+        validacion.validarCantidad(txtCantidad)
+        If txtCantidad.Text <> Nothing Then
+            txtPrecio.Text = Format(productos(5) * txtCantidad.Text, "0.00")
+        Else
+            cantidad = 0
+            txtPrecio.Text = Format(0, "0.00")
+        End If
+    End Sub
+
+    Private Sub txtCantidad_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtCantidad.KeyPress
+        validacion.validar(1, e)
+    End Sub
+
+    '******************************************************ComboBoxs************************************************************
     Private Sub cmbProductos_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbProductos.SelectedIndexChanged
         If cmbProductos.Text <> Nothing Then
             productos(5) = productos(cmbProductos.SelectedIndex)
@@ -154,74 +152,20 @@
         End If
     End Sub
 
-    Private Sub chkPapel_CheckedChanged(sender As Object, e As EventArgs) Handles chkPapel.CheckedChanged
-        precioExtra(chkPapel, 150)
+    Private Sub cmbProductos_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cmbProductos.KeyPress
+        validacion.validar(2, e)
     End Sub
 
-    Private Sub chkSacapuntas_CheckedChanged(sender As Object, e As EventArgs) Handles chkSacapuntas.CheckedChanged
-        precioExtra(chkSacapuntas, 10)
+    '*****************************************************RadioButton***********************************************************
+    Private Sub rbSillas_CheckedChanged(sender As Object, e As EventArgs) Handles rbSillas.CheckedChanged
+        seleccionProducto()
     End Sub
 
-    Private Sub chkBorrador_CheckedChanged(sender As Object, e As EventArgs) Handles chkBorrador.CheckedChanged
-        precioExtra(chkBorrador, 5)
+    Private Sub rbLapices_CheckedChanged(sender As Object, e As EventArgs) Handles rbLapices.CheckedChanged
+        seleccionProducto()
     End Sub
 
-    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
-        Close()
-    End Sub
-
-    Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
-        If dgvSalida.Rows.Count > 0 Then
-            dgvSalida.Rows.Remove(dgvSalida.CurrentRow)
-            Main.contFilas -= 1
-            'Decremento a los acumuladores
-            acumST -= selectPrecio
-            acumIVA -= selectIVA
-            acumTot -= selectTot
-            acumDesc -= selectDesc
-            txtAcumulador.Text = Format(acumTot, "0.00")
-            btnEliminar.Enabled = False
-        End If
-    End Sub
-
-    Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
-        'Paso de acumuladores al main
-        Main.acumST += Me.acumST
-        Main.txtSubT.Text = Format(Main.acumST, "0.00")
-        Main.acumDesc += Me.acumDesc
-        Main.txtDesc.Text = Format(Main.acumDesc, "0.00")
-        Main.acumIVA += Me.acumIVA
-        Main.txtIVA.Text = Format(Main.acumIVA, "0.00")
-        Main.acumTot += Me.acumTot
-        Main.txtTotal.Text = Format(Main.acumTot, "0.00")
-        'DataGridV Oficina al DataGridV Main
-        Do While (Main.indexFila < Main.contFilas)
-            Dim index As Integer
-            Main.dgvMain.Rows.Add()
-            Main.dgvMain(0, Main.indexFila).Value = dgvSalida(0, index).Value.ToString
-            Main.dgvMain(1, Main.indexFila).Value = dgvSalida(1, index).Value.ToString
-            Main.dgvMain(2, Main.indexFila).Value = dgvSalida(2, index).Value.ToString
-            Main.dgvMain(3, Main.indexFila).Value = dgvSalida(3, index).Value.ToString
-            Main.dgvMain(4, Main.indexFila).Value = dgvSalida(4, index).Value.ToString
-            Main.indexFila += 1
-            index += 1
-        Loop
-        'Activar el seguro
-        antiCloseBug = True
-        Me.Close()
-    End Sub
-
-    Private Sub dgvSalida_RowsRemoved(sender As Object, e As DataGridViewRowsRemovedEventArgs) Handles dgvSalida.RowsRemoved
-        If dgvSalida.Rows.Count = 0 Then
-            btnGuardar.Enabled = False
-        End If
-    End Sub
-
-    Private Sub dgvSalida_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvSalida.CellContentClick
-        setDecremento(e)
-        btnEliminar.Enabled = Enabled
-    End Sub
-
+    '*******************************************************Buttons*************************************************************
     Private Sub btnCalcular_Click(sender As Object, e As EventArgs) Handles btnCalcular.Click
         'Validaciones
         If rbSillas.Checked = True And rbLapices.Checked = True And chkExtras.Checked = False Then
@@ -245,6 +189,7 @@
         If txtCantidad.Text = Nothing Then
             txtPrecio.Text = Format(0, "0.00")
         End If
+        cantidad = txtCantidad.Text
         'SubTotal
         subTotal = (productos(5) * cantidad) + extras
         txtSubT.Text = Format(subTotal, "0.00")
@@ -270,14 +215,17 @@
             Exit Sub
         Else
             'Llenado de la matriz
+            'Productos
+            Dim aux As Double
+            aux = productos(5) * cantidad
             If rbSillas.Checked = True Or rbLapices.Checked = True Then
                 nfilas = dgvSalida.Rows.Count
                 dgvSalida.Rows.Add()
                 dgvSalida(0, nfilas).Value = cmbProductos.Text
-                dgvSalida(1, nfilas).Value = txtPrecio.Text
-                dgvSalida(2, nfilas).Value = Format(getDescuentoUnitario(txtPrecio.Text), "0.00")
-                dgvSalida(3, nfilas).Value = Format(txtPrecio.Text * 0.15, "0.00")
-                dgvSalida(4, nfilas).Value = Format(txtPrecio.Text - getDescuentoUnitario(txtPrecio.Text) + (txtPrecio.Text * 0.15), "0.00")
+                dgvSalida(1, nfilas).Value = Format(aux, "0.00")
+                dgvSalida(2, nfilas).Value = Format(getDescuentoUnitario(aux), "0.00")
+                dgvSalida(3, nfilas).Value = Format(aux * 0.15, "0.00")
+                dgvSalida(4, nfilas).Value = Format(aux - getDescuentoUnitario(aux) + (aux * 0.15), "0.00")
                 Main.contFilas += 1
             End If
             If chkPapel.Checked = True Then
@@ -336,6 +284,78 @@
         End If
     End Sub
 
+    Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
+        Close()
+    End Sub
+
+    Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
+        If dgvSalida.Rows.Count > 0 Then
+            dgvSalida.Rows.Remove(dgvSalida.CurrentRow)
+            Main.contFilas -= 1
+            'Decremento a los acumuladores
+            acumST -= selectPrecio
+            acumIVA -= selectIVA
+            acumTot -= selectTot
+            acumDesc -= selectDesc
+            txtAcumulador.Text = Format(acumTot, "0.00")
+            btnEliminar.Enabled = False
+        End If
+    End Sub
+
+    Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
+        'Paso de acumuladores al main
+        Main.acumST += Me.acumST
+        Main.txtSubT.Text = Format(Main.acumST, "0.00")
+        Main.acumDesc += Me.acumDesc
+        Main.txtDesc.Text = Format(Main.acumDesc, "0.00")
+        Main.acumIVA += Me.acumIVA
+        Main.txtIVA.Text = Format(Main.acumIVA, "0.00")
+        Main.acumTot += Me.acumTot
+        Main.txtTotal.Text = Format(Main.acumTot, "0.00")
+        'DataGridV Oficina al DataGridV Main
+        Do While (Main.indexFila < Main.contFilas)
+            Dim index As Integer
+            Main.dgvMain.Rows.Add()
+            Main.dgvMain(0, Main.indexFila).Value = dgvSalida(0, index).Value.ToString
+            Main.dgvMain(1, Main.indexFila).Value = dgvSalida(1, index).Value.ToString
+            Main.dgvMain(2, Main.indexFila).Value = dgvSalida(2, index).Value.ToString
+            Main.dgvMain(3, Main.indexFila).Value = dgvSalida(3, index).Value.ToString
+            Main.dgvMain(4, Main.indexFila).Value = dgvSalida(4, index).Value.ToString
+            Main.indexFila += 1
+            index += 1
+        Loop
+        'Activar el seguro
+        antiCloseBug = True
+        Me.Close()
+    End Sub
+
+    '*****************************************************DataGridView**********************************************************
+    Private Sub dgvSalida_RowsRemoved(sender As Object, e As DataGridViewRowsRemovedEventArgs) Handles dgvSalida.RowsRemoved
+        If dgvSalida.Rows.Count = 0 Then
+            btnGuardar.Enabled = False
+        End If
+    End Sub
+
+    Private Sub dgvSalida_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvSalida.CellContentClick
+        setDecremento(e)
+        btnEliminar.Enabled = Enabled
+    End Sub
+
+    '***************************************************************************************************************************
+    '****************************************************Personalización********************************************************
+    '***************************************************************************************************************************
+    Private Sub panelVentana_MouseDown(sender As Object, e As MouseEventArgs) Handles panelVentana.MouseDown
+        Ventana.setUbicacionMouse(e)
+    End Sub
+
+    Private Sub panelVentana_MouseUp(sender As Object, e As MouseEventArgs) Handles panelVentana.MouseUp
+        Ventana.clickVentana = False
+    End Sub
+
+    Private Sub panelVentana_MouseMove(sender As Object, e As MouseEventArgs) Handles panelVentana.MouseMove
+        Ventana.ventanaPresionada(Me, e, panelVentana)
+    End Sub
+
     'Botones de cerrar y minimizar
     Private Sub btnVentanaMin_Click(sender As Object, e As EventArgs) Handles btnVentanaMin.Click
         Me.WindowState = FormWindowState.Minimized
@@ -351,13 +371,6 @@
 
     Private Sub btnVentanaSalir_MouseLeave(sender As Object, e As EventArgs) Handles btnVentanaSalir.MouseLeave
         btnVentanaSalir.ForeColor = Color.Black
-    End Sub
-
-    Private Sub FormEscOfi_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        'Disminución de contador contfilas
-        If antiCloseBug = False Then
-            Main.contFilas -= dgvSalida.Rows.Count
-        End If
     End Sub
 
     'Colores de botones

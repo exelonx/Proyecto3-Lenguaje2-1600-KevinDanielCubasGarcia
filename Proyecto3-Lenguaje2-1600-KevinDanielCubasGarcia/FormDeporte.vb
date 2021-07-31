@@ -1,15 +1,32 @@
 ﻿Public Class FormDeporte
-    'Objetos
+    '********************************************************Objetos************************************************************
     Dim Ventana As New VentanaEstilo
     Dim Validacion As New Validaciones
-    'Variables globales
+
+    '*******************************************************Variables***********************************************************
     Dim productos(5), extras, cantidad As Integer
     Dim subTotal, descuento, impuesto, total As Double
     Dim acumST, acumIVA, acumTot, acumDesc As Double 'Acumuladores
     Dim selectPrecio, selectIVA, selectTot, selectDesc 'para hacer decremento a los acumuladores
     Dim antiCloseBug As Boolean 'Para evitar bug al cerrar formulario cuando se trata de evitar de perder información
 
-    'Funciones
+    '*************************************************Eventos de Formulario*****************************************************
+    Private Sub FormDeporte_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        antiCloseBug = False
+        txtAcumulador.Text = Format(0, "0.00")
+        cantidad = 0
+        PictureBox3.Location = New Point(199, 192)
+        Me.Size = New Size(710, 472)
+    End Sub
+
+    Private Sub FormDeporte_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        'Disminución de contador contfilas
+        If antiCloseBug = False Then
+            Main.contFilas -= dgvSalida.Rows.Count
+        End If
+    End Sub
+
+    '******************************************************Funciones************************************************************
     Public Function getDescuentoUnitario(variable As Double) As Double
         Dim descAux
         If Main.chkMembresia.Checked = True Then
@@ -20,7 +37,7 @@
         Return descAux
     End Function
 
-    'Procedimientos
+    '****************************************************Procedimientos*********************************************************
     Public Sub setDecremento(e As DataGridViewCellEventArgs)
         If e.RowIndex > -1 Then
             selectPrecio = dgvSalida.Rows(e.RowIndex).Cells(1).Value
@@ -86,22 +103,7 @@
         End If
     End Sub
 
-    Private Sub FormDeporte_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        antiCloseBug = False
-        txtAcumulador.Text = Format(0, "0.00")
-        cantidad = 0
-        PictureBox3.Location = New Point(199, 192)
-        Me.Size = New Size(710, 472)
-    End Sub
-
-    Private Sub cmbProductos_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cmbProductos.KeyPress
-        Validacion.validar(2, e)
-    End Sub
-
-    Private Sub txtCantidad_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtCantidad.KeyPress
-        Validacion.validar(1, e)
-    End Sub
-
+    '******************************************************CheckBoxs************************************************************
     Private Sub chkSuelas_CheckedChanged(sender As Object, e As EventArgs) Handles chkSuelas.CheckedChanged
         precioExtra(chkSuelas, 150)
 
@@ -109,18 +111,6 @@
 
     Private Sub chkBombaAire_CheckedChanged(sender As Object, e As EventArgs) Handles chkBombaAire.CheckedChanged
         precioExtra(chkBombaAire, 300)
-    End Sub
-
-    Private Sub rbBalones_CheckedChanged(sender As Object, e As EventArgs) Handles rbBalones.CheckedChanged
-        seleccionProducto()
-    End Sub
-
-    Private Sub rbBicicletas_CheckedChanged(sender As Object, e As EventArgs) Handles rbBicicletas.CheckedChanged
-        seleccionProducto()
-    End Sub
-
-    Private Sub rbAccesorios_CheckedChanged(sender As Object, e As EventArgs) Handles rbAccesorios.CheckedChanged
-        seleccionProducto()
     End Sub
 
     Private Sub chkExtras_CheckedChanged(sender As Object, e As EventArgs) Handles chkExtras.CheckedChanged
@@ -141,6 +131,22 @@
         End If
     End Sub
 
+    '******************************************************TextBoxs*************************************************************
+    Private Sub txtCantidad_TextChanged(sender As Object, e As EventArgs) Handles txtCantidad.TextChanged
+        Validacion.validarCantidad(txtCantidad)
+        If txtCantidad.Text <> Nothing Then
+            txtPrecio.Text = Format(productos(5) * txtCantidad.Text, "0.00")
+        Else
+            cantidad = 0
+            txtPrecio.Text = Format(0, "0.00")
+        End If
+    End Sub
+
+    Private Sub txtCantidad_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtCantidad.KeyPress
+        Validacion.validar(1, e)
+    End Sub
+
+    '******************************************************ComboBoxs************************************************************
     Private Sub cmbProductos_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbProductos.SelectedIndexChanged
         If cmbProductos.Text <> Nothing Then
             productos(5) = productos(cmbProductos.SelectedIndex)
@@ -156,17 +162,24 @@
         End If
     End Sub
 
-    Private Sub txtCantidad_TextChanged(sender As Object, e As EventArgs) Handles txtCantidad.TextChanged
-        Validacion.validarCantidad(txtCantidad)
-        If txtCantidad.Text <> Nothing Then
-            cantidad = txtCantidad.Text
-            txtPrecio.Text = Format(productos(5) * cantidad, "0.00")
-        Else
-            cantidad = 0
-            txtPrecio.Text = Format(0, "0.00")
-        End If
+    Private Sub cmbProductos_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cmbProductos.KeyPress
+        Validacion.validar(2, e)
     End Sub
 
+    '*****************************************************RadioButton***********************************************************
+    Private Sub rbBalones_CheckedChanged(sender As Object, e As EventArgs) Handles rbBalones.CheckedChanged
+        seleccionProducto()
+    End Sub
+
+    Private Sub rbBicicletas_CheckedChanged(sender As Object, e As EventArgs) Handles rbBicicletas.CheckedChanged
+        seleccionProducto()
+    End Sub
+
+    Private Sub rbAccesorios_CheckedChanged(sender As Object, e As EventArgs) Handles rbAccesorios.CheckedChanged
+        seleccionProducto()
+    End Sub
+
+    '*******************************************************Buttons*************************************************************
     Private Sub Calcular_Click(sender As Object, e As EventArgs) Handles btnCalcular.Click
         'Validaciones
         If rbAccesorios.Checked = True And rbBalones.Checked = True And rbBalones.Checked = True And chkExtras.Checked = False Then
@@ -190,6 +203,7 @@
         If txtCantidad.Text = Nothing Then
             txtPrecio.Text = Format(0, "0.00")
         End If
+        cantidad = txtCantidad.Text
         'SubTotal
         subTotal = (productos(5) * cantidad) + extras
         txtSubT.Text = Format(subTotal, "0.00")
@@ -206,19 +220,6 @@
         'Total
         total = subTotal - descuento + impuesto
         txtTotal.Text = Format(total, "0.00")
-    End Sub
-
-    'Ventana personalizada
-    Private Sub panelVentana_MouseDown(sender As Object, e As MouseEventArgs) Handles panelVentana.MouseDown
-        Ventana.setUbicacionMouse(e)
-    End Sub
-
-    Private Sub panelVentana_MouseUp(sender As Object, e As MouseEventArgs) Handles panelVentana.MouseUp
-        Ventana.clickVentana = False
-    End Sub
-
-    Private Sub panelVentana_MouseMove(sender As Object, e As MouseEventArgs) Handles panelVentana.MouseMove
-        Ventana.ventanaPresionada(Me, e, panelVentana)
     End Sub
 
     Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
@@ -239,8 +240,8 @@
         'Paso de acumuladores al main
         Main.acumST += Me.acumST
         Main.txtSubT.Text = Format(Main.acumST, "0.00")
-        Main.acumdesc += Me.acumDesc
-        Main.txtdesc.Text = Format(Main.acumdesc, "0.00")
+        Main.acumDesc += Me.acumDesc
+        Main.txtDesc.Text = Format(Main.acumDesc, "0.00")
         Main.acumIVA += Me.acumIVA
         Main.txtIVA.Text = Format(Main.acumIVA, "0.00")
         Main.acumTot += Me.acumTot
@@ -262,18 +263,6 @@
         Me.Close()
     End Sub
 
-    Private Sub dgvSalida_RowsRemoved(sender As Object, e As DataGridViewRowsRemovedEventArgs) Handles dgvSalida.RowsRemoved
-        If dgvSalida.Rows.Count = 0 Then
-            btnGuardar.Enabled = False
-            btnEliminar.Enabled = False
-        End If
-    End Sub
-
-    Private Sub dgvSalida_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvSalida.CellContentClick
-        setDecremento(e)
-        btnEliminar.Enabled = Enabled
-    End Sub
-
     Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
         Close()
     End Sub
@@ -285,14 +274,17 @@
             Exit Sub
         Else
             'Llenado de la matriz
+            'Productos
+            Dim aux As Double
+            aux = productos(5) * cantidad
             If rbBalones.Checked = True Or rbAccesorios.Checked = True Or rbBicicletas.Checked = True Then
                 nfilas = dgvSalida.Rows.Count
                 dgvSalida.Rows.Add()
                 dgvSalida(0, nfilas).Value = cmbProductos.Text
-                dgvSalida(1, nfilas).Value = txtPrecio.Text
-                dgvSalida(2, nfilas).Value = Format(getDescuentoUnitario(txtPrecio.Text), "0.00")
-                dgvSalida(3, nfilas).Value = Format(txtPrecio.Text * 0.15, "0.00")
-                dgvSalida(4, nfilas).Value = Format(txtPrecio.Text - getDescuentoUnitario(txtPrecio.Text) + (txtPrecio.Text * 0.15), "0.00")
+                dgvSalida(1, nfilas).Value = Format(aux, "0.00")
+                dgvSalida(2, nfilas).Value = Format(getDescuentoUnitario(aux), "0.00")
+                dgvSalida(3, nfilas).Value = Format(aux * 0.15, "0.00")
+                dgvSalida(4, nfilas).Value = Format(aux - getDescuentoUnitario(aux) + (aux * 0.15), "0.00")
                 Main.contFilas += 1
             End If
             If chkBombaAire.Checked = True Then
@@ -341,6 +333,34 @@
         End If
     End Sub
 
+    '*****************************************************DataGridView**********************************************************
+    Private Sub dgvSalida_RowsRemoved(sender As Object, e As DataGridViewRowsRemovedEventArgs) Handles dgvSalida.RowsRemoved
+        If dgvSalida.Rows.Count = 0 Then
+            btnGuardar.Enabled = False
+            btnEliminar.Enabled = False
+        End If
+    End Sub
+
+    Private Sub dgvSalida_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvSalida.CellContentClick
+        setDecremento(e)
+        btnEliminar.Enabled = Enabled
+    End Sub
+
+    '***************************************************************************************************************************
+    '****************************************************Personalización********************************************************
+    '***************************************************************************************************************************
+    Private Sub panelVentana_MouseDown(sender As Object, e As MouseEventArgs) Handles panelVentana.MouseDown
+        Ventana.setUbicacionMouse(e)
+    End Sub
+
+    Private Sub panelVentana_MouseUp(sender As Object, e As MouseEventArgs) Handles panelVentana.MouseUp
+        Ventana.clickVentana = False
+    End Sub
+
+    Private Sub panelVentana_MouseMove(sender As Object, e As MouseEventArgs) Handles panelVentana.MouseMove
+        Ventana.ventanaPresionada(Me, e, panelVentana)
+    End Sub
+
     'Botones de cerrar y minimizar
     Private Sub btnVentanaMin_Click(sender As Object, e As EventArgs) Handles btnVentanaMin.Click
         Me.WindowState = FormWindowState.Minimized
@@ -356,13 +376,6 @@
 
     Private Sub btnVentanaSalir_MouseLeave(sender As Object, e As EventArgs) Handles btnVentanaSalir.MouseLeave
         btnVentanaSalir.ForeColor = Color.Black
-    End Sub
-
-    Private Sub FormDeporte_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        'Disminución de contador contfilas
-        If antiCloseBug = False Then
-            Main.contFilas -= dgvSalida.Rows.Count
-        End If
     End Sub
 
     'Colores de botones

@@ -1,13 +1,16 @@
 ﻿Public Class FormRopa
+    '********************************************************Objetos************************************************************
     Dim Ventana As New VentanaEstilo
     Dim Validacion As New Validaciones
-    Dim productos(5), extras(2) As Integer
+
+    '*******************************************************Variables***********************************************************
+    Dim productos(5), extras(2), cantidad As Integer
     Dim subTotal, descuento, impuesto, total As Double
     Dim acumST, acumIVA, acumTot, acumDesc As Double 'Acumuladores
     Dim selectPrecio, selectIVA, selectTot, selectDesc 'para hacer decremento a los acumuladores
     Dim antiCloseBug As Boolean 'Para evitar bug al cerrar formulario cuando se trata de evitar de perder información
 
-    'Funciones
+    '*******************************************************Funciones***********************************************************
     Public Function getDescuentoUnitario(variable As Double) As Double
         Dim descAux
         If Main.chkMembresia.Checked = True Then
@@ -18,7 +21,22 @@
         Return descAux
     End Function
 
-    'Procedimientos
+    '*************************************************Eventos de Formulario*****************************************************
+    Private Sub FormRopa_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        antiCloseBug = False
+        txtAcumulador.Text = Format(0, "0.00")
+        pbBanner.Location = New Point(237, 192)
+        Me.Size = New Size(810, 467)
+    End Sub
+
+    Private Sub FormRopa_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        'Disminución de contador contfilas
+        If antiCloseBug = False Then
+            Main.contFilas -= dgvSalida.Rows.Count
+        End If
+    End Sub
+
+    '****************************************************Procedimientos*********************************************************
     'Procedimiento para disminuir acumuladores
     Public Sub setDecremento(e As DataGridViewCellEventArgs)
         If e.RowIndex > -1 Then
@@ -27,14 +45,6 @@
             selectIVA = dgvSalida.Rows(e.RowIndex).Cells(3).Value
             selectTot = dgvSalida.Rows(e.RowIndex).Cells(4).Value
         End If
-    End Sub
-
-    'Para ingresar los productos al combobox
-    Public Sub setProducto(cmb As ComboBox, produc1 As String, produc2 As String, produc3 As String)
-        cmb.Items.Clear()
-        cmb.Items.Add(produc1)
-        cmb.Items.Add(produc2)
-        cmb.Items.Add(produc3)
     End Sub
 
     'Para ingresar los productos al combobox
@@ -70,8 +80,33 @@
         Next
     End Sub
 
+    'Para ingresar los productos al combobox
+    Public Sub setProducto(cmb As ComboBox, produc1 As String, produc2 As String, produc3 As String)
+        cmb.Items.Clear()
+        cmb.Items.Add(produc1)
+        cmb.Items.Add(produc2)
+        cmb.Items.Add(produc3)
+    End Sub
+
+    '*******************************************************CheckBoxs***********************************************************
+    Private Sub chkCalcetines_CheckedChanged(sender As Object, e As EventArgs) Handles chkCalcetines.CheckedChanged
+        Validacion.setGroupBoxEnabledCHK(chkCalcetines, gpxTipoCalcetines)
+        cmbTipoCalcetin.Text = Nothing
+    End Sub
+
+    Private Sub chkPulceras_CheckedChanged(sender As Object, e As EventArgs) Handles chkPulceras.CheckedChanged
+        If chkPulceras.Checked = True Then
+            extras(1) = 100
+        Else
+            extras(1) = 0
+        End If
+        extras(2) = extras(0) + extras(1)
+        txtExtras.Text = Format(extras(2), "0.00")
+    End Sub
+
+    '******************************************************TextBoxs*************************************************************
     Private Sub txtCantidad_TextChanged(sender As Object, e As EventArgs) Handles txtCantidad.TextChanged
-        validacion.validarCantidad(txtCantidad)
+        Validacion.validarCantidad(txtCantidad)
         If txtCantidad.Text <> Nothing Then
             txtPrecio.Text = Format(productos(5) * txtCantidad.Text, "0.00")
         Else
@@ -80,32 +115,20 @@
     End Sub
 
     Private Sub txtCantidad_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtCantidad.KeyPress
-        validacion.validar(1, e)
+        Validacion.validar(1, e)
     End Sub
 
+    '******************************************************ComboBoxs************************************************************
     Private Sub cmbRopa_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cmbRopa.KeyPress
-        validacion.validar(2, e)
+        Validacion.validar(2, e)
     End Sub
 
     Private Sub cmbTipoCalcetin_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cmbTipoCalcetin.KeyPress
-        validacion.validar(2, e)
+        Validacion.validar(2, e)
     End Sub
 
     Private Sub cmbClasificacion_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cmbClasificacion.KeyPress
-        validacion.validar(2, e)
-    End Sub
-
-    Private Sub rbHombre_CheckedChanged(sender As Object, e As EventArgs) Handles rbHombre.CheckedChanged
-        seleccionGenero()
-        Ventana.visibilidadInversa(gpxRopa, pbBanner)
-        Validacion.setGroupBoxEnabledRB(rbHombre, gpxClasificacion)
-        validacion.setGroupBoxEnabledRB(rbHombre, gpxClasificacion)
-    End Sub
-
-    Private Sub rbMujer_CheckedChanged(sender As Object, e As EventArgs) Handles rbMujer.CheckedChanged
-        seleccionGenero()
-        Ventana.visibilidadInversa(gpxRopa, pbBanner)
-        Validacion.setGroupBoxEnabledRB(rbMujer, gpxClasificacion)
+        Validacion.validar(2, e)
     End Sub
 
     Private Sub cmbClasificacion_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbClasificacion.SelectedIndexChanged
@@ -124,7 +147,7 @@
                 End If
             Case 1
                 If rbHombre.Checked = True Then
-                    setProductoTamañoOrTipo(cmbRopa, "Pantalones tela talla 36 680.00", "Pantalones tela talla 38 700.00", "Jeans talla 36 800.00", "Jeans talla 38 820.00", "Pantalones cortos talla 36 500.00")
+                    setProductoTamañoOrTipo(cmbRopa, "Pantalones tela talla 36 L.680.00", "Pantalones tela talla 38 L.700.00", "Jeans talla 36 L.800.00", "Jeans talla 38 L.820.00", "Pantalones cortos talla 36 L.500.00")
                     setPrecio(680, 700, 800, 820, 500)
                 Else
                     setProductoTamañoOrTipo(cmbRopa, "Vestido de tirantes L.1,500.00", "Vestido de ceremonia L.4,000.00", "Vestido Ablusado L.2,000.00", "Vestido con volantes L.2,500.00", "Vestido de talle bajo L.1,900.00")
@@ -155,21 +178,6 @@
         lbCantidad.Enabled = True
     End Sub
 
-    Private Sub chkCalcetines_CheckedChanged(sender As Object, e As EventArgs) Handles chkCalcetines.CheckedChanged
-        validacion.setGroupBoxEnabledCHK(chkCalcetines, gpxTipoCalcetines)
-        cmbTipoCalcetin.Text = Nothing
-    End Sub
-
-    Private Sub chkPulceras_CheckedChanged(sender As Object, e As EventArgs) Handles chkPulceras.CheckedChanged
-        If chkPulceras.Checked = True Then
-            extras(1) = 100
-        Else
-            extras(1) = 0
-        End If
-        extras(2) = extras(0) + extras(1)
-        txtExtras.Text = Format(extras(2), "0.00")
-    End Sub
-
     Private Sub cmbTipoCalcetin_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbTipoCalcetin.SelectedIndexChanged
         Select Case cmbTipoCalcetin.SelectedIndex
             Case 0
@@ -190,7 +198,22 @@
         txtExtras.Text = Format(extras(2), "0.00")
     End Sub
 
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles btnCalcular.Click
+    '****************************************************RadioButton*********************************************************
+    Private Sub rbHombre_CheckedChanged(sender As Object, e As EventArgs) Handles rbHombre.CheckedChanged
+        seleccionGenero()
+        Ventana.visibilidadInversa(gpxRopa, pbBanner)
+        Validacion.setGroupBoxEnabledRB(rbHombre, gpxClasificacion)
+        Validacion.setGroupBoxEnabledRB(rbHombre, gpxClasificacion)
+    End Sub
+
+    Private Sub rbMujer_CheckedChanged(sender As Object, e As EventArgs) Handles rbMujer.CheckedChanged
+        seleccionGenero()
+        Ventana.visibilidadInversa(gpxRopa, pbBanner)
+        Validacion.setGroupBoxEnabledRB(rbMujer, gpxClasificacion)
+    End Sub
+
+    '*******************************************************Buttons**********************************************************
+    Private Sub btnCalcular_Click(sender As Object, e As EventArgs) Handles btnCalcular.Click
         'validación
         If rbHombre.Checked = False And rbMujer.Checked = False Then
             MessageBox.Show("Seleccione el tipo ropa", "Faltan Requisitos")
@@ -213,8 +236,9 @@
             txtExtras.Text = Format(0, "0.00")
         End If
         'Calculos
+        cantidad = txtCantidad.Text
         'SubTotal
-        subTotal = (productos(5) * txtCantidad.Text) + extras(2)
+        subTotal = (productos(5) * cantidad) + extras(2)
         txtSubTotal.Text = Format(subTotal, "0.00")
         'Descuento de membresía
         If Main.chkMembresia.Checked = True Then
@@ -231,24 +255,6 @@
         txtTotal.Text = Format(total, "0.00")
     End Sub
 
-    Private Sub FormRopa_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        antiCloseBug = False
-        txtAcumulador.Text = Format(0, "0.00")
-        pbBanner.Location = New Point(237, 192)
-        Me.Size = New Size(810, 467)
-    End Sub
-
-    Private Sub dgvSalida_RowsRemoved(sender As Object, e As DataGridViewRowsRemovedEventArgs) Handles dgvSalida.RowsRemoved
-        If dgvSalida.Rows.Count = 0 Then
-            btnGuardar.Enabled = False
-        End If
-    End Sub
-
-    Private Sub dgvSalida_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvSalida.CellContentClick
-        setDecremento(e)
-        btnEliminar.Enabled = Enabled
-    End Sub
-
     Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
         If dgvSalida.Rows.Count > 0 Then
             dgvSalida.Rows.Remove(dgvSalida.CurrentRow)
@@ -258,7 +264,7 @@
             acumIVA -= selectIVA
             acumTot -= selectTot
             acumDesc -= selectDesc
-            txtAcumulador.Text = acumTot
+            txtAcumulador.Text = Format(acumTot, "0.00")
             btnEliminar.Enabled = False
         End If
     End Sub
@@ -269,16 +275,17 @@
             MessageBox.Show("Debe calcular primero.", "Faltan Requisitos")
             Exit Sub
         Else
+            Dim aux As Double
+            aux = productos(5) * cantidad
             'Llenado de la matriz
             nfilas = dgvSalida.Rows.Count
             dgvSalida.Rows.Add()
             dgvSalida(0, nfilas).Value = cmbRopa.Text
-            dgvSalida(1, nfilas).Value = txtPrecio.Text
-            dgvSalida(2, nfilas).Value = Format(getDescuentoUnitario(txtPrecio.Text), "0.00")
-            dgvSalida(3, nfilas).Value = Format(txtPrecio.Text * 0.15, "0.00")
-            dgvSalida(4, nfilas).Value = Format(txtPrecio.Text - getDescuentoUnitario(txtPrecio.Text) + (txtPrecio.Text * 0.15), "0.00")
+            dgvSalida(1, nfilas).Value = Format(aux, "0.00")
+            dgvSalida(2, nfilas).Value = Format(getDescuentoUnitario(aux), "0.00")
+            dgvSalida(3, nfilas).Value = Format(aux * 0.15, "0.00")
+            dgvSalida(4, nfilas).Value = Format(aux - getDescuentoUnitario(aux) + (aux * 0.15), "0.00")
             Main.contFilas += 1
-
             If chkCalcetines.Checked = True Then
                 nfilas = dgvSalida.Rows.Count
                 dgvSalida.Rows.Add()
@@ -350,9 +357,23 @@
         Me.Close()
     End Sub
 
-    'Ventana personalizada
+    '*****************************************************DataGridView**********************************************************
+    Private Sub dgvSalida_RowsRemoved(sender As Object, e As DataGridViewRowsRemovedEventArgs) Handles dgvSalida.RowsRemoved
+        If dgvSalida.Rows.Count = 0 Then
+            btnGuardar.Enabled = False
+        End If
+    End Sub
+
+    Private Sub dgvSalida_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvSalida.CellContentClick
+        setDecremento(e)
+        btnEliminar.Enabled = Enabled
+    End Sub
+
+    '****************************************************************************************************************************
+    '******************************************************Personalización*******************************************************
+    '****************************************************************************************************************************
     Private Sub panelVentana_MouseDown(sender As Object, e As MouseEventArgs) Handles panelVentana.MouseDown
-        ventana.setUbicacionMouse(e)
+        Ventana.setUbicacionMouse(e)
     End Sub
 
     Private Sub panelVentana_MouseUp(sender As Object, e As MouseEventArgs) Handles panelVentana.MouseUp
@@ -427,13 +448,6 @@
         btnGuardar.Location = New Point(639, 330)
     End Sub
 
-    Private Sub FormRopa_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        'Disminución de contador contfilas
-        If antiCloseBug = False Then
-            Main.contFilas -= dgvSalida.Rows.Count
-        End If
-    End Sub
-
     Private Sub btnGuardar_MouseLeave(sender As Object, e As EventArgs) Handles btnGuardar.MouseLeave
         btnGuardar.ForeColor = Color.Black
         btnGuardar.FlatAppearance.BorderColor = Color.White
@@ -466,5 +480,17 @@
 
     Private Sub btnVentanaSalir_MouseLeave(sender As Object, e As EventArgs) Handles btnVentanaSalir.MouseLeave
         btnVentanaSalir.ForeColor = Color.Black
+    End Sub
+
+    'Crear sombras
+    Public Sub New()
+        InitializeComponent()
+        SuspendLayout()
+        FormBorderStyle = FormBorderStyle.None
+        Const CS_DROPSHADOW As Integer = &H20000
+        Ventana.SD = Ventana.SetWindowLong(Handle, -8, Ventana.GetDesktopWindow())
+        Ventana.SetClassLong(Handle, -26, Ventana.GetClassLong(Handle, -26) Or CS_DROPSHADOW)
+        ResumeLayout(False)
+        ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
     End Sub
 End Class

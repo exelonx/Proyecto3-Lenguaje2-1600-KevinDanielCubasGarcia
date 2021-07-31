@@ -1,4 +1,12 @@
 ﻿Public Class Validaciones
+    '*********************************************************************************************************************************
+    '**	Hecho por: Kevin Cubas aka Exelon *******   Clase con metodos para hacer valicaciones                        *****************     
+    '***                                   *******   Fecha de creación: 20/07/2021         	                          ****************							
+    '**** Contacto: Kevincubas@unah.hn      *******	  Última modificación: 30/06/2021                                  ***************   
+    '*****   		 Kevin.otaku@hotmail.com *******                                                                    **************			
+    '******	  	      33598469                *******			                                                         *************							
+    '*******	        		               *******			                                                          ************							
+    '*********************************************************************************************************************************
     'metodos tipo de datos
     Public Sub validar(tipoValidacion As Integer, key As KeyPressEventArgs)
         Select Case tipoValidacion
@@ -75,4 +83,18 @@
             gpx.Enabled = False
         End If
     End Sub
+
+    'Metodo aviso si se trata de cerrar un formulario sin guardar
+    Public Function alertaDatosSinGuardar(productos As Integer) As Boolean
+        Dim decision As Boolean
+        If productos > 0 Then
+            If MsgBox("Áun tiene productos en la lista sin guardar, la información se perdera." + vbCr + "¿Desea continuar?" + vbYesNo, "Información sin guardar") = vbYes Then
+                Return decision = True
+            Else
+                Return decision = False
+            End If
+        Else
+            Return decision = False
+        End If
+    End Function
 End Class

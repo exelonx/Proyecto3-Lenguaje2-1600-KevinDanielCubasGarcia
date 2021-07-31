@@ -1,4 +1,13 @@
 ﻿Public Class Nodo
+    '*********************************************************************************************************************************
+    '**	Hecho por: Kevin Cubas aka Exelon *******   Clase que contiene encapsulado los atributos utilizados          *****************     
+    '***                                   *******   en la lista enlazada               	                          ****************							
+    '**** Contacto: Kevincubas@unah.hn      *******	  Fecha de creación: 29/07/2021                                    ***************   
+    '*****   		 Kevin.otaku@hotmail.com *******   Última modificación: 30/06/2021                                  **************			
+    '******	  	      33598469                *******			                                                         *************							
+    '*******	        		               *******			                                                          ************							
+    '*********************************************************************************************************************************
+
     Public nfactura As Integer
     Public nodo As Nodo
     Public nombre As String
@@ -23,7 +32,7 @@
             indexFila += 1
             If indexFila = contFilas - 1 Then
                 indexFila = 0
-                Exit sub
+                Exit Sub
             End If
         Loop
         Me.st = st

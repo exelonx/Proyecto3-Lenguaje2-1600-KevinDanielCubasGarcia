@@ -2,7 +2,6 @@
     Dim Ventana As New VentanaEstilo
     Dim validacion As New Validaciones
     Dim user, pass As String
-    Public sD As Integer
 
     Private Sub chkMostrarContra_CheckedChanged(sender As Object, e As EventArgs) Handles chkMostrarContra.CheckedChanged
         If chkMostrarContra.Checked = True Then
@@ -29,8 +28,8 @@
     Private Sub FormLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         user = "pedrito"
         pass = "clavounclavito"
-        Main.Show()
-        FormHistorico.Show()
+        'Main.Show()
+        'FormHistorico.Show()
         'FormTecnologia.Show()
         'FormRopa.Show()
         'FormDeporte.Show()
@@ -100,5 +99,13 @@
     Private Sub btnVentanaMin_Click(sender As Object, e As EventArgs) Handles btnVentanaMin.Click
         Me.WindowState = FormWindowState.Minimized
         txtUsuario.Focus()
+    End Sub
+
+    'Crear sombras
+    Public Sub New()
+        InitializeComponent()
+        SuspendLayout()
+        Ventana.ventanaSombra(Me)
+        ResumeLayout(False)
     End Sub
 End Class
