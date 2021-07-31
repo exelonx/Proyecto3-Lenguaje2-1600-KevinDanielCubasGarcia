@@ -424,6 +424,20 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Historial de cambios.txt" />
+    <None Include="Resources\OSTvictoria.wav" />
+    <None Include="Resources\Baile2.gif" />
+    <None Include="Resources\OST2.wav" />
+    <None Include="Resources\baile.gif" />
+    <None Include="Resources\petalos.gif" />
+    <None Include="Resources\d1e0cead39c3d4dee7ca3f05314b244c32f50efa_00.gif" />
+    <None Include="Resources\710737d5ba996d277623c8d6fbbc4e8d303322d6_hq.gif" />
+    <None Include="Resources\f42659b3f8d55a04077f0c11f8866e111d0d7dbar1-320-320_00.gif" />
+    <None Include="Resources\OST.wav" />
+    <None Include="Resources\fondoInfoShadow5Fixed2.jpg" />
+    <None Include="Resources\fondoInfoShadow5Fixed.jpg" />
+    <None Include="Resources\confetti-44.gif" />
+    <None Include="Resources\e3acce49358f2534963dd8c21e6a0b13.gif" />
+    <None Include="Resources\fondoInfoShadow5.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

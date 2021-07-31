@@ -133,6 +133,9 @@
   <data name="bannerTecnologiaDiunsaFixed1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bannerTecnologiaDiunsaFixed1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="guardarBoton2Fixed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\guardarBoton2Fixed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Tecnologia Diunsa" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Tecnologia Diunsa.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -142,23 +145,32 @@
   <data name="Tecnologia Diunsa Blanco Long" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Tecnologia Diunsa Blanco Long.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Oficina Diunsa Fixed" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Oficina Diunsa Fixed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="fondoInfoShadow5Fixed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fondoInfoShadow5Fixed.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="bannerModaDiunsa2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bannerModaDiunsa2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="fondoInfoShadow5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fondoInfoShadow5.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="AgregarBotonFixed21" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AgregarBotonFixed21.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Moda Diunsa Fixed" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Moda Diunsa Fixed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Deporte Diunsa Fixed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Deporte Diunsa Fixed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="CalcularBoton" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CalcularBoton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="fondoInfoShadow2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fondoInfoShadow2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bannerAccesorios1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bannerAccesorios1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="f42659b3f8d55a04077f0c11f8866e111d0d7dbar1-320-320_00" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\f42659b3f8d55a04077f0c11f8866e111d0d7dbar1-320-320_00.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="fondoFormLogin1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fondoFormLogin1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -178,6 +190,9 @@
   <data name="Tecnologia Diunsa Fixed2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Tecnologia Diunsa Fixed2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="EliminarBoton3Fixed2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EliminarBoton3Fixed2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="bannerModaDiunsaFixed2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bannerModaDiunsaFixed2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -186,9 +201,6 @@
   </data>
   <data name="AgregarBoton" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AgregarBoton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Deporte Diunsa Fixed" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Deporte Diunsa Fixed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="bannerDiunsa" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bannerDiunsa.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -211,8 +223,8 @@
   <data name="Moda Diunsa blanco Long" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Moda Diunsa blanco Long.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="bannerAccesorios1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bannerAccesorios1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="nieve" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\e3acce49358f2534963dd8c21e6a0b13.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Tecnologia Diunsa Blanco" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Tecnologia Diunsa Blanco.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -220,8 +232,14 @@
   <data name="EliminarBoton2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\EliminarBoton2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Deporte Diunsa" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Deporte Diunsa.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="GuardarIcono" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\GuardarIcono.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Moda Diunsa Fixed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Moda Diunsa Fixed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="bannerModaDiunsa2Fixed" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bannerModaDiunsa2Fixed.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -235,23 +253,20 @@
   <data name="add-rule" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\add-rule.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="logoDiunsa2-Fixed3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logoDiunsa2-Fixed3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Oficina Diunsa Blanco Long" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Oficina Diunsa Blanco Long.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AgregarBotonFixed" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AgregarBotonFixed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="logoDiunsa2-Fixed2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logoDiunsa2-Fixed2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="logoDiunsa" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logoDiunsa.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Exit Diunsa" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Exit Diunsa.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="bannerTecnologiaDiunsaFixed" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bannerTecnologiaDiunsaFixed.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="CalcularBotonFixed2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CalcularBotonFixed2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -298,9 +313,6 @@
   <data name="Oficina Diunsa Fixed2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Oficina Diunsa Fixed2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Tecnologia Diunsa Fixed" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Tecnologia Diunsa Fixed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="guardarBoton" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\guardarBoton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -313,23 +325,32 @@
   <data name="GuardarIcono1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\GuardarIcono1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="EliminarBoton3Fixed2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\EliminarBoton3Fixed2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Tecnologia Diunsa Fixed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Tecnologia Diunsa Fixed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="guardarBoton2Fixed" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\guardarBoton2Fixed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="bannerTecnologiaDiunsaFixed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bannerTecnologiaDiunsaFixed.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="logoDiunsa2-Fixed2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logoDiunsa2-Fixed2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Oficina Diunsa Fixed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Oficina Diunsa Fixed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Oficina Diunsa" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Oficina Diunsa.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Deporte Diunsa" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Deporte Diunsa.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="logoDiunsa2-Fixed3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logoDiunsa2-Fixed3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OST" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\OST.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="fondoInfoShadow5Fixed2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fondoInfoShadow5Fixed2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Deporte Diunsa Blanco Long" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Deporte Diunsa Blanco Long.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fondoInfoShadow4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fondoInfoShadow4.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="IconoProyecto31" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\IconoProyecto31.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -349,10 +370,28 @@
   <data name="guardarBoton2Blanco" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\guardarBoton2Blanco.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="confetti-44" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\confetti-44.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="EliminarBoton3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\EliminarBoton3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="fondoInfoShadow4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\fondoInfoShadow4.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="710737d5ba996d277623c8d6fbbc4e8d303322d6_hq" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\710737d5ba996d277623c8d6fbbc4e8d303322d6_hq.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="d1e0cead39c3d4dee7ca3f05314b244c32f50efa_00" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\d1e0cead39c3d4dee7ca3f05314b244c32f50efa_00.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="baile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\baile.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Baile2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Baile2.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="petalos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\petalos.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OSTvictoria" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\OSTvictoria.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

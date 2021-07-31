@@ -28,7 +28,7 @@
     Private Sub FormLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         user = "pedrito"
         pass = "clavounclavito"
-        Main.Show()
+        'Main.Show()
         'FormHistorico.Show()
         'FormTecnologia.Show()
         'FormRopa.Show()
