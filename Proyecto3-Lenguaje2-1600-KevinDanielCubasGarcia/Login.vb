@@ -30,7 +30,7 @@
         pass = "clavounclavito"
         'Main.Show()
         'FormHistorico.Show()
-        FormTecnologia.Show()
+        'FormTecnologia.Show()
         'FormRopa.Show()
         'FormDeporte.Show()
         'FormEscOfi.Show()
