@@ -72,7 +72,7 @@ Partial Class FormInfo
         Me.pbE.Location = New System.Drawing.Point(0, 0)
         Me.pbE.Name = "pbE"
         Me.pbE.Size = New System.Drawing.Size(411, 441)
-        Me.pbE.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.pbE.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.pbE.TabIndex = 1
         Me.pbE.TabStop = False
         '

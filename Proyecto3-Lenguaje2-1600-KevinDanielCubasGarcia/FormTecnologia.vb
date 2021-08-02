@@ -128,6 +128,7 @@
     End Sub
 
     Public Sub seleccionProducto()
+        txtAccesorios.Text = Nothing
         If rbComputadoras.Checked = True Then
             'Reinicio de cantidad
             reinicioCantidad()

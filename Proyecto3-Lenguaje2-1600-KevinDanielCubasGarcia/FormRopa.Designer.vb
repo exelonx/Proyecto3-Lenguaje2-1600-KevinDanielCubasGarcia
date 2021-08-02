@@ -28,6 +28,7 @@ Partial Class FormRopa
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormRopa))
         Me.panelVentana = New System.Windows.Forms.Panel()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.btnVentanaMin = New System.Windows.Forms.Button()
         Me.btnVentanaSalir = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
@@ -40,8 +41,10 @@ Partial Class FormRopa
         Me.txtCantidad = New System.Windows.Forms.TextBox()
         Me.cmbRopa = New System.Windows.Forms.ComboBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.Label7 = New System.Windows.Forms.Label()
         Me.txtExtras = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
+        Me.txtDescuento = New System.Windows.Forms.TextBox()
         Me.txtTotal = New System.Windows.Forms.TextBox()
         Me.txtImpuesto = New System.Windows.Forms.TextBox()
         Me.txtSubTotal = New System.Windows.Forms.TextBox()
@@ -52,6 +55,11 @@ Partial Class FormRopa
         Me.Label2 = New System.Windows.Forms.Label()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.dgvSalida = New System.Windows.Forms.DataGridView()
+        Me.detalle = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.precio = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cDescuento = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cImpuesto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cTotal = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.btnSalir = New System.Windows.Forms.Button()
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
         Me.gpxTipoCalcetines = New System.Windows.Forms.GroupBox()
@@ -67,15 +75,8 @@ Partial Class FormRopa
         Me.txtAcumulador = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.pbBanner = New System.Windows.Forms.PictureBox()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.txtDescuento = New System.Windows.Forms.TextBox()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.detalle = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.precio = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cDescuento = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cImpuesto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cTotal = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.panelVentana.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.gpxClasificacion.SuspendLayout()
         Me.gpxRopa.SuspendLayout()
@@ -87,7 +88,6 @@ Partial Class FormRopa
         CType(Me.pbBotones, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.pbBanner, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'panelVentana
@@ -101,6 +101,16 @@ Partial Class FormRopa
         Me.panelVentana.Name = "panelVentana"
         Me.panelVentana.Size = New System.Drawing.Size(810, 29)
         Me.panelVentana.TabIndex = 0
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackgroundImage = Global.Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.logoDiunsa2_Fixed3
+        Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Left
+        Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(80, 29)
+        Me.PictureBox1.TabIndex = 2
+        Me.PictureBox1.TabStop = False
         '
         'btnVentanaMin
         '
@@ -244,6 +254,15 @@ Partial Class FormRopa
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Calculos"
         '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(6, 101)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(59, 13)
+        Me.Label7.TabIndex = 11
+        Me.Label7.Text = "Descuento"
+        '
         'txtExtras
         '
         Me.txtExtras.Location = New System.Drawing.Point(94, 46)
@@ -261,6 +280,15 @@ Partial Class FormRopa
         Me.Label6.Size = New System.Drawing.Size(36, 13)
         Me.Label6.TabIndex = 8
         Me.Label6.Text = "Extras"
+        '
+        'txtDescuento
+        '
+        Me.txtDescuento.Location = New System.Drawing.Point(94, 98)
+        Me.txtDescuento.Name = "txtDescuento"
+        Me.txtDescuento.ReadOnly = True
+        Me.txtDescuento.Size = New System.Drawing.Size(100, 20)
+        Me.txtDescuento.TabIndex = 10
+        Me.txtDescuento.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'txtTotal
         '
@@ -352,10 +380,53 @@ Partial Class FormRopa
         Me.dgvSalida.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvSalida.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.detalle, Me.precio, Me.cDescuento, Me.cImpuesto, Me.cTotal})
         Me.dgvSalida.Location = New System.Drawing.Point(6, 20)
+        Me.dgvSalida.MultiSelect = False
         Me.dgvSalida.Name = "dgvSalida"
         Me.dgvSalida.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvSalida.Size = New System.Drawing.Size(413, 154)
         Me.dgvSalida.TabIndex = 0
+        '
+        'detalle
+        '
+        Me.detalle.HeaderText = "Detalle"
+        Me.detalle.Name = "detalle"
+        Me.detalle.ReadOnly = True
+        '
+        'precio
+        '
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.precio.DefaultCellStyle = DataGridViewCellStyle1
+        Me.precio.HeaderText = "Precio"
+        Me.precio.Name = "precio"
+        Me.precio.ReadOnly = True
+        Me.precio.Width = 70
+        '
+        'cDescuento
+        '
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.cDescuento.DefaultCellStyle = DataGridViewCellStyle2
+        Me.cDescuento.HeaderText = "Descuento"
+        Me.cDescuento.Name = "cDescuento"
+        Me.cDescuento.ReadOnly = True
+        Me.cDescuento.Width = 65
+        '
+        'cImpuesto
+        '
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.cImpuesto.DefaultCellStyle = DataGridViewCellStyle3
+        Me.cImpuesto.HeaderText = "Impuesto"
+        Me.cImpuesto.Name = "cImpuesto"
+        Me.cImpuesto.ReadOnly = True
+        Me.cImpuesto.Width = 60
+        '
+        'cTotal
+        '
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.cTotal.DefaultCellStyle = DataGridViewCellStyle4
+        Me.cTotal.HeaderText = "Total"
+        Me.cTotal.Name = "cTotal"
+        Me.cTotal.ReadOnly = True
+        Me.cTotal.Width = 75
         '
         'btnSalir
         '
@@ -547,76 +618,6 @@ Partial Class FormRopa
         Me.pbBanner.TabIndex = 7
         Me.pbBanner.TabStop = False
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackgroundImage = Global.Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.logoDiunsa2_Fixed3
-        Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Left
-        Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(80, 29)
-        Me.PictureBox1.TabIndex = 2
-        Me.PictureBox1.TabStop = False
-        '
-        'txtDescuento
-        '
-        Me.txtDescuento.Location = New System.Drawing.Point(94, 98)
-        Me.txtDescuento.Name = "txtDescuento"
-        Me.txtDescuento.ReadOnly = True
-        Me.txtDescuento.Size = New System.Drawing.Size(100, 20)
-        Me.txtDescuento.TabIndex = 10
-        Me.txtDescuento.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(6, 101)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(59, 13)
-        Me.Label7.TabIndex = 11
-        Me.Label7.Text = "Descuento"
-        '
-        'detalle
-        '
-        Me.detalle.HeaderText = "Detalle"
-        Me.detalle.Name = "detalle"
-        Me.detalle.ReadOnly = True
-        '
-        'precio
-        '
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.precio.DefaultCellStyle = DataGridViewCellStyle1
-        Me.precio.HeaderText = "Precio"
-        Me.precio.Name = "precio"
-        Me.precio.ReadOnly = True
-        Me.precio.Width = 70
-        '
-        'cDescuento
-        '
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.cDescuento.DefaultCellStyle = DataGridViewCellStyle2
-        Me.cDescuento.HeaderText = "Descuento"
-        Me.cDescuento.Name = "cDescuento"
-        Me.cDescuento.ReadOnly = True
-        Me.cDescuento.Width = 65
-        '
-        'cImpuesto
-        '
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.cImpuesto.DefaultCellStyle = DataGridViewCellStyle3
-        Me.cImpuesto.HeaderText = "Impuesto"
-        Me.cImpuesto.Name = "cImpuesto"
-        Me.cImpuesto.ReadOnly = True
-        Me.cImpuesto.Width = 60
-        '
-        'cTotal
-        '
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.cTotal.DefaultCellStyle = DataGridViewCellStyle4
-        Me.cTotal.HeaderText = "Total"
-        Me.cTotal.Name = "cTotal"
-        Me.cTotal.ReadOnly = True
-        Me.cTotal.Width = 75
-        '
         'FormRopa
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -643,6 +644,7 @@ Partial Class FormRopa
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Ropa"
         Me.panelVentana.ResumeLayout(False)
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.gpxClasificacion.ResumeLayout(False)
@@ -659,7 +661,6 @@ Partial Class FormRopa
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         CType(Me.pbBanner, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

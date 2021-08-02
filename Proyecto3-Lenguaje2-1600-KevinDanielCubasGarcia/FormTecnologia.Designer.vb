@@ -336,6 +336,7 @@ Partial Class FormTecnologia
         Me.dgvSalida.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvSalida.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.detalle, Me.precio, Me.cDescuento, Me.impuesto, Me.total})
         Me.dgvSalida.Location = New System.Drawing.Point(6, 20)
+        Me.dgvSalida.MultiSelect = False
         Me.dgvSalida.Name = "dgvSalida"
         Me.dgvSalida.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvSalida.Size = New System.Drawing.Size(350, 156)

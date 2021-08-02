@@ -28,22 +28,22 @@ Public Class FormInfo
         Dim easterEgg As String
         Dim usuario As String
         usuario = Environ("username")
-        easterEgg = InputBox(vbCr + vbCr + "I AM THE STORM THAT IS...", "NOW I'M   M O T I V A T E D", "??????????", 50, 50)
+        easterEgg = InputBox(vbCr + vbCr + "I AM THE STORM THAT IS...", "NOW I'M   M O T I V A T E D", "??????????", 200, 200)
         If "approaching" = LCase(easterEgg) Then
             pbE.Image = Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.nieve
             My.Computer.Audio.Play(Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.OST, AudioPlayMode.BackgroundLoop)
         Else
             MessageBox.Show("Respuesta equivocada :(", "¡OH NO!")
-            easterEgg = InputBox(vbCr + vbCr + "LOST IN...", "Estamos en un paraiso?", "??????????", 50, 50)
+            easterEgg = InputBox(vbCr + vbCr + "LOST IN...", "Estamos en un paraiso?", "??????????", 200, 200)
             If "paradise" = LCase(easterEgg) Then
                 Process.Start("https://www.youtube.com/watch?v=6riDJMI-Y8U")
                 MessageBox.Show("¡Buen trabajo " & usuario & ", adivinaste!", "Estamos perdidos en un paraiso :)")
             Else
                 Process.Start("https://www.google.com/search?q=" & usuario & "%20te%20equivocaste%20de%20nuevo...")
                 MessageBox.Show(usuario & "... Nope.", "¿Adónde vamos a parar?...")
-                easterEgg = InputBox(vbCr + vbCr + "black goku se transforma en ssj...", "El ambiente est'a muy rosa, ¿No crees?", "??????????", 50, 50)
+                easterEgg = InputBox(vbCr + vbCr + "black goku se transforma en ssj...", "El ambiente está muy rosa, ¿No crees?", "??????????", 200, 200)
                 If "rosa" = LCase(easterEgg) Then
-                    pbE.SizeMode = PictureBoxSizeMode.StretchImage
+                    'pbE.SizeMode = PictureBoxSizeMode.StretchImage
                     pbE.Image = Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.petalos
                     My.Computer.Audio.Play(Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.OSTvictoria, AudioPlayMode.Background)
                     MessageBox.Show("Ah " & usuario & ", veo que eres una persona de cultura.", "¡La tercera es la vencida!")
@@ -55,5 +55,4 @@ Public Class FormInfo
         End If
         PictureBox1.Enabled = False
     End Sub
-
 End Class

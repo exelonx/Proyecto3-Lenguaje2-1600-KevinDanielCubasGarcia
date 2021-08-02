@@ -426,7 +426,6 @@
     <Content Include="Historial de cambios.txt" />
     <None Include="Resources\OSTvictoria.wav" />
     <None Include="Resources\Baile2.gif" />
-    <None Include="Resources\OST2.wav" />
     <None Include="Resources\baile.gif" />
     <None Include="Resources\petalos.gif" />
     <None Include="Resources\d1e0cead39c3d4dee7ca3f05314b244c32f50efa_00.gif" />

@@ -28,6 +28,7 @@ Partial Class FormEscOfi
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormEscOfi))
         Me.panelVentana = New System.Windows.Forms.Panel()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.btnVentanaMin = New System.Windows.Forms.Button()
         Me.btnVentanaSalir = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
@@ -35,6 +36,8 @@ Partial Class FormEscOfi
         Me.rbLapices = New System.Windows.Forms.RadioButton()
         Me.rbSillas = New System.Windows.Forms.RadioButton()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.txtDescuento = New System.Windows.Forms.TextBox()
+        Me.Label7 = New System.Windows.Forms.Label()
         Me.txtTotal = New System.Windows.Forms.TextBox()
         Me.txtImpuesto = New System.Windows.Forms.TextBox()
         Me.txtSubT = New System.Windows.Forms.TextBox()
@@ -47,6 +50,11 @@ Partial Class FormEscOfi
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.dgvSalida = New System.Windows.Forms.DataGridView()
+        Me.detalle = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.precio = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cdescuento = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.impuestoC = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.totalC = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.btnSalir = New System.Windows.Forms.Button()
         Me.gpxTipoProducto = New System.Windows.Forms.GroupBox()
         Me.lbCantidad = New System.Windows.Forms.Label()
@@ -65,15 +73,8 @@ Partial Class FormEscOfi
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.txtAcumulador = New System.Windows.Forms.TextBox()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.txtDescuento = New System.Windows.Forms.TextBox()
-        Me.detalle = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.precio = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cdescuento = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.impuestoC = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.totalC = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.panelVentana.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -83,7 +84,6 @@ Partial Class FormEscOfi
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'panelVentana
@@ -97,6 +97,16 @@ Partial Class FormEscOfi
         Me.panelVentana.Name = "panelVentana"
         Me.panelVentana.Size = New System.Drawing.Size(689, 29)
         Me.panelVentana.TabIndex = 0
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackgroundImage = Global.Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.logoDiunsa2_Fixed3
+        Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Left
+        Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(80, 29)
+        Me.PictureBox1.TabIndex = 2
+        Me.PictureBox1.TabStop = False
         '
         'btnVentanaMin
         '
@@ -190,6 +200,24 @@ Partial Class FormEscOfi
         Me.GroupBox2.TabIndex = 3
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Calculos"
+        '
+        'txtDescuento
+        '
+        Me.txtDescuento.Location = New System.Drawing.Point(69, 71)
+        Me.txtDescuento.Name = "txtDescuento"
+        Me.txtDescuento.ReadOnly = True
+        Me.txtDescuento.Size = New System.Drawing.Size(90, 20)
+        Me.txtDescuento.TabIndex = 11
+        Me.txtDescuento.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(6, 74)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(59, 13)
+        Me.Label7.TabIndex = 10
+        Me.Label7.Text = "Descuento"
         '
         'txtTotal
         '
@@ -300,11 +328,54 @@ Partial Class FormEscOfi
         Me.dgvSalida.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvSalida.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.detalle, Me.precio, Me.cdescuento, Me.impuestoC, Me.totalC})
         Me.dgvSalida.Location = New System.Drawing.Point(7, 20)
+        Me.dgvSalida.MultiSelect = False
         Me.dgvSalida.Name = "dgvSalida"
         Me.dgvSalida.ReadOnly = True
         Me.dgvSalida.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvSalida.Size = New System.Drawing.Size(325, 152)
         Me.dgvSalida.TabIndex = 0
+        '
+        'detalle
+        '
+        Me.detalle.HeaderText = "Detalle"
+        Me.detalle.Name = "detalle"
+        Me.detalle.ReadOnly = True
+        '
+        'precio
+        '
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.precio.DefaultCellStyle = DataGridViewCellStyle1
+        Me.precio.HeaderText = "Precio"
+        Me.precio.Name = "precio"
+        Me.precio.ReadOnly = True
+        Me.precio.Width = 65
+        '
+        'cdescuento
+        '
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.cdescuento.DefaultCellStyle = DataGridViewCellStyle2
+        Me.cdescuento.HeaderText = "Descuento"
+        Me.cdescuento.Name = "cdescuento"
+        Me.cdescuento.ReadOnly = True
+        Me.cdescuento.Width = 65
+        '
+        'impuestoC
+        '
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.impuestoC.DefaultCellStyle = DataGridViewCellStyle3
+        Me.impuestoC.HeaderText = "Impuesto"
+        Me.impuestoC.Name = "impuestoC"
+        Me.impuestoC.ReadOnly = True
+        Me.impuestoC.Width = 60
+        '
+        'totalC
+        '
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.totalC.DefaultCellStyle = DataGridViewCellStyle4
+        Me.totalC.HeaderText = "Total"
+        Me.totalC.Name = "totalC"
+        Me.totalC.ReadOnly = True
+        Me.totalC.Width = 65
         '
         'btnSalir
         '
@@ -523,76 +594,6 @@ Partial Class FormEscOfi
         Me.txtAcumulador.TabIndex = 0
         Me.txtAcumulador.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackgroundImage = Global.Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.logoDiunsa2_Fixed3
-        Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Left
-        Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(80, 29)
-        Me.PictureBox1.TabIndex = 2
-        Me.PictureBox1.TabStop = False
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(6, 74)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(59, 13)
-        Me.Label7.TabIndex = 10
-        Me.Label7.Text = "Descuento"
-        '
-        'txtDescuento
-        '
-        Me.txtDescuento.Location = New System.Drawing.Point(69, 71)
-        Me.txtDescuento.Name = "txtDescuento"
-        Me.txtDescuento.ReadOnly = True
-        Me.txtDescuento.Size = New System.Drawing.Size(90, 20)
-        Me.txtDescuento.TabIndex = 11
-        Me.txtDescuento.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'detalle
-        '
-        Me.detalle.HeaderText = "Detalle"
-        Me.detalle.Name = "detalle"
-        Me.detalle.ReadOnly = True
-        '
-        'precio
-        '
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.precio.DefaultCellStyle = DataGridViewCellStyle1
-        Me.precio.HeaderText = "Precio"
-        Me.precio.Name = "precio"
-        Me.precio.ReadOnly = True
-        Me.precio.Width = 65
-        '
-        'cdescuento
-        '
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.cdescuento.DefaultCellStyle = DataGridViewCellStyle2
-        Me.cdescuento.HeaderText = "Descuento"
-        Me.cdescuento.Name = "cdescuento"
-        Me.cdescuento.ReadOnly = True
-        Me.cdescuento.Width = 65
-        '
-        'impuestoC
-        '
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.impuestoC.DefaultCellStyle = DataGridViewCellStyle3
-        Me.impuestoC.HeaderText = "Impuesto"
-        Me.impuestoC.Name = "impuestoC"
-        Me.impuestoC.ReadOnly = True
-        Me.impuestoC.Width = 60
-        '
-        'totalC
-        '
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.totalC.DefaultCellStyle = DataGridViewCellStyle4
-        Me.totalC.HeaderText = "Total"
-        Me.totalC.Name = "totalC"
-        Me.totalC.ReadOnly = True
-        Me.totalC.Width = 65
-        '
         'FormEscOfi
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -618,6 +619,7 @@ Partial Class FormEscOfi
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FormEscOfi"
         Me.panelVentana.ResumeLayout(False)
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
@@ -632,7 +634,6 @@ Partial Class FormEscOfi
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

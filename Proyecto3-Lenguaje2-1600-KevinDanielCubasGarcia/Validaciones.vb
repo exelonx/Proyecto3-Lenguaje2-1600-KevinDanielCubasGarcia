@@ -41,8 +41,8 @@
 
     Public Sub validarCantidad(txt As TextBox)
         If txt.Text <> Nothing Then
-            If txt.Text = 0 Then
-                MessageBox.Show("Número de objetos inválido, ingrese una cantidad superior a 0.", "Dato Inválido")
+            If txt.Text = 0 Or txt.Text > 20 Then
+                MessageBox.Show("Rango de productos inválidos, debe ser mayor de 0 y menor a 20.", "Dato Inválido")
                 txt.Text = 1
                 txt.Focus()
             End If

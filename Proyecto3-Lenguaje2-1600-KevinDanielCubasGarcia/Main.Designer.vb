@@ -28,6 +28,8 @@ Partial Class Main
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Main))
         Me.panelVentana = New System.Windows.Forms.Panel()
+        Me.btnInfo = New System.Windows.Forms.Button()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.btnVentanaMin = New System.Windows.Forms.Button()
         Me.btnVentanaSalir = New System.Windows.Forms.Button()
         Me.btnFacturar = New System.Windows.Forms.Button()
@@ -57,20 +59,18 @@ Partial Class Main
         Me.txtSubT = New System.Windows.Forms.TextBox()
         Me.txtDesc = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.btnInfo = New System.Windows.Forms.Button()
         Me.btnTecno = New System.Windows.Forms.Button()
         Me.btnRopa = New System.Windows.Forms.Button()
         Me.btnEscOfi = New System.Windows.Forms.Button()
         Me.btnDeporte = New System.Windows.Forms.Button()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.panelVentana.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvMain, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gpxDatosGenerales.SuspendLayout()
         Me.gpxPago.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -86,6 +86,30 @@ Partial Class Main
         Me.panelVentana.Name = "panelVentana"
         Me.panelVentana.Size = New System.Drawing.Size(572, 29)
         Me.panelVentana.TabIndex = 0
+        '
+        'btnInfo
+        '
+        Me.btnInfo.BackColor = System.Drawing.Color.White
+        Me.btnInfo.Dock = System.Windows.Forms.DockStyle.Right
+        Me.btnInfo.FlatAppearance.BorderSize = 0
+        Me.btnInfo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(172, Byte), Integer), CType(CType(217, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.btnInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnInfo.Location = New System.Drawing.Point(449, 0)
+        Me.btnInfo.Name = "btnInfo"
+        Me.btnInfo.Size = New System.Drawing.Size(41, 29)
+        Me.btnInfo.TabIndex = 3
+        Me.btnInfo.Text = "?"
+        Me.btnInfo.UseVisualStyleBackColor = False
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackgroundImage = Global.Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.logoDiunsa2_Fixed3
+        Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Left
+        Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(80, 29)
+        Me.PictureBox1.TabIndex = 2
+        Me.PictureBox1.TabStop = False
         '
         'btnVentanaMin
         '
@@ -158,6 +182,7 @@ Partial Class Main
         Me.dgvMain.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvMain.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.detalle, Me.precio, Me.descuento, Me.Impuesto, Me.total})
         Me.dgvMain.Location = New System.Drawing.Point(134, 119)
+        Me.dgvMain.MultiSelect = False
         Me.dgvMain.Name = "dgvMain"
         Me.dgvMain.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvMain.Size = New System.Drawing.Size(426, 159)
@@ -408,20 +433,6 @@ Partial Class Main
         Me.Label6.TabIndex = 18
         Me.Label6.Text = "Descuento:"
         '
-        'btnInfo
-        '
-        Me.btnInfo.BackColor = System.Drawing.Color.White
-        Me.btnInfo.Dock = System.Windows.Forms.DockStyle.Right
-        Me.btnInfo.FlatAppearance.BorderSize = 0
-        Me.btnInfo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(172, Byte), Integer), CType(CType(217, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.btnInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnInfo.Location = New System.Drawing.Point(449, 0)
-        Me.btnInfo.Name = "btnInfo"
-        Me.btnInfo.Size = New System.Drawing.Size(41, 29)
-        Me.btnInfo.TabIndex = 3
-        Me.btnInfo.Text = "?"
-        Me.btnInfo.UseVisualStyleBackColor = False
-        '
         'btnTecno
         '
         Me.btnTecno.BackColor = System.Drawing.Color.White
@@ -501,16 +512,6 @@ Partial Class Main
         Me.PictureBox2.TabIndex = 8
         Me.PictureBox2.TabStop = False
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackgroundImage = Global.Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.logoDiunsa2_Fixed3
-        Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Left
-        Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(80, 29)
-        Me.PictureBox1.TabIndex = 2
-        Me.PictureBox1.TabStop = False
-        '
         'PictureBox3
         '
         Me.PictureBox3.BackgroundImage = Global.Proyecto3_Lenguaje2_1600_KevinDanielCubasGarcia.My.Resources.Resources.NuevoLogo_DIUNSA_Color
@@ -555,13 +556,13 @@ Partial Class Main
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Menú Principal"
         Me.panelVentana.ResumeLayout(False)
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvMain, System.ComponentModel.ISupportInitialize).EndInit()
         Me.gpxDatosGenerales.ResumeLayout(False)
         Me.gpxDatosGenerales.PerformLayout()
         Me.gpxPago.ResumeLayout(False)
         Me.gpxPago.PerformLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
